@@ -49,6 +49,8 @@ public class PlayerControler : MonoBehaviour
     {
         isPlMoving = true;
         isPlStationary = false;
+        isPlSliding = false;
+
     }
 
 
@@ -63,8 +65,11 @@ public class PlayerControler : MonoBehaviour
     }
     private void Slide_started(InputAction.CallbackContext obj)
     {
-        isPlSliding = true;
+        isPlMoving = false;
         isPlStationary = false;
+
+
+        isPlSliding = true;
 
         //print("Movement started");0.   1       
     }
@@ -73,8 +78,8 @@ public class PlayerControler : MonoBehaviour
     {
         if (isPlMoving)
         {
-            print("Forward" + moveDirection);
-            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, moveDirection * PlSpeed * Time.deltaTime);
+            print("Forward" + (moveDirection * 50 * Time.deltaTime));
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, moveDirection * 50 * Time.deltaTime);
 
 
         }
