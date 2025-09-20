@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -10,6 +11,11 @@ public class PlayerControler : MonoBehaviour
     private InputAction slide; // left and right
 
 
+    [SerializeField] private GameObject leftZone;
+    [SerializeField] private GameObject topZpne;
+    [SerializeField] private GameObject rightZone;
+    [SerializeField] private GameObject downZone;
+
     private bool isPlMoving; // player move up / down
     private bool isPlSliding;// player move left / right
     private bool isPlStationary;// player is in place / no movement detected
@@ -18,6 +24,9 @@ public class PlayerControler : MonoBehaviour
     private float slideDirection;
 
     public float PlSpeed; // player speed
+    public float atackTime; // how long it takes before next shot
+
+
 
     void Start()
     {
@@ -78,8 +87,7 @@ public class PlayerControler : MonoBehaviour
     {
         if (isPlMoving)
         {
-            print("Forward" + (moveDirection * 50 * Time.deltaTime));
-            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, moveDirection * 50 * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, moveDirection * PlSpeed * Time.deltaTime);
 
 
         }
@@ -94,10 +102,10 @@ public class PlayerControler : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
         }
-
-
-
     }
+
+    
+
 
     void Update()
     {
@@ -105,12 +113,44 @@ public class PlayerControler : MonoBehaviour
         {
             moveDirection = move.ReadValue<float>();
 
+            // depending on the movement direction the coresponding zone is activated others are desactivated
+            if (moveDirection > 0)
+            {
+                topZpne.SetActive(true);
+                leftZone.SetActive(false);
+                rightZone.SetActive(false);
+                downZone.SetActive(false);
+            }
+            else if (moveDirection < 0)
+            {
+                topZpne.SetActive(false);
+                leftZone.SetActive(false);
+                rightZone.SetActive(false);
+                downZone.SetActive(true);
+            }
+
         }
 
         if (isPlSliding)
         {
             slideDirection = slide.ReadValue<float>();
 
+
+            // depending on the movement direction the coresponding zone is activated others are desactivated
+            if (slideDirection > 0)
+            {
+                topZpne.SetActive(false);
+                leftZone.SetActive(false);
+                rightZone.SetActive(true);
+                downZone.SetActive(false);
+            }
+            else if (slideDirection < 0)
+            {
+                topZpne.SetActive(false);
+                leftZone.SetActive(true);
+                rightZone.SetActive(false);
+                downZone.SetActive(false);
+            }
         }
 
     }
