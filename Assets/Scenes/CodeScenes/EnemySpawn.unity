@@ -782,7 +782,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 625c9264dc0f68c46b8b49d8d8388d30, type: 3}
+  m_Sprite: {fileID: -211488273984698881, guid: 861b7251cb361f84ba84c4d7555be372, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1749,6 +1749,7 @@ MonoBehaviour:
   topZpne: {fileID: 1682982014}
   rightZone: {fileID: 1871254979}
   downZone: {fileID: 2013025288}
+  EnemySpawner: {fileID: 0}
   PlSpeed: 150
   atackTime: 0.5
 --- !u!114 &2045429200
