@@ -15,6 +15,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private GameObject topZpne;
     [SerializeField] private GameObject rightZone;
     [SerializeField] private GameObject downZone;
+    [SerializeField] private GameObject EnemySpawner;
+
 
     private bool isPlMoving; // player move up / down
     private bool isPlSliding;// player move left / right
@@ -59,7 +61,6 @@ public class PlayerControler : MonoBehaviour
         isPlMoving = true;
         isPlStationary = false;
         isPlSliding = false;
-
     }
 
 
@@ -120,6 +121,7 @@ public class PlayerControler : MonoBehaviour
                 leftZone.SetActive(false);
                 rightZone.SetActive(false);
                 downZone.SetActive(false);
+
             }
             else if (moveDirection < 0)
             {
