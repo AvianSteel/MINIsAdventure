@@ -24,7 +24,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void OnDisable()
     {
         dropRoll = Random.Range(0f, 10f);
-        if (dropRoll >= 5f)
+        if (dropRoll >= 9f)
         {
             dropController.DropStat(transform.position);
         }
