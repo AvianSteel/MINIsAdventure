@@ -31,7 +31,6 @@ public class PlayerControler : MonoBehaviour
 
     public float PlSpeed; // player speed
     public float atackTime; // how long it takes before next shot
-    public float laserTime; // how long laser is on cooldown
 
 
     void Start()
@@ -118,14 +117,16 @@ public class PlayerControler : MonoBehaviour
     {
         if (isPlMoving)
         {
-            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, moveDirection * PlSpeed * Time.deltaTime);
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = 
+                new Vector2(0, moveDirection * PlSpeed * Time.deltaTime);
 
 
         }
 
         if (isPlSliding)
         {
-            gameObject.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(slideDirection * PlSpeed * Time.deltaTime, 0);
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = 
+                new Vector2(slideDirection * PlSpeed * Time.deltaTime, 0);
 
         }
 
@@ -135,7 +136,18 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// Temporary Stat increase to Move speed exclusively.
+    /// </summary>
+    /// <param name="collision"> What is being collided with </param>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("StatDrops"))
+        {
+            PlSpeed += 0.025f;
+            collision.gameObject.SetActive(false);
+        }
+    }
 
 
     void Update()

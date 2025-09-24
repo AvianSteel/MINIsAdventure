@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  drop: {fileID: 1364158909784646617, guid: 64752035a49e3994588f0ee6a2c326d1, type: 3}
   speed: 1
 --- !u!50 &-2459013091579546574
 Rigidbody2D:
