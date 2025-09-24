@@ -1,7 +1,6 @@
-using UnityEngine;
-using System.Collections.Generic;
-using static UnityEngine.GraphicsBuffer;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 public class GameControler : MonoBehaviour
 {
     public List<GameObject> deadEnemies = new List<GameObject>();
