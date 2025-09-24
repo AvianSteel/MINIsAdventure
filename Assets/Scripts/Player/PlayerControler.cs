@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,13 +24,14 @@ public class PlayerControler : MonoBehaviour
     private bool isPlMoving; // player move up / down
     private bool isPlSliding;// player move left / right
     private bool isPlStationary;// player is in place / no movement detected
+    public bool canLaser; // laser is on cooldown if set to false
 
     public float moveDirection;
     public float slideDirection;
 
     public float PlSpeed; // player speed
     public float atackTime; // how long it takes before next shot
-
+    public float laserTime; // how long laser is on cooldown
 
 
     void Start()
@@ -47,12 +49,16 @@ public class PlayerControler : MonoBehaviour
         slide.canceled += Slide_canceled;
         laser.started += Laser_started;
 
-
+        canLaser = true;
     }
 
     private void Laser_started(InputAction.CallbackContext obj)
     {
-        Instantiate(laserObject);
+        if (canLaser)
+        {
+            Instantiate(laserObject);
+            canLaser = false;
+        }
     }
 
     private void Move_canceled(InputAction.CallbackContext obj)
@@ -92,6 +98,22 @@ public class PlayerControler : MonoBehaviour
         //print("Movement started");0.   1       
     }
 
+    public IEnumerator LaserCooldown()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(1);
+        }
+        canLaser = true;
+    }
+    public void StartCooldown(string ability)
+    {
+        if (ability == "laser")
+        {
+            StartCoroutine(LaserCooldown());
+        }
+        
+    }
     private void FixedUpdate()
     {
         if (isPlMoving)

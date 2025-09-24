@@ -37,7 +37,7 @@ public class LaserController : MonoBehaviour
         StartCoroutine(LaserWiggle());
 
     }
-    IEnumerator LaserWiggle()
+    private IEnumerator LaserWiggle()
     {
         for(int i = 0; i < 45; i++)
         {
@@ -49,6 +49,7 @@ public class LaserController : MonoBehaviour
             laserDirection--;
             yield return new WaitForSeconds(0.01f);
         }
+        playerControler.StartCooldown("laser");
         StopCoroutine(LaserWiggle());
         Destroy(laserParent);
     }
