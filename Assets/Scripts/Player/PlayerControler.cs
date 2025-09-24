@@ -9,6 +9,7 @@ public class PlayerControler : MonoBehaviour
     public PlayerInput playerInput;
     private InputAction move; //up and down
     private InputAction slide; // left and right
+    private InputAction laser;
 
 
     [SerializeField] private GameObject leftZone;
@@ -16,14 +17,15 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private GameObject rightZone;
     [SerializeField] private GameObject downZone;
     [SerializeField] private GameObject EnemySpawner;
+    [SerializeField] private GameObject laserObject;
 
 
     private bool isPlMoving; // player move up / down
     private bool isPlSliding;// player move left / right
     private bool isPlStationary;// player is in place / no movement detected
 
-    private float moveDirection;
-    private float slideDirection;
+    public float moveDirection;
+    public float slideDirection;
 
     public float PlSpeed; // player speed
     public float atackTime; // how long it takes before next shot
@@ -37,15 +39,21 @@ public class PlayerControler : MonoBehaviour
         playerInput.currentActionMap.Enable();  //Enable action map
         move = playerInput.currentActionMap.FindAction("Move");
         slide = playerInput.currentActionMap.FindAction("Slide");
+        laser = playerInput.currentActionMap.FindAction("Laser");
 
         move.started += Move_started;
         move.canceled += Move_canceled;
         slide.started += Slide_started;
         slide.canceled += Slide_canceled;
+        laser.started += Laser_started;
 
 
     }
 
+    private void Laser_started(InputAction.CallbackContext obj)
+    {
+        Instantiate(laserObject);
+    }
 
     private void Move_canceled(InputAction.CallbackContext obj)
     {
@@ -113,6 +121,7 @@ public class PlayerControler : MonoBehaviour
         if (isPlMoving)
         {
             moveDirection = move.ReadValue<float>();
+            slideDirection = slide.ReadValue<float>();
 
             // depending on the movement direction the coresponding zone is activated others are desactivated
             if (moveDirection > 0)
@@ -136,7 +145,7 @@ public class PlayerControler : MonoBehaviour
         if (isPlSliding)
         {
             slideDirection = slide.ReadValue<float>();
-
+            moveDirection = move.ReadValue<float>();
 
             // depending on the movement direction the coresponding zone is activated others are desactivated
             if (slideDirection > 0)
