@@ -58,7 +58,7 @@ public class LaserController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.gameObject.SetActive(false);
+            collision.gameObject.GetComponent<EnemyBehaviour>().enemyDie();
         }
     }
 
