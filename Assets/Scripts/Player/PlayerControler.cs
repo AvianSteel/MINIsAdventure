@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerControler : MonoBehaviour
@@ -11,7 +13,8 @@ public class PlayerControler : MonoBehaviour
     private InputAction move; //up and down
     private InputAction slide; // left and right
     private InputAction laser;
-
+    private InputAction restart;
+    private InputAction quit;
 
     [SerializeField] private GameObject leftZone;
     [SerializeField] private GameObject topZpne;
@@ -41,15 +44,20 @@ public class PlayerControler : MonoBehaviour
         move = playerInput.currentActionMap.FindAction("Move");
         slide = playerInput.currentActionMap.FindAction("Slide");
         laser = playerInput.currentActionMap.FindAction("Laser");
+        restart = playerInput.currentActionMap.FindAction("Restart"); 
+        quit = playerInput.currentActionMap.FindAction("Exit");
 
-        move.started += Move_started;
+    move.started += Move_started;
         move.canceled += Move_canceled;
         slide.started += Slide_started;
         slide.canceled += Slide_canceled;
         laser.started += Laser_started;
-
+        restart.started += Restart_started;
+        quit.started += Quit_started;
         canLaser = true;
     }
+
+    
 
     private void Laser_started(InputAction.CallbackContext obj)
     {
@@ -59,7 +67,15 @@ public class PlayerControler : MonoBehaviour
             canLaser = false;
         }
     }
-
+    private void Restart_started(InputAction.CallbackContext obj)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    private void Quit_started(InputAction.CallbackContext obj)
+    {
+        EditorApplication.isPlaying = false; // Stop play mode in the editor    }
+        Application.Quit();
+    }
     private void Move_canceled(InputAction.CallbackContext obj)
     {
         isPlMoving = false;

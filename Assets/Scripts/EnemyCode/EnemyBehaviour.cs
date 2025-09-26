@@ -59,22 +59,26 @@ public class EnemyBehaviour : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * loungeSpeed;
 
     }
-    private void OnDisable()
-    {
-        dropRoll = Random.Range(0, dropChance);
-        if (dropRoll == dropChance / 2)
-        {
-            Instantiate(drop, gameObject.transform.position, Quaternion.identity);
-        }
-    }
+   
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Ammo")
         {
             collision.gameObject.SetActive(false);
-            gameObject.SetActive(false);
+            enemyDie();
+
         }
+    }
+
+    public void enemyDie()
+    {
+        dropRoll = Random.Range(0, dropChance);
+        if (dropRoll == dropChance / 2)
+        {
+            Instantiate(drop, gameObject.transform.position, Quaternion.identity);
+        }
+        gameObject.SetActive(false);
     }
 
 }
