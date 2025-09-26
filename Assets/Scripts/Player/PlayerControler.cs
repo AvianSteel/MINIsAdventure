@@ -140,13 +140,9 @@ public class PlayerControler : MonoBehaviour
     /// Temporary Stat increase to Move speed exclusively.
     /// </summary>
     /// <param name="collision"> What is being collided with </param>
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void increaseSpeed(float speed)
     {
-        if (collision.CompareTag("StatDrops"))
-        {
-            PlSpeed += 0.025f;
-            collision.gameObject.SetActive(false);
-        }
+        PlSpeed += speed;
     }
 
 
