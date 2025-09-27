@@ -52,7 +52,6 @@ public class TargetZoneControler : MonoBehaviour
     {
         if (targets.Count>0)
         {
-            print(targets);
             openFire(targets[0].gameObject);
         }
 

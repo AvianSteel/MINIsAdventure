@@ -7,6 +7,7 @@ public class GameControler : MonoBehaviour
     public List<GameObject> deadEnemies = new List<GameObject>();
     public int spawnEnemies;
     public float timeBetweenSpawn;
+    public float enemySpawnScaling;
     [SerializeField] GameObject enemySpawner;
 
     private void Start()
@@ -21,6 +22,11 @@ public class GameControler : MonoBehaviour
         enemySpawner.GetComponent<EnemySpawnControler>().SpawnEnemy();
 
         yield return new WaitForSeconds(timeBetweenSpawn);
+        if (timeBetweenSpawn > 0.03)
+        {
+            timeBetweenSpawn -= enemySpawnScaling;
+
+        }
         repeatSpawn();
     }
 

@@ -18,7 +18,6 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 loungePoint = target.transform.position;
 
         Vector3 direction = (loungePoint - transform.position).normalized;
-        print(direction);
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
     }
 
@@ -68,6 +67,11 @@ public class EnemyBehaviour : MonoBehaviour
             collision.gameObject.SetActive(false);
             enemyDie();
 
+        }
+        else if (collision.gameObject.name == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerControler>().hitPlayer(1);
+            gameObject.SetActive(false);
         }
     }
 

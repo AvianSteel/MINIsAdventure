@@ -35,6 +35,7 @@ public class PlayerControler : MonoBehaviour
     public float PlSpeed; // player speed
     public float atackTime; // how long it takes before next shot
 
+    public int hp;
 
     void Start()
     {
@@ -161,6 +162,16 @@ public class PlayerControler : MonoBehaviour
         PlSpeed += speed;
     }
 
+    public void hitPlayer(int dmg)
+    {
+        hp = hp - dmg;
+        print("Hp " + hp);
+
+        if (hp <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 
     void Update()
     {
