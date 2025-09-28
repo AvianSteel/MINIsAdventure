@@ -77,6 +77,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void enemyDie()
     {
+        target.GetComponent<PlayerControler>().ScoreUp(25); // increase score
+
+
         dropRoll = Random.Range(0, dropChance);
         if (dropRoll == dropChance / 2)
         {

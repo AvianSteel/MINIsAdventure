@@ -15,7 +15,7 @@ public class EnemySpawnControler : MonoBehaviour
 
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy() // caled from game controler
     {
         direction = Random.Range(1, 5);
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,6 +24,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private GameObject EnemySpawner;
     [SerializeField] private GameObject laserObject;
 
+    [SerializeField] private TMP_Text livesText;
+    [SerializeField] private TMP_Text scoreText;
 
     private bool isPlMoving; // player move up / down
     private bool isPlSliding;// player move left / right
@@ -36,10 +39,13 @@ public class PlayerControler : MonoBehaviour
     public float atackTime; // how long it takes before next shot
 
     public int hp;
+    private int score;
 
     void Start()
     {
         isPlSliding = true;
+        livesText.text = ("Lives: " + hp);
+        scoreText.text = ("Score: " + score);
 
         playerInput.currentActionMap.Enable();  //Enable action map
         move = playerInput.currentActionMap.FindAction("Move");
@@ -165,12 +171,20 @@ public class PlayerControler : MonoBehaviour
     public void hitPlayer(int dmg)
     {
         hp = hp - dmg;
-        print("Hp " + hp);
+        livesText.text = ("Lives: " + hp);
+
 
         if (hp <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public void ScoreUp(int scoreIncrease)
+    {
+        score += scoreIncrease;
+        scoreText.text = ("Score: " + score);
+
     }
 
     void Update()
