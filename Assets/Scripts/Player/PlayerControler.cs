@@ -1,12 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -80,7 +76,7 @@ public class PlayerControler : MonoBehaviour
     }
     private void Quit_started(InputAction.CallbackContext obj)
     {
-        EditorApplication.isPlaying = false; // Stop play mode in the editor    }
+        //EditorApplication.isPlaying = false; // Stop play mode in the editor    
         Application.Quit();
     }
     private void Move_canceled(InputAction.CallbackContext obj)
