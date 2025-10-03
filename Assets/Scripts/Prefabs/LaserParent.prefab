@@ -263,8 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71226a79e5225da4e888e17b889370b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerControler: {fileID: 0}
   laserParent: {fileID: 7242877796461584347}
   rb: {fileID: 6377908697539883857}
   laserDirection: 2
-  playerRb: {fileID: 0}
+  laserDmg: 1
