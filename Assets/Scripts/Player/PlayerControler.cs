@@ -30,6 +30,7 @@ public class PlayerControler : MonoBehaviour
 
     public float moveDirection;
     public float slideDirection;
+    public float ammoDmg; // will be inherited by the bullet clones
 
     public float PlSpeed; // player speed
     public float atackTime; // how long it takes before next shot

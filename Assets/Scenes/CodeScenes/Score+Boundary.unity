@@ -1094,7 +1094,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -211488273984698881, guid: 861b7251cb361f84ba84c4d7555be372, type: 3}
+  m_Sprite: {fileID: -1704209689, guid: d0a1624f042556b468a654fea2f68115, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3542,6 +3542,7 @@ MonoBehaviour:
   canLaser: 0
   moveDirection: 0
   slideDirection: 0
+  ammoDmg: 2
   PlSpeed: 150
   atackTime: 0.5
   hp: 25

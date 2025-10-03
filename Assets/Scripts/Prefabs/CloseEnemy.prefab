@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 1
   loungeSpeed: 2.5
   dropChance: 5
+  hp: 2
 --- !u!50 &-2459013091579546574
 Rigidbody2D:
   serializedVersion: 5

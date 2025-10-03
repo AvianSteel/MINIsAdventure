@@ -43,6 +43,7 @@ public class TargetZoneControler : MonoBehaviour
         cloneStorage = Instantiate(ammo, pl.transform.position, Quaternion.identity);
         cloneStorage.name = "Ammo";
         cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = enem;
+        cloneStorage.GetComponent<AmmoControler>().bulletDmg = pl.GetComponent<PlayerControler>().ammoDmg; // gets the dmg stored in player and sets the bullet dmg to that
     }
 
     /// <summary>
