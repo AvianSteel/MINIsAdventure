@@ -1,11 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -23,6 +20,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private GameObject EnemySpawner;
     [SerializeField] private GameObject laserObject;
 
+    [SerializeField] private TMP_Text livesText;
+    [SerializeField] private TMP_Text scoreText;
 
     private bool isPlMoving; // player move up / down
     private bool isPlSliding;// player move left / right
@@ -31,14 +30,19 @@ public class PlayerControler : MonoBehaviour
 
     public float moveDirection;
     public float slideDirection;
+    public float ammoDmg; // will be inherited by the bullet clones
 
     public float PlSpeed; // player speed
     public float atackTime; // how long it takes before next shot
 
+    public int hp;
+    private int score;
 
     void Start()
     {
         isPlSliding = true;
+        livesText.text = ("Lives: " + hp);
+        scoreText.text = ("Score: " + score);
 
         playerInput.currentActionMap.Enable();  //Enable action map
         move = playerInput.currentActionMap.FindAction("Move");
@@ -73,7 +77,7 @@ public class PlayerControler : MonoBehaviour
     }
     private void Quit_started(InputAction.CallbackContext obj)
     {
-        EditorApplication.isPlaying = false; // Stop play mode in the editor    }
+        //EditorApplication.isPlaying = false; // Stop play mode in the editor    
         Application.Quit();
     }
     private void Move_canceled(InputAction.CallbackContext obj)
@@ -161,6 +165,24 @@ public class PlayerControler : MonoBehaviour
         PlSpeed += speed;
     }
 
+    public void hitPlayer(int dmg)
+    {
+        hp = hp - dmg;
+        livesText.text = ("Lives: " + hp);
+
+
+        if (hp <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+    public void ScoreUp(int scoreIncrease)
+    {
+        score += scoreIncrease;
+        scoreText.text = ("Score: " + score);
+
+    }
 
     void Update()
     {

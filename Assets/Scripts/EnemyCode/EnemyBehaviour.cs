@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float loungeSpeed; 
     public int dropChance; // higher number lees liekly it drops
     private bool lockTarget; // the point where the players was and launge there
+    public float hp;
 
     private int dropRoll;
     void Start()
@@ -18,7 +19,6 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 loungePoint = target.transform.position;
 
         Vector3 direction = (loungePoint - transform.position).normalized;
-        print(direction);
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
     }
 
@@ -66,13 +66,38 @@ public class EnemyBehaviour : MonoBehaviour
         if (collision.gameObject.name == "Ammo")
         {
             collision.gameObject.SetActive(false);
-            enemyDie();
+            enemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
 
+        }
+        else if (collision.gameObject.name == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerControler>().hitPlayer(1);
+            gameObject.SetActive(false);
         }
     }
 
+    /// <summary>
+    /// enemy gets dmg, called by whatever hits it like laser and ammo, if hp<0 the next function is called
+    /// </summary>
+    /// <param name="dmg"></param>
+    public void enemyHit(float Pldmg)
+    {
+        hp -= Pldmg;
+        if (hp <= 0)
+        {
+            enemyDie();
+        }
+
+
+    }
+
+
+
     public void enemyDie()
     {
+        target.GetComponent<PlayerControler>().ScoreUp(25); // increase score
+
+
         dropRoll = Random.Range(0, dropChance);
         if (dropRoll == dropChance / 2)
         {

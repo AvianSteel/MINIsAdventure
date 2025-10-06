@@ -1,8 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class EnemySpawnControler : MonoBehaviour
 {
@@ -15,7 +11,7 @@ public class EnemySpawnControler : MonoBehaviour
 
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy() // caled from game controler
     {
         direction = Random.Range(1, 5);
 

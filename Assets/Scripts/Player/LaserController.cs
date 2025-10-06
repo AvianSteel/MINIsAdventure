@@ -1,6 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class LaserController : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class LaserController : MonoBehaviour
     [SerializeField] private GameObject laserParent;
     [SerializeField] private Rigidbody2D rb;
     public float laserDirection;
+    public float laserDmg;
 
     private Rigidbody2D playerRb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,7 +59,7 @@ public class LaserController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyBehaviour>().enemyDie();
+            collision.gameObject.GetComponent<EnemyBehaviour>().enemyHit(laserDmg);
         }
     }
 
