@@ -10,6 +10,7 @@ public class PlayerControler : MonoBehaviour
     private InputAction move; //up and down
     private InputAction slide; // left and right
     private InputAction laser;
+    private InputAction mine;
     private InputAction restart;
     private InputAction quit;
 
@@ -19,6 +20,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private GameObject downZone;
     [SerializeField] private GameObject EnemySpawner;
     [SerializeField] private GameObject laserObject;
+    [SerializeField] private GameObject seaMine;
 
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text scoreText;
@@ -27,6 +29,7 @@ public class PlayerControler : MonoBehaviour
     private bool isPlSliding;// player move left / right
     private bool isPlStationary;// player is in place / no movement detected
     public bool canLaser; // laser is on cooldown if set to false
+    public bool canMine;
 
     public float moveDirection;
     public float slideDirection;
@@ -48,20 +51,30 @@ public class PlayerControler : MonoBehaviour
         move = playerInput.currentActionMap.FindAction("Move");
         slide = playerInput.currentActionMap.FindAction("Slide");
         laser = playerInput.currentActionMap.FindAction("Laser");
+        mine = playerInput.currentActionMap.FindAction("Mine");
         restart = playerInput.currentActionMap.FindAction("Restart"); 
         quit = playerInput.currentActionMap.FindAction("Exit");
 
-    move.started += Move_started;
+        move.started += Move_started;
         move.canceled += Move_canceled;
         slide.started += Slide_started;
         slide.canceled += Slide_canceled;
         laser.started += Laser_started;
+        mine.started += Mine_started;
         restart.started += Restart_started;
         quit.started += Quit_started;
         canLaser = true;
+        canMine = true;
     }
 
-    
+    private void Mine_started(InputAction.CallbackContext obj)
+    {
+        if (canMine)
+        {
+            Instantiate(seaMine,transform.position,Quaternion.identity);
+            canMine = false;
+        }
+    }
 
     private void Laser_started(InputAction.CallbackContext obj)
     {
@@ -125,11 +138,23 @@ public class PlayerControler : MonoBehaviour
         }
         canLaser = true;
     }
+
+    public IEnumerator MineCooldown()
+    {
+        for(int i=0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(1);
+        }
+        canMine = true;
+    }
     public void StartCooldown(string ability)
     {
         if (ability == "laser")
         {
             StartCoroutine(LaserCooldown());
+        }else if(ability == "sea mine")
+        {
+            StartCoroutine(MineCooldown());
         }
         
     }
