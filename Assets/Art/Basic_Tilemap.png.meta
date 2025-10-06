@@ -1,0 +1,1024 @@
+fileFormatVersion: 2
+guid: a8bcba49eb445b445a2767c0ec9ca602
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 650023986466523090
+    second: Basic_Tilemap_0
+  - first:
+      213: 7378254231132921480
+    second: Basic_Tilemap_1
+  - first:
+      213: 6843538847279130102
+    second: Basic_Tilemap_2
+  - first:
+      213: -8751306463319444257
+    second: Basic_Tilemap_3
+  - first:
+      213: -8533036586538500902
+    second: Basic_Tilemap_4
+  - first:
+      213: 7295369439401420465
+    second: Basic_Tilemap_5
+  - first:
+      213: 2278188946457058816
+    second: Basic_Tilemap_6
+  - first:
+      213: 6065819950184966028
+    second: Basic_Tilemap_7
+  - first:
+      213: -7037426744681684897
+    second: Basic_Tilemap_8
+  - first:
+      213: 2061814743615001396
+    second: Basic_Tilemap_9
+  - first:
+      213: -5800455834397443914
+    second: Basic_Tilemap_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Basic_Tilemap_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d702d82f59550900800000000000000
+      internalID: 650023986466523090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e533da123d46660800000000000000
+      internalID: 7378254231132921480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5a8aea25229fe50800000000000000
+      internalID: 6843538847279130102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4b345532d1d8680800000000000000
+      internalID: -8751306463319444257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adcf5fb3f60949980800000000000000
+      internalID: -8533036586538500902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b623c44adb5e3560800000000000000
+      internalID: 7295369439401420465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_6
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e5bc4c6c0cd9f10800000000000000
+      internalID: 2278188946457058816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_7
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c87a04a4b1f1e2450800000000000000
+      internalID: 6065819950184966028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f502a6e59a9065e90800000000000000
+      internalID: -7037426744681684897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_9
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 180
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 433d5d9d5990d9c10800000000000000
+      internalID: 2061814743615001396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b8f5679624a08fa0800000000000000
+      internalID: -5800455834397443914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_11
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 160
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef637c70a6bed647b2c621f724446c3
+      internalID: -1729382830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_12
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 160
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3cb3e4d3964616419d48092d9063319
+      internalID: 433609789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a896ef7d633a464dbc49651ce407426
+      internalID: 1594983167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_14
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 160
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6da0c09b47c365a48a206e7e21fc745c
+      internalID: 552522384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_15
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 160
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948816328deb4d7499e3dcbc8fce0e6f
+      internalID: 1832087592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_16
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 160
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1396e969897464999643deb6078f27
+      internalID: 257770874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6adcfd82dd28e41a66b346019ada96
+      internalID: 191316142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_18
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 160
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e267066e9d4db41b1ae8458d5555f2
+      internalID: 1564585301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_19
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 140
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad84eb2e20c51946872654344f7a7a1
+      internalID: 1728361182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_20
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 140
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3b24a6011b7204da205bd30f404b5e
+      internalID: 841753673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_21
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 140
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb055703fdb1574f93dca7d4c79265a
+      internalID: -1941919630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_22
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 140
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd5c446c22dfef478df6d02192a2325
+      internalID: -2120457060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_23
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 140
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6cd332a828d7b94ebb1025d75d00928
+      internalID: -2047478880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_24
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 140
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea445b699f03c5d4ea293d26af3114b8
+      internalID: -97750637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_25
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 140
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e69cc82877325c4c92bcdd7fced1eb6
+      internalID: 528666927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19112e97fbff6764d83d3e2b8771367b
+      internalID: 1761994227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_27
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 120
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cfe019343e335b429ec22f31eb00ab1
+      internalID: -1329087062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_28
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 120
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 261b8d227964edc478a3ba69a4cec9f8
+      internalID: 968220028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_29
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 120
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e1d6d020858b742a8a1bd02d7c321f
+      internalID: -1906140738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e464aaaebf7bd845bd93d2094ebac21
+      internalID: -1679263917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_31
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 100
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141e8c4b49ebf194a8c987bda72bb6ef
+      internalID: 315091129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_32
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 100
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b715f9f547fc249a9ac0ad52b967fd
+      internalID: -870182817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_33
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 100
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2216ac1d028a2854db468d7b506036f1
+      internalID: 1955135782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173293a7363690243b999726ce6fdb4c
+      internalID: -673594723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_35
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 80
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c65e43c25b49e4dbd049eb0f54f370
+      internalID: -303034080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_36
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 80
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafde4481cdbe0248a8dbf187729d1d0
+      internalID: -1228814774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basic_Tilemap_37
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 80
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6a1a342dde1487409492157a9199fa8
+      internalID: -346469666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7f25cbd624bcc4c40b9a80bda6c4887b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Basic_Tilemap_0: 650023986466523090
+      Basic_Tilemap_1: 7378254231132921480
+      Basic_Tilemap_10: -5800455834397443914
+      Basic_Tilemap_11: -1729382830
+      Basic_Tilemap_12: 433609789
+      Basic_Tilemap_13: 1594983167
+      Basic_Tilemap_14: 552522384
+      Basic_Tilemap_15: 1832087592
+      Basic_Tilemap_16: 257770874
+      Basic_Tilemap_17: 191316142
+      Basic_Tilemap_18: 1564585301
+      Basic_Tilemap_19: 1728361182
+      Basic_Tilemap_2: 6843538847279130102
+      Basic_Tilemap_20: 841753673
+      Basic_Tilemap_21: -1941919630
+      Basic_Tilemap_22: -2120457060
+      Basic_Tilemap_23: -2047478880
+      Basic_Tilemap_24: -97750637
+      Basic_Tilemap_25: 528666927
+      Basic_Tilemap_26: 1761994227
+      Basic_Tilemap_27: -1329087062
+      Basic_Tilemap_28: 968220028
+      Basic_Tilemap_29: -1906140738
+      Basic_Tilemap_3: -8751306463319444257
+      Basic_Tilemap_30: -1679263917
+      Basic_Tilemap_31: 315091129
+      Basic_Tilemap_32: -870182817
+      Basic_Tilemap_33: 1955135782
+      Basic_Tilemap_34: -673594723
+      Basic_Tilemap_35: -303034080
+      Basic_Tilemap_36: -1228814774
+      Basic_Tilemap_37: -346469666
+      Basic_Tilemap_4: -8533036586538500902
+      Basic_Tilemap_5: 7295369439401420465
+      Basic_Tilemap_6: 2278188946457058816
+      Basic_Tilemap_7: 6065819950184966028
+      Basic_Tilemap_8: -7037426744681684897
+      Basic_Tilemap_9: 2061814743615001396
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

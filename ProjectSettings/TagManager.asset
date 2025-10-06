@@ -6,14 +6,15 @@ TagManager:
   tags:
   - Enemy
   - Ammo
+  - StatDrops
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - PlayerBarier
   - 
   - 
   - 

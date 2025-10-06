@@ -32,6 +32,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "5d747437-6c63-4a7f-8011-e857f0d1deb9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Laser",
+                    "type": "Button",
+                    "id": "67001f3f-df0e-4d53-ab8f-1285e1df17a6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -175,6 +193,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "374d9a99-e8ce-4262-8a41-f676b441cf71",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b15e48ac-7c03-4f78-b705-9032f7c84f04",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Laser",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92f4f367-20ef-4baa-bdca-e270cf4cc1bd",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Laser",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
