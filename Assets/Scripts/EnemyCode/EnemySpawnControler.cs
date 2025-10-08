@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnControler : MonoBehaviour
@@ -6,6 +7,7 @@ public class EnemySpawnControler : MonoBehaviour
     [SerializeField] GameObject swordfish;
     private int direction; // 1 = left screen, 2 = top screen, 3 = right screen, 4 = bottom screen       enemy will spawn in those directions
     private GameObject cloneStorage;
+    public List<GameObject> DeadEnemies = new List<GameObject>(); 
     void Start()
     {
 
@@ -36,10 +38,32 @@ public class EnemySpawnControler : MonoBehaviour
 
                 break;
         }
+        if (DeadEnemies.Count > 0)
+        {
+            cloneStorage = DeadEnemies[0];
+            cloneStorage.SetActive(true);
+            cloneStorage.transform.position = transform.position;
+            DeadEnemies.Remove(cloneStorage);
+        }
+        else
+        {
+            cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
+            cloneStorage.name = "Enemy";
+            cloneStorage.GetComponent<EnemyBehaviour>().enemySpawn = gameObject;
 
-        cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
-        cloneStorage.name = "Enemy";
+        }
+
+        
             
         
     }
+    /// <summary>
+    /// Will be callled by dead enemies in order to be placed in the list
+    /// </summary>
+    /// <param name="enemy"></param>
+    public void listDeadEnemy(GameObject enemy)
+    {
+        DeadEnemies.Add(enemy);
+    }
+
 }

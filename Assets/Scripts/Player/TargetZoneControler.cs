@@ -7,6 +7,8 @@ public class TargetZoneControler : MonoBehaviour
     public List<GameObject> targets = new List<GameObject>();
     [SerializeField] private GameObject pl;
     [SerializeField] private GameObject ammo;
+    public List<GameObject> OldBullets = new List<GameObject>();
+
 
     private GameObject cloneStorage; // temporary storage for the latest ammo copy     turn into object pooling
     void Start()
@@ -40,10 +42,30 @@ public class TargetZoneControler : MonoBehaviour
     
     private void openFire(GameObject enem)
     {
-        cloneStorage = Instantiate(ammo, pl.transform.position, Quaternion.identity);
-        cloneStorage.name = "Ammo";
-        cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = enem;
-        cloneStorage.GetComponent<AmmoControler>().bulletDmg = pl.GetComponent<PlayerControler>().ammoDmg; // gets the dmg stored in player and sets the bullet dmg to that
+        if (OldBullets.Count > 0)
+        {
+            cloneStorage = OldBullets[0];
+            cloneStorage.SetActive(true);
+            cloneStorage.transform.position = pl.transform.position;
+            OldBullets.Remove(cloneStorage);
+
+            cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = enem;
+            cloneStorage.GetComponent<AmmoControler>().bulletDmg = pl.GetComponent<PlayerControler>().ammoDmg; // gets the dmg stored in player and sets the bullet dmg to that
+            print("old");
+        }
+        else
+        {
+            cloneStorage = Instantiate(ammo, pl.transform.position, Quaternion.identity);
+            cloneStorage.name = "Ammo";
+            cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = enem;
+            cloneStorage.GetComponent<AmmoControler>().bulletDmg = pl.GetComponent<PlayerControler>().ammoDmg; // gets the dmg stored in player and sets the bullet dmg to that
+            cloneStorage.GetComponent<AmmoControler>().ZoneHost = gameObject;
+            print("new");
+        }
+
+
+
+        
     }
 
     /// <summary>
@@ -66,6 +88,11 @@ public class TargetZoneControler : MonoBehaviour
     private void repeatDoIShoot()
     {
         StartCoroutine(DoISHoot());
+
+    }
+    public void ListOldBullet(GameObject whichOne)
+    {
+        OldBullets.Add(whichOne);
     }
 
 }
