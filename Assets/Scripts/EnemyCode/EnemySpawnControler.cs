@@ -6,18 +6,11 @@ public class EnemySpawnControler : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject swordfish;
     [SerializeField] GameObject squid;
+    public List<GameObject> DeadEnemies = new List<GameObject>();
 
     private int direction; // 1 = left screen, 2 = top screen, 3 = right screen, 4 = bottom screen       enemy will spawn in those directions
     private GameObject cloneStorage;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    public List<GameObject> DeadEnemies = new List<GameObject>(); 
-=======
     private int enemyTypeChosen;        // 1 = swordfish    2 = squid    3 = pufferfish
->>>>>>> Stashed changes
-=======
-    private int enemyTypeChosen;        // 1 = swordfish    2 = squid    3 = pufferfish
->>>>>>> Stashed changes
     void Start()
     {
 
@@ -48,51 +41,34 @@ public class EnemySpawnControler : MonoBehaviour
 
                 break;
         }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
         if (DeadEnemies.Count > 0)
         {
             cloneStorage = DeadEnemies[0];
             cloneStorage.SetActive(true);
             cloneStorage.transform.position = transform.position;
             DeadEnemies.Remove(cloneStorage);
-=======
-=======
->>>>>>> Stashed changes
-        if(Random.Range(0,6) >= 5)
-        {
-            cloneStorage = Instantiate(squid, transform.position, Quaternion.identity);
-            cloneStorage.name = "Squid";
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         }
         else
         {
-            cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            cloneStorage.name = "Enemy";
-            cloneStorage.GetComponent<EnemyBehaviour>().enemySpawn = gameObject;
-
+            if (Random.Range(0, 6) >= 5)
+            {
+                cloneStorage = Instantiate(squid, transform.position, Quaternion.identity);
+                cloneStorage.name = "Squid";
+            }
+            else
+            {
+                cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
+                cloneStorage.name = "SwordFish";
+            }
         }
 
         
-=======
-            cloneStorage.name = "SwordFish";
-        }
 
-            
->>>>>>> Stashed changes
-=======
-            cloneStorage.name = "SwordFish";
-        }
 
-            
->>>>>>> Stashed changes
-            
+
         
+
     }
     /// <summary>
     /// Will be callled by dead enemies in order to be placed in the list
