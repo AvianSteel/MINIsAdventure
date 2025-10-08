@@ -24,7 +24,7 @@ public class TargetZoneControler : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision) // if enemy trigers the zones
     {
-        if (collision.gameObject.name == "Enemy")
+        if (collision.CompareTag("Enemy"))
         {
             targets.Add(collision.gameObject);
         }
@@ -33,7 +33,7 @@ public class TargetZoneControler : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Enemy")
+        if (collision.CompareTag("Enemy"));
         {
             bool removed = targets.Remove(collision.gameObject);
         }

@@ -175,4 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5ff12603801314bb17df14b1b59f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInk: 0
   targetToMoveTowards: {fileID: 0}
+  bulletDmg: 0
+  speed: 10
