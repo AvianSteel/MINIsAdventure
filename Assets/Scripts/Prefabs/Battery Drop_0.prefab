@@ -176,3 +176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedBonus: 20
+  attackSpeedBonus: 0.25
+  abilitySpeedBonus: 0.25
+  defenseBonus: 1
