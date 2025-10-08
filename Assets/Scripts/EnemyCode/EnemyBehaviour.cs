@@ -4,17 +4,21 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
+    public GameObject enemySpawn;
     private StatDropController dropController;
     public float speed;
     public float loungeSpeed; 
     public int dropChance; // higher number lees liekly it drops
     private bool lockTarget; // the point where the players was and launge there
     public float hp;
+    public GameObject pl;
+
 
     private int dropRoll;
     void Start()
     {
-        target = GameObject.FindWithTag("Player");
+        target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
+        pl = GameObject.FindWithTag("Player"); // used to get referenvce to the player code
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
         Vector3 loungePoint = target.transform.position;
 
@@ -65,7 +69,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Ammo")
         {
-            collision.gameObject.SetActive(false);
+            collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld(); // calls a function of the bullet / ammo that turns itself off (active false)
             enemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
 
         }
@@ -95,7 +99,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void enemyDie()
     {
-        target.GetComponent<PlayerControler>().ScoreUp(25); // increase score
+        pl.GetComponent<PlayerControler>().ScoreUp(25); // increase score
 
 
         dropRoll = Random.Range(0, dropChance);
@@ -103,6 +107,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Instantiate(drop, gameObject.transform.position, Quaternion.identity);
         }
+        enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject);
         gameObject.SetActive(false);
     }
 
