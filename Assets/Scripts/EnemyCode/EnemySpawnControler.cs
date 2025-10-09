@@ -5,9 +5,12 @@ public class EnemySpawnControler : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] GameObject swordfish;
+    [SerializeField] GameObject squid;
+    public List<GameObject> DeadEnemies = new List<GameObject>();
+
     private int direction; // 1 = left screen, 2 = top screen, 3 = right screen, 4 = bottom screen       enemy will spawn in those directions
     private GameObject cloneStorage;
-    public List<GameObject> DeadEnemies = new List<GameObject>(); 
+    private int enemyTypeChosen;        // 1 = swordfish    2 = squid    3 = pufferfish
     void Start()
     {
 
@@ -38,6 +41,7 @@ public class EnemySpawnControler : MonoBehaviour
 
                 break;
         }
+
         if (DeadEnemies.Count > 0)
         {
             cloneStorage = DeadEnemies[0];
@@ -47,15 +51,26 @@ public class EnemySpawnControler : MonoBehaviour
         }
         else
         {
-            cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
-            cloneStorage.name = "Enemy";
-            cloneStorage.GetComponent<EnemyBehaviour>().enemySpawn = gameObject;
-
+            if (Random.Range(0, 6) >= 5)
+            {
+                cloneStorage = Instantiate(squid, transform.position, Quaternion.identity);
+                cloneStorage.name = "Squid";
+                cloneStorage.GetComponent<SquidBehaviour>().enemySpawn = gameObject;
+            }
+            else
+            {
+                cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
+                cloneStorage.name = "SwordFish";
+                cloneStorage.GetComponent<EnemyBehaviour>().enemySpawn = gameObject;
+            }
         }
 
         
-            
+
+
+
         
+
     }
     /// <summary>
     /// Will be callled by dead enemies in order to be placed in the list
