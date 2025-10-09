@@ -17,11 +17,12 @@ public class MineController : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            yield return new WaitForSeconds(0.5f);
-            if (i > 5)
+            
+            if (i >= 5)
             {
                 Explode();
             }
+            yield return new WaitForSeconds(0.5f);
         }
         Destroy(gameObject);
     }
