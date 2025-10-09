@@ -24,7 +24,7 @@ public class TargetZoneControler : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision) // if enemy trigers the zones
     {
-        if (collision.gameObject.name == "Enemy")
+        if (collision.CompareTag("Enemy"))
         {
             targets.Add(collision.gameObject);
         }
@@ -33,7 +33,7 @@ public class TargetZoneControler : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Enemy")
+        if (collision.CompareTag("Enemy"));
         {
             bool removed = targets.Remove(collision.gameObject);
         }
@@ -45,13 +45,16 @@ public class TargetZoneControler : MonoBehaviour
         if (OldBullets.Count > 0)
         {
             cloneStorage = OldBullets[0];
-            cloneStorage.SetActive(true);
+            
             cloneStorage.transform.position = pl.transform.position;
             OldBullets.Remove(cloneStorage);
 
             cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = enem;
+            
             cloneStorage.GetComponent<AmmoControler>().bulletDmg = pl.GetComponent<PlayerControler>().ammoDmg; // gets the dmg stored in player and sets the bullet dmg to that
             print("old");
+
+
         }
         else
         {
@@ -62,10 +65,11 @@ public class TargetZoneControler : MonoBehaviour
             cloneStorage.GetComponent<AmmoControler>().ZoneHost = gameObject;
             print("new");
         }
+        cloneStorage.SetActive(true);
 
 
 
-        
+
     }
 
     /// <summary>
