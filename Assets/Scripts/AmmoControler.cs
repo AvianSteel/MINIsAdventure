@@ -14,7 +14,7 @@ public class AmmoControler : MonoBehaviour
     void Start()
     {
 
-
+        StartCoroutine(BulletLife());
 
      //   Vector2 direction = targetToMoveTowards.transform.position - transform.position;
       //  direction.Normalize(); // Keep velocity consistent
@@ -42,7 +42,15 @@ public class AmmoControler : MonoBehaviour
     private IEnumerator BulletLife()
     {
         yield return new WaitForSeconds(7);
-        bulletGetsOld();
+        if (isInk)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            bulletGetsOld();
+
+        }
     }
 
     public void bulletGetsOld()
