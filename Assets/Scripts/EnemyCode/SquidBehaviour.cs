@@ -9,6 +9,8 @@ public class SquidBehaviour : MonoBehaviour
     [SerializeField] private GameObject ink;
 
     private StatDropController dropController;
+    public GameObject enemySpawn;
+
     public float speed;
     public float loungeSpeed; 
     public int dropChance; // higher number lees liekly it drops
@@ -71,6 +73,7 @@ public class SquidBehaviour : MonoBehaviour
         cloneStorage = Instantiate(ink, transform.position, Quaternion.identity);
         cloneStorage.name = "Ink";
         cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
+        cloneStorage.SetActive(true);
 
     }
 

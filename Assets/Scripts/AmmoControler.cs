@@ -13,6 +13,17 @@ public class AmmoControler : MonoBehaviour
 
     void Start()
     {
+
+
+
+     //   Vector2 direction = targetToMoveTowards.transform.position - transform.position;
+      //  direction.Normalize(); // Keep velocity consistent
+     
+      //  gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+    }
+
+    private void OnEnable()
+    {
         Vector2 direction = targetToMoveTowards.transform.position - transform.position;
         direction.Normalize(); // Keep velocity consistent
 
@@ -35,9 +46,12 @@ public class AmmoControler : MonoBehaviour
     }
 
     public void bulletGetsOld()
-    {
-        ZoneHost.GetComponent<TargetZoneControler>().ListOldBullet(gameObject);
-        gameObject.SetActive(false);
+    {if (!isInk)
+        {
+            ZoneHost.GetComponent<TargetZoneControler>().ListOldBullet(gameObject);
+            gameObject.SetActive(false);
+        }
+        
     }
 
 

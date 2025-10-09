@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4729800491400499076
 Transform:
   m_ObjectHideFlags: 0
@@ -177,5 +177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInk: 0
   targetToMoveTowards: {fileID: 0}
-  bulletDmg: 0
+  bulletDmg: 2
   speed: 10
+  ZoneHost: {fileID: 0}

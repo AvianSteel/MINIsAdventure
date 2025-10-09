@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3110962841482231744
 Transform:
   m_ObjectHideFlags: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   targetToMoveTowards: {fileID: 0}
   bulletDmg: 1
   speed: 2.5
+  ZoneHost: {fileID: 0}
 --- !u!1 &8875673557372286662
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,13 +45,16 @@ public class TargetZoneControler : MonoBehaviour
         if (OldBullets.Count > 0)
         {
             cloneStorage = OldBullets[0];
-            cloneStorage.SetActive(true);
+            
             cloneStorage.transform.position = pl.transform.position;
             OldBullets.Remove(cloneStorage);
 
             cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = enem;
+            
             cloneStorage.GetComponent<AmmoControler>().bulletDmg = pl.GetComponent<PlayerControler>().ammoDmg; // gets the dmg stored in player and sets the bullet dmg to that
             print("old");
+
+
         }
         else
         {
@@ -62,10 +65,11 @@ public class TargetZoneControler : MonoBehaviour
             cloneStorage.GetComponent<AmmoControler>().ZoneHost = gameObject;
             print("new");
         }
+        cloneStorage.SetActive(true);
 
 
 
-        
+
     }
 
     /// <summary>

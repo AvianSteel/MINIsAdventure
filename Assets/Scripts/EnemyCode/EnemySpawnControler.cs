@@ -55,11 +55,13 @@ public class EnemySpawnControler : MonoBehaviour
             {
                 cloneStorage = Instantiate(squid, transform.position, Quaternion.identity);
                 cloneStorage.name = "Squid";
+                cloneStorage.GetComponent<SquidBehaviour>().enemySpawn = gameObject;
             }
             else
             {
                 cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
                 cloneStorage.name = "SwordFish";
+                cloneStorage.GetComponent<EnemyBehaviour>().enemySpawn = gameObject;
             }
         }
 
