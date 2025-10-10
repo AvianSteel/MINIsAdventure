@@ -66,6 +66,11 @@ public class LaserController : MonoBehaviour
             collision.gameObject.GetComponent<SquidBehaviour>().enemyHit(laserDmg);
 
         }
+        else if (collision.gameObject.name == "Puffer")
+        {
+            collision.gameObject.GetComponent<PufferBehaviour>().enemyHit(laserDmg);
+
+        }
     }
 
     // Update is called once per frame

@@ -69,14 +69,15 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Ammo")
         {
-            collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld(); // calls a function of the bullet / ammo that turns itself off (active false)
             enemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
+            collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld();
+
 
         }
         else if (collision.gameObject.name == "Player")
         {
-            collision.gameObject.GetComponent<PlayerControler>().hitPlayer(1);
-            gameObject.SetActive(false);
+            collision.gameObject.GetComponent<PlayerControler>().hitPlayer(2);
+            enemyHit(10);
         }
     }
 
