@@ -102,14 +102,15 @@ public class SquidBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Ammo")
         {
-            collision.gameObject.SetActive(false);
             enemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
+            collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld();
+
 
         }
         else if (collision.gameObject.name == "Player")
         {
             collision.gameObject.GetComponent<PlayerControler>().hitPlayer(1);
-            gameObject.SetActive(false);
+            enemyHit(10);
         }
     }
 
