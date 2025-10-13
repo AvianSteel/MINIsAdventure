@@ -19,10 +19,19 @@ public class PufferBehaviour : MonoBehaviour
 
     private int dropRoll;
     private bool puff; // is it inflated
-    private Vector3 puffScale;
+    public Vector3 puffScale;
+
+    SpriteRenderer sr; // reference to how the skin is pointed
+
+    [SerializeField] private GameObject NoPufSkin;
+
+    [SerializeField] private GameObject PufSkin;
+
+
+    public int angleToTarget;
+
     void Start()
     {
-        puffScale = new Vector3(3.0f, 3.0f, 3.0f);
         puff = false;
         target = GameObject.FindWithTag("Player");
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
@@ -45,19 +54,48 @@ public class PufferBehaviour : MonoBehaviour
             if (puff)
             {
                 gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed / 3;
+
+                // make the needed skin visible
+                NoPufSkin.SetActive(false);
+                PufSkin.SetActive(true);
+                sr = PufSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
             }
             else
             {
                 gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
 
+                // make the needed skin visible
+                PufSkin.SetActive(false);
+                NoPufSkin.SetActive(true);
+                sr = NoPufSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
             }
 
 
+            transform.right = target.transform.position - transform.position;// always face the target (where to move)
 
+            // flip the skin if necesary
+            if (transform.position.x > target.transform.position.x && sr.flipY == false)
+            {
+                //  sr.flipX = true;
+                sr.flipY = true;
+
+            }
+            else if (transform.position.x < target.transform.position.x && sr.flipY == true)
+            {
+                // sr.flipX = false;
+                sr.flipY = false;
+            }
 
 
         }
+
+
+
+
         
+
     }
 
   
