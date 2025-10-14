@@ -5,7 +5,7 @@ public class MainMenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Squid");
+        SceneManager.LoadScene("VirticalSlice");
     }
 
     public void QuitGame()
