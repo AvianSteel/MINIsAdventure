@@ -177,6 +177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedBonus: 20
+  attackSpeedBonus: 0.05
+  abilitySpeedBonus: 0.05
+  defenseBonus: 1
 --- !u!1 &7941307127124368007
 GameObject:
   m_ObjectHideFlags: 0

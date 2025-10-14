@@ -14,7 +14,7 @@ public class StatDropController : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            randomStat = Random.Range(0, 3);
+            randomStat = Random.Range(0, 4);
             if(randomStat == 0)
             {
                 collision.gameObject.GetComponent<PlayerControler>().increaseSpeed(speedBonus);
@@ -26,7 +26,7 @@ public class StatDropController : MonoBehaviour
             {
                 collision.gameObject.GetComponent<PlayerControler>().increaseAbilitySpeed(abilitySpeedBonus);
             }
-            else if(randomStat == 3)
+            else
             {
                 collision.gameObject.GetComponent<PlayerControler>().increaseDefense(defenseBonus);
             }

@@ -29,9 +29,19 @@ public class MineController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.gameObject.name == "SwordFish")
         {
             collision.gameObject.GetComponent<EnemyBehaviour>().enemyHit(mineDmg);
+        }
+        else if (collision.gameObject.name == "Squid")
+        {
+            collision.gameObject.GetComponent<SquidBehaviour>().enemyHit(mineDmg);
+
+        }
+        else if (collision.gameObject.name == "Puffer")
+        {
+            collision.gameObject.GetComponent<PufferBehaviour>().enemyHit(mineDmg);
+
         }
     }
 
