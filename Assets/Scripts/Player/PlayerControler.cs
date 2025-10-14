@@ -42,6 +42,8 @@ public class PlayerControler : MonoBehaviour
 
     public float PlSpeed; // player speed
     public float atackTime; // how long it takes before next shot
+    public float abilityTime; // Cooldown reduction for abilities
+    public int Pldefense; // Damage value reduction, player will always take at least one damage
 
     public int hp;
     private int score;
@@ -139,7 +141,7 @@ public class PlayerControler : MonoBehaviour
     {
         for(int i = 0; i < 3; i++)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1 - abilityTime);
         }
         canLaser = true;
     }
@@ -148,7 +150,7 @@ public class PlayerControler : MonoBehaviour
     {
         for(int i=0; i < 3; i++)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1 - abilityTime);
         }
         canMine = true;
     }
@@ -194,10 +196,30 @@ public class PlayerControler : MonoBehaviour
     {
         PlSpeed += speed;
     }
-
+    public void increaseDefense(int defense)
+    {
+        Pldefense += defense;
+    }
+    public void increaseAttackSpeed(float atkSpeed)
+    {
+        atackTime -= atkSpeed;
+        if ( atackTime < 0.25f)
+        {
+            atackTime = 0.25f;
+        }
+    }
+    public void increaseAbilitySpeed(float abilitySpeed)
+    {
+        abilityTime += abilitySpeed;
+    }
     public void hitPlayer(int dmg)
     {
-        hp = hp - dmg;
+        int damage = (dmg - Pldefense);
+        if(damage < 1)
+        {
+            damage = 1;
+        }
+        hp = hp - damage;
         livesText.text = ("Lives: " + hp);
 
 
