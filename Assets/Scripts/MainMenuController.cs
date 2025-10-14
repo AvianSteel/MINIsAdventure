@@ -5,7 +5,7 @@ public class MainMenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("VirticalSlice");
+        SceneManager.LoadScene("VirticleSlice");
     }
 
     public void QuitGame()

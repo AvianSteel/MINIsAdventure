@@ -225,7 +225,7 @@ public class PlayerControler : MonoBehaviour
 
         if (hp <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("GameOverScene");
         }
     }
 
