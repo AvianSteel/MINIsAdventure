@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 14de821e63bf06345a5434892bbd171b
+guid: 559dbec994c05bf4d83eaba74a0cecf8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4587003661413840059
-    second: swordfish_tilemap_0
+      213: 8069017712673069344
+    second: Ability_Logos_0
   - first:
-      213: 7823880390444064452
-    second: swordfish_tilemap_1
+      213: 1977573039510609374
+    second: Ability_Logos_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: swordfish_tilemap_0
+      name: Ability_Logos_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 20
-        width: 80
-        height: 20
+        x: 1
+        y: 41
+        width: 18
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb4fcfde68f48af30800000000000000
-      internalID: 4587003661413840059
+      spriteID: 0299632bbd8eaff60800000000000000
+      internalID: 8069017712673069344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: swordfish_tilemap_1
+      name: Ability_Logos_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 80
-        height: 20
+        x: 21
+        y: 22
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ce109d23c1049c60800000000000000
-      internalID: 7823880390444064452
+      spriteID: edd5b69a330c17b10800000000000000
+      internalID: 1977573039510609374
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9054193b161164242a0c92d61874fa26
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      swordfish_tilemap_0: 4587003661413840059
-      swordfish_tilemap_1: 7823880390444064452
+      Ability_Logos_0: 8069017712673069344
+      Ability_Logos_1: 1977573039510609374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

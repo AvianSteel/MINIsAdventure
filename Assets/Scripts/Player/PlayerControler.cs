@@ -22,6 +22,11 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private GameObject laserObject;
     [SerializeField] private GameObject seaMine;
 
+    [SerializeField] private GameObject downSkin;
+    [SerializeField] private GameObject upSkin;
+    [SerializeField] private GameObject leftSkin;
+    [SerializeField] private GameObject rightSkin;
+
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text scoreText;
 
@@ -37,6 +42,8 @@ public class PlayerControler : MonoBehaviour
 
     public float PlSpeed; // player speed
     public float atackTime; // how long it takes before next shot
+    public float abilityTime; // Cooldown reduction for abilities
+    public int Pldefense; // Damage value reduction, player will always take at least one damage
 
     public int hp;
     private int score;
@@ -134,7 +141,7 @@ public class PlayerControler : MonoBehaviour
     {
         for(int i = 0; i < 3; i++)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1 - abilityTime);
         }
         canLaser = true;
     }
@@ -143,7 +150,7 @@ public class PlayerControler : MonoBehaviour
     {
         for(int i=0; i < 3; i++)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1 - abilityTime);
         }
         canMine = true;
     }
@@ -189,10 +196,30 @@ public class PlayerControler : MonoBehaviour
     {
         PlSpeed += speed;
     }
-
+    public void increaseDefense(int defense)
+    {
+        Pldefense += defense;
+    }
+    public void increaseAttackSpeed(float atkSpeed)
+    {
+        atackTime -= atkSpeed;
+        if ( atackTime < 0.25f)
+        {
+            atackTime = 0.25f;
+        }
+    }
+    public void increaseAbilitySpeed(float abilitySpeed)
+    {
+        abilityTime += abilitySpeed;
+    }
     public void hitPlayer(int dmg)
     {
-        hp = hp - dmg;
+        int damage = (dmg - Pldefense);
+        if(damage < 1)
+        {
+            damage = 1;
+        }
+        hp = hp - damage;
         livesText.text = ("Lives: " + hp);
 
 
@@ -224,6 +251,10 @@ public class PlayerControler : MonoBehaviour
                 rightZone.SetActive(false);
                 downZone.SetActive(false);
 
+                upSkin.SetActive(true);
+                downSkin.SetActive(false);
+                leftSkin.SetActive(false);
+                rightSkin.SetActive(false);
             }
             else if (moveDirection < 0)
             {
@@ -231,6 +262,11 @@ public class PlayerControler : MonoBehaviour
                 leftZone.SetActive(false);
                 rightZone.SetActive(false);
                 downZone.SetActive(true);
+
+                upSkin.SetActive(false);
+                downSkin.SetActive(true);
+                leftSkin.SetActive(false);
+                rightSkin.SetActive(false);
             }
 
         }
@@ -247,6 +283,11 @@ public class PlayerControler : MonoBehaviour
                 leftZone.SetActive(false);
                 rightZone.SetActive(true);
                 downZone.SetActive(false);
+
+                upSkin.SetActive(false);
+                downSkin.SetActive(false);
+                leftSkin.SetActive(false);
+                rightSkin.SetActive(true);
             }
             else if (slideDirection < 0)
             {
@@ -254,6 +295,11 @@ public class PlayerControler : MonoBehaviour
                 leftZone.SetActive(true);
                 rightZone.SetActive(false);
                 downZone.SetActive(false);
+
+                upSkin.SetActive(false);
+                downSkin.SetActive(false);
+                leftSkin.SetActive(true);
+                rightSkin.SetActive(false);
             }
         }
 
