@@ -4,7 +4,8 @@ using UnityEngine;
 // the drop itself needs to colide with the player and not the other way around in order to not colide with the triger zone
 public class StatDropController : MonoBehaviour
 {
-
+    [SerializeField] private AudioClip pickUpSound;
+   
     public float speedBonus;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +13,8 @@ public class StatDropController : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerControler>().increaseSpeed(speedBonus);
           Destroy(gameObject);
+
+            AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
         }
     }
 }

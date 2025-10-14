@@ -9,6 +9,7 @@ public class TargetZoneControler : MonoBehaviour
     [SerializeField] private GameObject ammo;
     public List<GameObject> OldBullets = new List<GameObject>();
 
+    [SerializeField] private AudioClip bulletSound;
 
     private GameObject cloneStorage; // temporary storage for the latest ammo copy     turn into object pooling
     void Start()
@@ -65,7 +66,7 @@ public class TargetZoneControler : MonoBehaviour
         }
         cloneStorage.SetActive(true);
 
-
+        AudioSource.PlayClipAtPoint(bulletSound, transform.position);
 
 
     }

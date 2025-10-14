@@ -12,6 +12,8 @@ public class LaserController : MonoBehaviour
     public float laserDirection;
     public float laserDmg;
 
+    [SerializeField] private AudioClip hitLaserSound; 
+
     private Rigidbody2D playerRb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,15 +62,21 @@ public class LaserController : MonoBehaviour
         if (collision.gameObject.name == "SwordFish")
         {
             collision.gameObject.GetComponent<EnemyBehaviour>().enemyHit(laserDmg);
+
+            AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
         }
         else if (collision.gameObject.name == "Squid")
         {
             collision.gameObject.GetComponent<SquidBehaviour>().enemyHit(laserDmg);
 
+            AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
+
         }
         else if (collision.gameObject.name == "Puffer")
         {
             collision.gameObject.GetComponent<PufferBehaviour>().enemyHit(laserDmg);
+
+            AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
 
         }
     }
