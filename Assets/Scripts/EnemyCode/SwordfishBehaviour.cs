@@ -13,10 +13,16 @@ public class EnemyBehaviour : MonoBehaviour
     public float hp;
     public GameObject pl;
 
+    [SerializeField] private GameObject swordSkin;
+    SpriteRenderer sr;
+
 
     private int dropRoll;
     void Start()
     {
+
+        sr = swordSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
         pl = GameObject.FindWithTag("Player"); // used to get referenvce to the player code
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
@@ -36,10 +42,22 @@ public class EnemyBehaviour : MonoBehaviour
             direction.Normalize(); // Keep velocity consistent
 
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
-            
+
+            transform.right = target.transform.position - transform.position;// always face the target (where to move)
 
 
-            
+            if (transform.position.x > target.transform.position.x && sr.flipX == false)
+            {
+                //  sr.flipX = true;
+                  sr.flipY = true;
+
+            }
+            else if (transform.position.x < target.transform.position.x && sr.flipX == true)
+            {
+               // sr.flipX = false;
+                sr.flipY = false;
+            }
+
         }
         else if (Vector2.Distance(transform.position, target.transform.position) <= 3 && !lockTarget ) // if far away stop launging
         {
@@ -69,14 +87,15 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Ammo")
         {
-            collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld(); // calls a function of the bullet / ammo that turns itself off (active false)
             enemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
+            collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld();
+
 
         }
         else if (collision.gameObject.name == "Player")
         {
-            collision.gameObject.GetComponent<PlayerControler>().hitPlayer(1);
-            gameObject.SetActive(false);
+            collision.gameObject.GetComponent<PlayerControler>().hitPlayer(2);
+            enemyHit(10);
         }
     }
 
@@ -94,6 +113,10 @@ public class EnemyBehaviour : MonoBehaviour
 
 
     }
+       
+        
+
+            
 
 
 

@@ -22,6 +22,11 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private GameObject laserObject;
     [SerializeField] private GameObject seaMine;
 
+    [SerializeField] private GameObject downSkin;
+    [SerializeField] private GameObject upSkin;
+    [SerializeField] private GameObject leftSkin;
+    [SerializeField] private GameObject rightSkin;
+
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text scoreText;
 
@@ -246,6 +251,10 @@ public class PlayerControler : MonoBehaviour
                 rightZone.SetActive(false);
                 downZone.SetActive(false);
 
+                upSkin.SetActive(true);
+                downSkin.SetActive(false);
+                leftSkin.SetActive(false);
+                rightSkin.SetActive(false);
             }
             else if (moveDirection < 0)
             {
@@ -253,6 +262,11 @@ public class PlayerControler : MonoBehaviour
                 leftZone.SetActive(false);
                 rightZone.SetActive(false);
                 downZone.SetActive(true);
+
+                upSkin.SetActive(false);
+                downSkin.SetActive(true);
+                leftSkin.SetActive(false);
+                rightSkin.SetActive(false);
             }
 
         }
@@ -269,6 +283,11 @@ public class PlayerControler : MonoBehaviour
                 leftZone.SetActive(false);
                 rightZone.SetActive(true);
                 downZone.SetActive(false);
+
+                upSkin.SetActive(false);
+                downSkin.SetActive(false);
+                leftSkin.SetActive(false);
+                rightSkin.SetActive(true);
             }
             else if (slideDirection < 0)
             {
@@ -276,8 +295,16 @@ public class PlayerControler : MonoBehaviour
                 leftZone.SetActive(true);
                 rightZone.SetActive(false);
                 downZone.SetActive(false);
+
+                upSkin.SetActive(false);
+                downSkin.SetActive(false);
+                leftSkin.SetActive(true);
+                rightSkin.SetActive(false);
             }
         }
 
     }
+
+   
+
 }

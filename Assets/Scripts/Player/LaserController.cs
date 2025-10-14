@@ -57,9 +57,19 @@ public class LaserController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.gameObject.name == "SwordFish")
         {
             collision.gameObject.GetComponent<EnemyBehaviour>().enemyHit(laserDmg);
+        }
+        else if (collision.gameObject.name == "Squid")
+        {
+            collision.gameObject.GetComponent<SquidBehaviour>().enemyHit(laserDmg);
+
+        }
+        else if (collision.gameObject.name == "Puffer")
+        {
+            collision.gameObject.GetComponent<PufferBehaviour>().enemyHit(laserDmg);
+
         }
     }
 
