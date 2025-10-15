@@ -20,6 +20,6 @@ public class MainMenuController : MonoBehaviour
 
     public void ControlsMenu()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("PauseMenuScene");
     }
 }
