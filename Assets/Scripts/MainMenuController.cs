@@ -5,7 +5,7 @@ public class MainMenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Score+Boundary");
+        SceneManager.LoadScene("Squid");
     }
 
     public void QuitGame()

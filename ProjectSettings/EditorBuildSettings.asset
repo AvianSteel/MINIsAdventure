@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenuScene.unity
     guid: deffdc2a2fcda054cb099211260c9c85
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CodeScenes/OctoberScenes/Score+Boundary.unity
     guid: 57a4d254bb4e7094c92a604f3889f793
+  - enabled: 1
+    path: Assets/Scenes/CodeScenes/OctoberScenes/Squid.unity
+    guid: 9d4a65bb717301a4088d155267403648
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

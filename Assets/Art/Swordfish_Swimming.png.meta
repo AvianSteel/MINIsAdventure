@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 93450d7e4fb3af44c82612a3dc07461c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3335006611194037741
+    second: Swordfish_Swimming_0
+  - first:
+      213: 442856243749117003
+    second: Swordfish_Swimming_1
+  - first:
+      213: -6962944663473903142
+    second: Swordfish_Swimming_2
+  - first:
+      213: 9078535896093647616
+    second: Swordfish_Swimming_3
+  - first:
+      213: 9069716225568671763
+    second: Swordfish_Swimming_4
+  - first:
+      213: 1951541634724138035
+    second: Swordfish_Swimming_5
+  - first:
+      213: -939412561027012187
+    second: Swordfish_Swimming_6
+  - first:
+      213: 8182840849131318787
+    second: Swordfish_Swimming_7
+  - first:
+      213: 1976601125408498491
+    second: Swordfish_Swimming_8
+  - first:
+      213: 6996981118715352965
+    second: Swordfish_Swimming_9
+  - first:
+      213: -795656868647417923
+    second: Swordfish_Swimming_10
+  - first:
+      213: 2236694896987019872
+    second: Swordfish_Swimming_11
+  - first:
+      213: 2528734725199512268
+    second: Swordfish_Swimming_12
+  - first:
+      213: 1595599811878140992
+    second: Swordfish_Swimming_13
+  - first:
+      213: -2363757479426761730
+    second: Swordfish_Swimming_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Swordfish_Swimming_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 101
+        width: 61
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de5cccfd7d2584e20800000000000000
+      internalID: 3335006611194037741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 81
+        width: 60
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4cda374867552600800000000000000
+      internalID: 442856243749117003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 101
+        width: 61
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad9afe648b6ae5f90800000000000000
+      internalID: -6962944663473903142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 81
+        width: 61
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0036b4f1c407dfd70800000000000000
+      internalID: 9078535896093647616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 81
+        width: 60
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3180e9e8ada1edd70800000000000000
+      internalID: 9069716225568671763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_5
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 101
+        width: 59
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33c0e1ee6c4451b10800000000000000
+      internalID: 1951541634724138035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 60
+        width: 60
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9e172c04986f2f0800000000000000
+      internalID: -939412561027012187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 8
+        width: 17
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30e2702d56a4f8170800000000000000
+      internalID: 8182840849131318787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 8
+        width: 19
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b336c96404c4e6b10800000000000000
+      internalID: 1976601125408498491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_9
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 8
+        width: 17
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 587d42181454a1160800000000000000
+      internalID: 6996981118715352965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_10
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 8
+        width: 19
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db7cb252b4245f4f0800000000000000
+      internalID: -795656868647417923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_11
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 3
+        width: 18
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a17d588265a0f10800000000000000
+      internalID: 2236694896987019872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_12
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 3
+        width: 17
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc246b2b5ded71320800000000000000
+      internalID: 2528734725199512268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_13
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 3
+        width: 18
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04c3da63395b42610800000000000000
+      internalID: 1595599811878140992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordfish_Swimming_14
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 3
+        width: 17
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efb589f981f323fd0800000000000000
+      internalID: -2363757479426761730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Swordfish_Swimming_0: 3335006611194037741
+      Swordfish_Swimming_1: 442856243749117003
+      Swordfish_Swimming_10: -795656868647417923
+      Swordfish_Swimming_11: 2236694896987019872
+      Swordfish_Swimming_12: 2528734725199512268
+      Swordfish_Swimming_13: 1595599811878140992
+      Swordfish_Swimming_14: -2363757479426761730
+      Swordfish_Swimming_2: -6962944663473903142
+      Swordfish_Swimming_3: 9078535896093647616
+      Swordfish_Swimming_4: 9069716225568671763
+      Swordfish_Swimming_5: 1951541634724138035
+      Swordfish_Swimming_6: -939412561027012187
+      Swordfish_Swimming_7: 8182840849131318787
+      Swordfish_Swimming_8: 1976601125408498491
+      Swordfish_Swimming_9: 6996981118715352965
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

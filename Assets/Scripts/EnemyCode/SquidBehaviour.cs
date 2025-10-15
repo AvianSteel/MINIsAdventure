@@ -21,9 +21,14 @@ public class SquidBehaviour : MonoBehaviour
     private float initialShootDistance;
     public float shootDistance;
 
+    [SerializeField] private GameObject squidSkin;
+    SpriteRenderer sr; // reference to how the skin is pointed
+
     private int dropRoll;
     void Start()
     {
+        sr = squidSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
         target = GameObject.FindWithTag("Player");
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
         Vector3 loungePoint = target.transform.position;
@@ -39,17 +44,20 @@ public class SquidBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
     {
+
         if (Vector2.Distance(transform.position, target.transform.position) > shootDistance) // if close lounge
         {
+
+
            
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize(); // Keep velocity consistent
 
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
-            
+              sr.flipX = false;
 
 
-            
+
         }
         else if (Vector2.Distance(transform.position, target.transform.position) < shootDistance-1)
         {
@@ -59,10 +67,22 @@ public class SquidBehaviour : MonoBehaviour
             shootDistance = initialShootDistance + Random.Range(-1.6f, 1.6f);
 
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * (speed * -1);
+              sr.flipX = true;
         }
 
-       
+        transform.right = target.transform.position - transform.position;// always face the target (where to move)
 
+        if (transform.position.x > target.transform.position.x && sr.flipX == false)
+        {
+            //  sr.flipX = true;
+            sr.flipY = true;
+
+        }
+        else if (transform.position.x < target.transform.position.x && sr.flipX == true)
+        {
+            // sr.flipX = false;
+            sr.flipY = false;
+        }
 
 
     }
@@ -102,14 +122,15 @@ public class SquidBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Ammo")
         {
-            collision.gameObject.SetActive(false);
             enemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
+            collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld();
+
 
         }
         else if (collision.gameObject.name == "Player")
         {
             collision.gameObject.GetComponent<PlayerControler>().hitPlayer(1);
-            gameObject.SetActive(false);
+            enemyHit(10);
         }
     }
 
