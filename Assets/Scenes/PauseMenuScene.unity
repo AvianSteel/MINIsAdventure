@@ -316,11 +316,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Move: WASD
 
-    Ability1: (?)
+    Ability1: Spacebar
 
-    Ability 2: (?)
+    Ability2: V
 
-    Ability3: (?)
+    Ability3: B
 
     Pause:
     ESC key
