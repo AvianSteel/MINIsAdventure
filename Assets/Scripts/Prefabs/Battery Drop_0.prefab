@@ -178,6 +178,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUpSound: {fileID: 8300000, guid: 6cf9c85b5a3b88c468b21b9d21250adf, type: 3}
   speedBonus: 20
+  attackSpeedBonus: 0.05
+  abilitySpeedBonus: 0.05
+  defenseBonus: 1
 --- !u!1 &7941307127124368007
 GameObject:
   m_ObjectHideFlags: 0
