@@ -174,8 +174,8 @@ TextureImporter:
       name: mini_tiles_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 150
+        x: 60
+        y: 180
         width: 30
         height: 30
       alignment: 0
@@ -196,8 +196,8 @@ TextureImporter:
       name: mini_tiles_3
       rect:
         serializedVersion: 2
-        x: 30
-        y: 150
+        x: 90
+        y: 180
         width: 30
         height: 30
       alignment: 0
@@ -219,7 +219,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 120
+        y: 150
         width: 30
         height: 30
       alignment: 0
@@ -241,7 +241,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 30
-        y: 120
+        y: 150
         width: 30
         height: 30
       alignment: 0
@@ -262,8 +262,8 @@ TextureImporter:
       name: mini_tiles_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 90
+        x: 60
+        y: 150
         width: 30
         height: 30
       alignment: 0
@@ -284,8 +284,8 @@ TextureImporter:
       name: mini_tiles_7
       rect:
         serializedVersion: 2
-        x: 30
-        y: 90
+        x: 90
+        y: 150
         width: 30
         height: 30
       alignment: 0
@@ -307,7 +307,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 60
+        y: 120
         width: 30
         height: 30
       alignment: 0
@@ -329,7 +329,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 30
-        y: 60
+        y: 120
         width: 30
         height: 30
       alignment: 0
@@ -342,6 +342,94 @@ TextureImporter:
       bones: []
       spriteID: de1c2c5ab54ae614aaf6921368023f06
       internalID: -1127888250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mini_tiles_10
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 120
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17e7d22037efd0e4eab77e1edcf82ca5
+      internalID: -2067530827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mini_tiles_11
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 120
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af3c26871fb9854098793600d28b793
+      internalID: -703864624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mini_tiles_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 90
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc72621a49ed52448055baad78b8914
+      internalID: 1957963112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mini_tiles_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 60
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73898f02388e0f04f88f35c1d8387a7a
+      internalID: -146217354
       vertices: []
       indices: 
       edges: []
@@ -362,6 +450,10 @@ TextureImporter:
     nameFileIdTable:
       mini_tiles_0: -1704209689
       mini_tiles_1: 630175791
+      mini_tiles_10: -2067530827
+      mini_tiles_11: -703864624
+      mini_tiles_12: 1957963112
+      mini_tiles_13: -146217354
       mini_tiles_2: -1511751184
       mini_tiles_3: 1855996996
       mini_tiles_4: 818298827
