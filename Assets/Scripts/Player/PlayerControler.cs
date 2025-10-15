@@ -30,6 +30,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text scoreText;
 
+    
+
     private bool isPlMoving; // player move up / down
     private bool isPlSliding;// player move left / right
     private bool isPlStationary;// player is in place / no movement detected

@@ -5,6 +5,8 @@ public class MineController : MonoBehaviour
 {
     public float mineDmg;
     private PlayerControler playerControler;
+
+    [SerializeField] private AudioClip mineExplosionSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +26,9 @@ public class MineController : MonoBehaviour
             }
             yield return new WaitForSeconds(0.5f);
         }
+       
+        AudioSource.PlayClipAtPoint(mineExplosionSound, transform.position);
+
         Destroy(gameObject);
     }
 
