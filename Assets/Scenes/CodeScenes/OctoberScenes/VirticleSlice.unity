@@ -6839,6 +6839,7 @@ MonoBehaviour:
   canLaser: 0
   canMine: 0
   canDash: 0
+  dashInvulnerab: 0
   moveDirection: 0
   slideDirection: 0
   ammoDmg: 2
@@ -6847,7 +6848,7 @@ MonoBehaviour:
   abilityTime: 0
   Pldefense: 0
   DashDuration: 0.4
-  dashSpeedMultiplier: 0
+  dashSpeedMultiplier: 4
   hp: 25
 --- !u!114 &820211171
 MonoBehaviour:

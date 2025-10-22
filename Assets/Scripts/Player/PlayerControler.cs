@@ -93,7 +93,7 @@ public class PlayerControler : MonoBehaviour
         {
             StartCooldown("dash");
             canDash = false;
-            PlSpeed *= 4;
+            PlSpeed *= dashSpeedMultiplier;
             dashInvulnerab = true;
         }
     }
