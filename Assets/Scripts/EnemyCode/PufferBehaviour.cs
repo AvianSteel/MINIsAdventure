@@ -99,7 +99,12 @@ public class PufferBehaviour : MonoBehaviour
     }
 
   
-
+    /// <summary>
+    /// Expands the pufferfish outward, then waits for 2 seconds before deflating back to normal size
+    /// </summary>
+    /// <param name="targetScale"></param>
+    /// <param name="growDuration"></param>
+    /// <returns></returns>
     IEnumerator DoPuff(Vector3 targetScale, float growDuration)
     {
         Vector3 initialScale = transform.localScale;
@@ -137,7 +142,10 @@ public class PufferBehaviour : MonoBehaviour
 
 
 
-
+    /// <summary>
+    /// Takes damage on contact with player or ammo, deals damage to player upon collision
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Ammo")
@@ -178,7 +186,9 @@ public class PufferBehaviour : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Increases score before checking if it will drop anything
+    /// </summary>
     public void enemyDie()
     {
         target.GetComponent<PlayerControler>().ScoreUp(25); // increase score
