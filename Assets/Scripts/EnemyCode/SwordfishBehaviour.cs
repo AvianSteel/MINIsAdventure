@@ -18,6 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 
     private int dropRoll;
+
     void Start()
     {
 
@@ -75,14 +76,20 @@ public class EnemyBehaviour : MonoBehaviour
 
 
     }
-
+    /// <summary>
+    /// Performs a lunge at the players position at beginning of lunge
+    /// </summary>
+    /// <param name="direction"></param>
     private void lounge(Vector2 direction)
     {
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * loungeSpeed;
 
     }
    
-
+    /// <summary>
+    /// If colliding with a bullet or the player, takes damage after dealing some if colliding with player
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Ammo")
@@ -119,7 +126,10 @@ public class EnemyBehaviour : MonoBehaviour
             
 
 
-
+    /// <summary>
+    /// Increases player score, then checks to see if it will drop something before being added to a list of dead
+    /// enemies to respawn later.
+    /// </summary>
     public void enemyDie()
     {
         pl.GetComponent<PlayerControler>().ScoreUp(25); // increase score

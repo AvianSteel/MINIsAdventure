@@ -87,6 +87,9 @@ public class SquidBehaviour : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Fires a projectile that continues to the players position at the beginning of the function
+    /// </summary>
     private void shoot()
     {
         print("shoot");
@@ -117,7 +120,10 @@ public class SquidBehaviour : MonoBehaviour
 
 
 
-
+    /// <summary>
+    /// Takes damage on collision with a bullet or player, dealing damage to player upon collision
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Ammo")
@@ -150,7 +156,9 @@ public class SquidBehaviour : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Increases the score, then checks if it will drop anything 
+    /// </summary>
     public void enemyDie()
     {
         target.GetComponent<PlayerControler>().ScoreUp(25); // increase score
