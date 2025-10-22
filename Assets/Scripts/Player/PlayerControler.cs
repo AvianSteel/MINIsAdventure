@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -56,6 +57,8 @@ public class PlayerControler : MonoBehaviour
 
     public int hp;
     private int score;
+
+    [SerializeField] private StatScalingController statController;
 
     void Start()
     {
@@ -120,8 +123,9 @@ public class PlayerControler : MonoBehaviour
     }
     private void Quit_started(InputAction.CallbackContext obj)
     {
-        //EditorApplication.isPlaying = false; // Stop play mode in the editor    
-        Application.Quit();
+        StopCoroutine(statController.StatScalingTimer());
+        EditorApplication.isPlaying = false; // Stop play mode in the editor    
+        //Application.Quit();
     }
     private void Move_canceled(InputAction.CallbackContext obj)
     {

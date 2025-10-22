@@ -19,12 +19,22 @@ public class EnemyBehaviour : MonoBehaviour
 
     private int dropRoll;
 
+    [SerializeField] private StatScalingController statController;
+    private float statScaleSword;
+
     void Start()
     {
+        target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
+        statController = target.gameObject.GetComponent<StatScalingController>();
+        statScaleSword = statController.statScale;
+        hp *= statScaleSword;
+        speed *= statScaleSword;
+        loungeSpeed *= statScaleSword;
+        Mathf.Round(hp);
 
         sr = swordSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
 
-        target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
+        
         pl = GameObject.FindWithTag("Player"); // used to get referenvce to the player code
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
         Vector3 loungePoint = target.transform.position;
