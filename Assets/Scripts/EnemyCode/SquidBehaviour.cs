@@ -24,12 +24,22 @@ public class SquidBehaviour : MonoBehaviour
     [SerializeField] private GameObject squidSkin;
     SpriteRenderer sr; // reference to how the skin is pointed
 
+    [SerializeField] private StatScalingController statController;
+    private float statScaleSquid;
+
     private int dropRoll;
     void Start()
-    {
+    {        
+        target = GameObject.FindWithTag("Player");
+        statController = target.gameObject.GetComponent<StatScalingController>();
+        statScaleSquid = statController.statScale;
+        hp *= statScaleSquid;
+        atackInterval *= statScaleSquid;
+        speed *= statScaleSquid;
+        Mathf.Round(hp);
         sr = squidSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
 
-        target = GameObject.FindWithTag("Player");
+
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
         Vector3 loungePoint = target.transform.position;
 
