@@ -6838,7 +6838,6 @@ MonoBehaviour:
   scoreText: {fileID: 54402698}
   canLaser: 0
   canMine: 0
-  canDash: 0
   moveDirection: 0
   slideDirection: 0
   ammoDmg: 2
@@ -6846,8 +6845,6 @@ MonoBehaviour:
   atackTime: 0.1
   abilityTime: 0
   Pldefense: 0
-  DashDuration: 0.4
-  dashSpeedMultiplier: 0
   hp: 25
 --- !u!114 &820211171
 MonoBehaviour:

@@ -11,6 +11,8 @@ public class PlayerControler : MonoBehaviour
     private InputAction slide; // left and right
     private InputAction laser;
     private InputAction mine;
+    private InputAction dash;
+
     private InputAction restart;
     private InputAction quit;
 
@@ -37,6 +39,9 @@ public class PlayerControler : MonoBehaviour
     private bool isPlStationary;// player is in place / no movement detected
     public bool canLaser; // laser is on cooldown if set to false
     public bool canMine;
+    public bool canDash;
+    public bool dashInvulnerab;
+
 
     public float moveDirection;
     public float slideDirection;
@@ -46,6 +51,8 @@ public class PlayerControler : MonoBehaviour
     public float atackTime; // how long it takes before next shot
     public float abilityTime; // Cooldown reduction for abilities
     public int Pldefense; // Damage value reduction, player will always take at least one damage
+    public float DashDuration;
+    public float dashSpeedMultiplier;
 
     public int hp;
     private int score;
@@ -61,6 +68,8 @@ public class PlayerControler : MonoBehaviour
         slide = playerInput.currentActionMap.FindAction("Slide");
         laser = playerInput.currentActionMap.FindAction("Laser");
         mine = playerInput.currentActionMap.FindAction("Mine");
+        dash = playerInput.currentActionMap.FindAction("Dash");
+
         restart = playerInput.currentActionMap.FindAction("Restart"); 
         quit = playerInput.currentActionMap.FindAction("Exit");
 
@@ -70,12 +79,24 @@ public class PlayerControler : MonoBehaviour
         slide.canceled += Slide_canceled;
         laser.started += Laser_started;
         mine.started += Mine_started;
+        dash.started += Dash_started;
         restart.started += Restart_started;
         quit.started += Quit_started;
         canLaser = true;
         canMine = true;
+        canDash = true;
     }
 
+    private void Dash_started(InputAction.CallbackContext obj)
+    {
+        if (canDash)
+        {
+            StartCooldown("dash");
+            canDash = false;
+            PlSpeed *= 4;
+            dashInvulnerab = true;
+        }
+    }
     private void Mine_started(InputAction.CallbackContext obj)
     {
         if (canMine)
@@ -138,6 +159,22 @@ public class PlayerControler : MonoBehaviour
 
         //print("Movement started");0.   1       
     }
+    public IEnumerator DashCooldown()
+    {
+        float origPlSpeed = PlSpeed;
+
+
+        for (int i = 12; i >= 0; i--)
+        {
+         
+            yield return new WaitForSeconds(DashDuration); // wait for dash duration than change the speed to original
+            PlSpeed = origPlSpeed;
+            dashInvulnerab = false;
+
+        }
+
+        canDash = true;
+    }
 
     public IEnumerator LaserCooldown()
     {
@@ -165,7 +202,11 @@ public class PlayerControler : MonoBehaviour
         {
             StartCoroutine(MineCooldown());
         }
-        
+        else if (ability == "dash")
+        {
+            StartCoroutine(DashCooldown());
+        }
+
     }
     private void FixedUpdate()
     {
@@ -216,19 +257,23 @@ public class PlayerControler : MonoBehaviour
     }
     public void hitPlayer(int dmg)
     {
-        int damage = (dmg - Pldefense);
-        if(damage < 1)
+        if (!dashInvulnerab)
         {
-            damage = 1;
-        }
-        hp = hp - damage;
-        livesText.text = ("Lives: " + hp);
+            int damage = (dmg - Pldefense);
+            if (damage < 1)
+            {
+                damage = 1;
+            }
+            hp = hp - damage;
+            livesText.text = ("Lives: " + hp);
 
 
-        if (hp <= 0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (hp <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
+        
     }
 
     public void ScoreUp(int scoreIncrease)
