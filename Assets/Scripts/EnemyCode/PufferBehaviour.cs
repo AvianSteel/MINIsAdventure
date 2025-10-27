@@ -30,10 +30,19 @@ public class PufferBehaviour : MonoBehaviour
 
     public int angleToTarget;
 
+    [SerializeField] private StatScalingController statController;
+    private float statScalePuff;
+
     void Start()
-    {
-        puff = false;
+    {   
         target = GameObject.FindWithTag("Player");
+        statController = target.gameObject.GetComponent<StatScalingController>();
+        statScalePuff = statController.statScale;
+        hp *= statScalePuff;
+        speed *= statScalePuff;
+        Mathf.Round(hp);
+        puff = false;
+        
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
       //  Vector3 loungePoint = target.transform.position;
 
