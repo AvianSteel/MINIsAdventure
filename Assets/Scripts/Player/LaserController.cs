@@ -59,6 +59,7 @@ public class LaserController : MonoBehaviour
             laserDirection--;
             yield return new WaitForSeconds(0.01f);
         }
+        AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
         playerControler.StartCooldown("laser");
         StopCoroutine(LaserWiggle());
         Destroy(laserParent);
@@ -73,20 +74,15 @@ public class LaserController : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyBehaviour>().enemyHit(laserDmg);
 
-            AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
         }
         else if (collision.gameObject.name == "Squid")
         {
             collision.gameObject.GetComponent<SquidBehaviour>().enemyHit(laserDmg);
 
-            AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
-
         }
         else if (collision.gameObject.name == "Puffer")
         {
             collision.gameObject.GetComponent<PufferBehaviour>().enemyHit(laserDmg);
-
-            AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
 
         }
     }
