@@ -39,8 +39,12 @@ public class PlayerControler : MonoBehaviour
     private bool isPlSliding;// player move left / right
     private bool isPlStationary;// player is in place / no movement detected
     public bool canLaser; // laser is on cooldown if set to false
+    public int laserLvl;// if ability lvl is 0 it must be unlocked first, every lvl > 1 makes it stronger
     public bool canMine;
+    public int mineLvl;
+
     public bool canDash;
+    public int dashLvl;
     public bool dashInvulnerab;
 
 
@@ -92,7 +96,7 @@ public class PlayerControler : MonoBehaviour
     #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
     {
-        if (canDash)
+        if (canDash && dashLvl > 0)
         {
             StartCooldown("dash");
             canDash = false;
@@ -102,7 +106,7 @@ public class PlayerControler : MonoBehaviour
     }
     private void Mine_started(InputAction.CallbackContext obj)
     {
-        if (canMine)
+        if (canMine && mineLvl > 0)
         {
             Instantiate(seaMine,transform.position,Quaternion.identity);
             canMine = false;
@@ -111,7 +115,7 @@ public class PlayerControler : MonoBehaviour
 
     private void Laser_started(InputAction.CallbackContext obj)
     {
-        if (canLaser)
+        if (canLaser && laserLvl > 0)
         {
             Instantiate(laserObject);
             canLaser = false;
