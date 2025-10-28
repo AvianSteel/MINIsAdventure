@@ -15,6 +15,11 @@ public class MineController : MonoBehaviour
         StartCoroutine(MineCountdown());
     }
 
+    /// <summary>
+    /// Starts a countdown for the mine. It is inactive for 2.5 seconds, then has a large collider for the next
+    /// 0.5 seconds before being destroyed
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator MineCountdown()
     {
         for (int i = 0; i < 6; i++)
@@ -32,6 +37,10 @@ public class MineController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// Deals damage to enemies when they enter the mine explosion collider
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "SwordFish")
@@ -49,7 +58,10 @@ public class MineController : MonoBehaviour
 
         }
     }
-
+/// <summary>
+/// Enables the mine collider, turning it red for now
+/// Then starts the cooldown
+/// </summary>
     private void Explode()
     {
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
