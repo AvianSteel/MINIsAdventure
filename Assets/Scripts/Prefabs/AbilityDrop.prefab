@@ -183,7 +183,6 @@ MonoBehaviour:
   attackSpeedBonus: 0.05
   abilitySpeedBonus: 0.05
   defenseBonus: 1
-<<<<<<< Updated upstream
   uloksAbility: 1
 --- !u!1 &7941307127124368007
 GameObject:
