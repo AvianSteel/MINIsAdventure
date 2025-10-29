@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -2459013091579546574}
   - component: {fileID: -1516527984156382540}
   - component: {fileID: 54893514223143062}
+  - component: {fileID: 8371637519871401061}
   m_Layer: 3
   m_Name: Squid
   m_TagString: Enemy
@@ -133,7 +134,20 @@ MonoBehaviour:
   atackInterval: 3
   shootDistance: 6
   squidSkin: {fileID: 7211159944281913812}
-  statController: {fileID: 0}
+  statController: {fileID: 8371637519871401061}
+--- !u!114 &8371637519871401061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163515637861156452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0b5ff6dd63be044a78032dbf7ec779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatScalingController
+  statScale: 1
 --- !u!1 &7211159944281913812
 GameObject:
   m_ObjectHideFlags: 0
