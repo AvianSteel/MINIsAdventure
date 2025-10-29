@@ -7,6 +7,8 @@ public class MineController : MonoBehaviour
     private PlayerControler playerControler;
 
     [SerializeField] private AudioClip mineExplosionSound;
+    [SerializeField] private AudioClip hitSound;
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,9 +33,7 @@ public class MineController : MonoBehaviour
             }
             yield return new WaitForSeconds(0.5f);
         }
-       
-        AudioSource.PlayClipAtPoint(mineExplosionSound, transform.position);
-
+      
         Destroy(gameObject);
     }
 
@@ -66,6 +66,7 @@ public class MineController : MonoBehaviour
     {
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        AudioSource.PlayClipAtPoint(mineExplosionSound, transform.position);
         spriteRenderer.color = Color.red;
         playerControler.StartCooldown("sea mine");
     }
