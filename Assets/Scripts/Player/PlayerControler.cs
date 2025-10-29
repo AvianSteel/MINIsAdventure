@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -38,8 +39,12 @@ public class PlayerControler : MonoBehaviour
     private bool isPlSliding;// player move left / right
     private bool isPlStationary;// player is in place / no movement detected
     public bool canLaser; // laser is on cooldown if set to false
+    public int laserLvl;// if ability lvl is 0 it must be unlocked first, every lvl > 1 makes it stronger
     public bool canMine;
+    public int mineLvl;
+
     public bool canDash;
+    public int dashLvl;
     public bool dashInvulnerab;
 
 
@@ -56,6 +61,8 @@ public class PlayerControler : MonoBehaviour
 
     public int hp;
     private int score;
+
+    [SerializeField] private StatScalingController statController;
 
     void Start()
     {
@@ -86,10 +93,10 @@ public class PlayerControler : MonoBehaviour
         canMine = true;
         canDash = true;
     }
-
+    #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
     {
-        if (canDash)
+        if (canDash && dashLvl > 0)
         {
             StartCooldown("dash");
             canDash = false;
@@ -99,7 +106,7 @@ public class PlayerControler : MonoBehaviour
     }
     private void Mine_started(InputAction.CallbackContext obj)
     {
-        if (canMine)
+        if (canMine && mineLvl > 0)
         {
             Instantiate(seaMine,transform.position,Quaternion.identity);
             canMine = false;
@@ -108,7 +115,7 @@ public class PlayerControler : MonoBehaviour
 
     private void Laser_started(InputAction.CallbackContext obj)
     {
-        if (canLaser)
+        if (canLaser && laserLvl > 0)
         {
             Instantiate(laserObject);
             canLaser = false;
@@ -120,8 +127,9 @@ public class PlayerControler : MonoBehaviour
     }
     private void Quit_started(InputAction.CallbackContext obj)
     {
-        //EditorApplication.isPlaying = false; // Stop play mode in the editor    
-        Application.Quit();
+        StopCoroutine(statController.StatScalingTimer());
+        EditorApplication.isPlaying = false; // Stop play mode in the editor    
+        //Application.Quit();
     }
     private void Move_canceled(InputAction.CallbackContext obj)
     {
@@ -159,6 +167,13 @@ public class PlayerControler : MonoBehaviour
 
         //print("Movement started");0.   1       
     }
+    #endregion
+
+
+    /// <summary>
+    /// Performs dash cooldown before re enabling dash
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator DashCooldown()
     {
         float origPlSpeed = PlSpeed;
@@ -175,7 +190,10 @@ public class PlayerControler : MonoBehaviour
 
         canDash = true;
     }
-
+    /// <summary>
+    /// Performs cooldown of laser ability before re enabling laser
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator LaserCooldown()
     {
         for(int i = 0; i < 3; i++)
@@ -185,6 +203,10 @@ public class PlayerControler : MonoBehaviour
         canLaser = true;
     }
 
+    /// <summary>
+    /// Performs the cooldown actions for the mine ability before enabling ability again
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator MineCooldown()
     {
         for(int i=0; i < 3; i++)
@@ -193,6 +215,10 @@ public class PlayerControler : MonoBehaviour
         }
         canMine = true;
     }
+    /// <summary>
+    /// Function called to start the respective abilities cooldown timer
+    /// </summary>
+    /// <param name="ability"></param>
     public void StartCooldown(string ability)
     {
         if (ability == "laser")
@@ -208,6 +234,9 @@ public class PlayerControler : MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// Moving player based on the movement being inputted
+    /// </summary>
     private void FixedUpdate()
     {
         if (isPlMoving)
@@ -239,10 +268,19 @@ public class PlayerControler : MonoBehaviour
     {
         PlSpeed += speed;
     }
+    /// <summary>
+    /// Increases defense 
+    /// </summary>
+    /// <param name="defense"></param>
     public void increaseDefense(int defense)
     {
         Pldefense += defense;
     }
+    /// <summary>
+    /// Decreases time between attacks
+    /// CURRENTLY BUGGED AND CHANGES AN UNUSED VARIABLE
+    /// </summary>
+    /// <param name="atkSpeed"></param>
     public void increaseAttackSpeed(float atkSpeed)
     {
         atackTime -= atkSpeed;
@@ -251,10 +289,18 @@ public class PlayerControler : MonoBehaviour
             atackTime = 0.25f;
         }
     }
+    /// <summary>
+    /// Decreases the cooldown of all abilities
+    /// </summary>
+    /// <param name="abilitySpeed"></param>
     public void increaseAbilitySpeed(float abilitySpeed)
     {
         abilityTime += abilitySpeed;
     }
+    /// <summary>
+    /// Damages the player by dealing damage - defense value. Damage taken cannot be zero
+    /// </summary>
+    /// <param name="dmg"></param>
     public void hitPlayer(int dmg)
     {
         if (!dashInvulnerab)
@@ -275,7 +321,10 @@ public class PlayerControler : MonoBehaviour
         }
         
     }
-
+    /// <summary>
+    /// Increase score by a controllable integer amount
+    /// </summary>
+    /// <param name="scoreIncrease"></param>
     public void ScoreUp(int scoreIncrease)
     {
         score += scoreIncrease;
