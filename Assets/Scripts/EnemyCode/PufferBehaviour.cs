@@ -6,12 +6,15 @@ public class PufferBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
+    [SerializeField] private GameObject abilityDrop;
 
     private StatDropController dropController;
     public GameObject enemySpawn;
 
     public float speed;
     public int dropChance; // higher number lees liekly it drops
+    public int abilityDropChance; // higher number lees liekly it drops
+
     private bool lockTarget; // the point where the players was and launge there
     private GameObject cloneStorage;
     public float hp;
@@ -30,10 +33,19 @@ public class PufferBehaviour : MonoBehaviour
 
     public int angleToTarget;
 
+    [SerializeField] private StatScalingController statController;
+    private float statScalePuff;
+
     void Start()
-    {
-        puff = false;
+    {   
         target = GameObject.FindWithTag("Player");
+        statController = target.gameObject.GetComponent<StatScalingController>();
+        statScalePuff = statController.statScale;
+        hp *= statScalePuff;
+        speed *= statScalePuff;
+        Mathf.Round(hp);
+        puff = false;
+        
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
       //  Vector3 loungePoint = target.transform.position;
 
@@ -99,7 +111,12 @@ public class PufferBehaviour : MonoBehaviour
     }
 
   
-
+    /// <summary>
+    /// Expands the pufferfish outward, then waits for 2 seconds before deflating back to normal size
+    /// </summary>
+    /// <param name="targetScale"></param>
+    /// <param name="growDuration"></param>
+    /// <returns></returns>
     IEnumerator DoPuff(Vector3 targetScale, float growDuration)
     {
         Vector3 initialScale = transform.localScale;
@@ -137,7 +154,10 @@ public class PufferBehaviour : MonoBehaviour
 
 
 
-
+    /// <summary>
+    /// Takes damage on contact with player or ammo, deals damage to player upon collision
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Ammo")
@@ -178,7 +198,9 @@ public class PufferBehaviour : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Increases score before checking if it will drop anything
+    /// </summary>
     public void enemyDie()
     {
         target.GetComponent<PlayerControler>().ScoreUp(25); // increase score
@@ -188,6 +210,11 @@ public class PufferBehaviour : MonoBehaviour
         if (dropRoll == dropChance / 2)
         {
             Instantiate(drop, gameObject.transform.position, Quaternion.identity);
+        }
+          dropRoll = Random.Range(0, abilityDropChance);
+        if (dropRoll == abilityDropChance / 2)
+        {
+            Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
         }
         gameObject.SetActive(false);
     }

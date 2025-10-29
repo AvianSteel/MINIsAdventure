@@ -6,6 +6,8 @@ public class SquidBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
+    [SerializeField] private GameObject abilityDrop;
+
     [SerializeField] private GameObject ink;
 
     private StatDropController dropController;
@@ -14,6 +16,8 @@ public class SquidBehaviour : MonoBehaviour
     public float speed;
     public float loungeSpeed; 
     public int dropChance; // higher number lees liekly it drops
+    public int abilityDropChance; // higher number lees liekly it drops
+
     private bool lockTarget; // the point where the players was and launge there
     private GameObject cloneStorage;
     public float hp;
@@ -24,12 +28,22 @@ public class SquidBehaviour : MonoBehaviour
     [SerializeField] private GameObject squidSkin;
     SpriteRenderer sr; // reference to how the skin is pointed
 
+    [SerializeField] private StatScalingController statController;
+    private float statScaleSquid;
+
     private int dropRoll;
     void Start()
-    {
+    {        
+        target = GameObject.FindWithTag("Player");
+        statController = target.gameObject.GetComponent<StatScalingController>();
+        statScaleSquid = statController.statScale;
+        hp *= statScaleSquid;
+        atackInterval *= statScaleSquid;
+        speed *= statScaleSquid;
+        Mathf.Round(hp);
         sr = squidSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
 
-        target = GameObject.FindWithTag("Player");
+
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
         Vector3 loungePoint = target.transform.position;
 
@@ -87,6 +101,9 @@ public class SquidBehaviour : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Fires a projectile that continues to the players position at the beginning of the function
+    /// </summary>
     private void shoot()
     {
         print("shoot");
@@ -117,7 +134,10 @@ public class SquidBehaviour : MonoBehaviour
 
 
 
-
+    /// <summary>
+    /// Takes damage on collision with a bullet or player, dealing damage to player upon collision
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Ammo")
@@ -150,7 +170,9 @@ public class SquidBehaviour : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Increases the score, then checks if it will drop anything 
+    /// </summary>
     public void enemyDie()
     {
         target.GetComponent<PlayerControler>().ScoreUp(25); // increase score
@@ -160,6 +182,11 @@ public class SquidBehaviour : MonoBehaviour
         if (dropRoll == dropChance / 2)
         {
             Instantiate(drop, gameObject.transform.position, Quaternion.identity);
+        }
+        dropRoll = Random.Range(0, abilityDropChance);
+        if (dropRoll == abilityDropChance / 2)
+        {
+            Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
         }
         gameObject.SetActive(false);
     }
