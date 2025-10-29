@@ -10,27 +10,57 @@ public class StatDropController : MonoBehaviour
     public float attackSpeedBonus;
     public float abilitySpeedBonus;
     public int defenseBonus;
+    [SerializeField] private bool uloksAbility; // if this is checked this drop will add a new ability to the player and won't affect stats
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player")
         {
-            randomStat = Random.Range(0, 4);
-            if(randomStat == 0)
+            if (uloksAbility)
             {
-                collision.gameObject.GetComponent<PlayerControler>().increaseSpeed(speedBonus);
-            }else if(randomStat == 1)
-            {
-                collision.gameObject.GetComponent<PlayerControler>().increaseAttackSpeed(attackSpeedBonus);
-            }
-            else if(randomStat == 2)
-            {
-                collision.gameObject.GetComponent<PlayerControler>().increaseAbilitySpeed(abilitySpeedBonus);
+                
+                    randomStat = Random.Range(1, 4);
+                    if (randomStat == 1)
+                    {
+                        print("laser lvl+");
+                        collision.gameObject.GetComponent<PlayerControler>().laserLvl += 1;
+                    }
+                    else if (randomStat == 2)
+                    {
+                        print("mine lvl+");
+                        collision.gameObject.GetComponent<PlayerControler>().mineLvl += 1;
+
+                    }
+                    else if (randomStat == 3)
+                    {
+                        print("dash lvl+");
+                        collision.gameObject.GetComponent<PlayerControler>().dashLvl += 1;
+
+                    }
+                
+                Destroy(gameObject);
+
             }
             else
             {
-                collision.gameObject.GetComponent<PlayerControler>().increaseDefense(defenseBonus);
-            }
+                randomStat = Random.Range(0, 4);
+                if (randomStat == 0)
+                {
+                    collision.gameObject.GetComponent<PlayerControler>().increaseSpeed(speedBonus);
+                }
+                else if (randomStat == 1)
+                {
+                    collision.gameObject.GetComponent<PlayerControler>().increaseAttackSpeed(attackSpeedBonus);
+                }
+                else if (randomStat == 2)
+                {
+                    collision.gameObject.GetComponent<PlayerControler>().increaseAbilitySpeed(abilitySpeedBonus);
+                }
+                else if (randomStat == 3)
+                {
+                    collision.gameObject.GetComponent<PlayerControler>().increaseDefense(defenseBonus);
+                }
                 Destroy(gameObject);
+            }              
         }
     }
 }

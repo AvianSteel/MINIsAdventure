@@ -49,13 +49,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   drop: {fileID: 1364158909784646617, guid: 64752035a49e3994588f0ee6a2c326d1, type: 3}
+  abilityDrop: {fileID: 1364158909784646617, guid: 526ee7219f0f19c43a12e47b5e2f04a7, type: 3}
   enemySpawn: {fileID: 0}
   speed: 1
   loungeSpeed: 2.5
   dropChance: 5
+  abilityDropChance: 7
   hp: 2
   pl: {fileID: 0}
   swordSkin: {fileID: 1526856939700873563}
+  statController: {fileID: 0}
 --- !u!50 &-2459013091579546574
 Rigidbody2D:
   serializedVersion: 5
@@ -117,7 +120,11 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+<<<<<<< Updated upstream
+  m_Offset: {x: -0.17861867, y: 0.08172119}
+=======
+  m_Offset: {x: 0.33726358, y: 0.17817697}
+>>>>>>> Stashed changes
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -127,7 +134,11 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+<<<<<<< Updated upstream
+  m_Size: {x: 3.6810184, y: 1.2724042}
+=======
+  m_Size: {x: 7.8089066, y: 1.7381618}
+>>>>>>> Stashed changes
   m_EdgeRadius: 0
 --- !u!1 &1526856939700873563
 GameObject:
@@ -155,8 +166,8 @@ Transform:
   m_GameObject: {fileID: 1526856939700873563}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0.015, y: 0.032, z: 0}
+  m_LocalScale: {x: 1.3740838, y: 1.6478012, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6600196911270221339}
@@ -181,6 +192,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -202,6 +215,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
