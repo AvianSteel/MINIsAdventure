@@ -43,8 +43,13 @@ public class TargetZoneControler : MonoBehaviour
     
     private void openFire(GameObject enem)
     {
+
+        
+
         if (OldBullets.Count > 0)
         {
+            AudioSource.PlayClipAtPoint(bulletSound, transform.position);
+            
             cloneStorage = OldBullets[0];
             
             cloneStorage.transform.position = pl.transform.position;
@@ -66,7 +71,7 @@ public class TargetZoneControler : MonoBehaviour
         }
         cloneStorage.SetActive(true);
 
-        AudioSource.PlayClipAtPoint(bulletSound, transform.position);
+        
 
 
     }
