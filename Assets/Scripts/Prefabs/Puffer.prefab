@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 409693146355657015}
   - component: {fileID: 6653932675643233827}
   - component: {fileID: 5399736284705375921}
+  - component: {fileID: 6671240971368665018}
   m_Layer: 3
   m_Name: Puffer
   m_TagString: Enemy
@@ -313,4 +314,17 @@ MonoBehaviour:
   NoPufSkin: {fileID: 6500170881908727505}
   PufSkin: {fileID: 4840179703847106691}
   angleToTarget: 0
-  statController: {fileID: 0}
+  statController: {fileID: 6671240971368665018}
+--- !u!114 &6671240971368665018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842539629334407549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0b5ff6dd63be044a78032dbf7ec779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatScalingController
+  statScale: 1
