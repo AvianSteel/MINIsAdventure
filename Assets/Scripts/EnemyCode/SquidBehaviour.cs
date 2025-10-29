@@ -6,6 +6,8 @@ public class SquidBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
+    [SerializeField] private GameObject abilityDrop;
+
     [SerializeField] private GameObject ink;
 
     private StatDropController dropController;
@@ -14,6 +16,8 @@ public class SquidBehaviour : MonoBehaviour
     public float speed;
     public float loungeSpeed; 
     public int dropChance; // higher number lees liekly it drops
+    public int abilityDropChance; // higher number lees liekly it drops
+
     private bool lockTarget; // the point where the players was and launge there
     private GameObject cloneStorage;
     public float hp;
@@ -31,7 +35,7 @@ public class SquidBehaviour : MonoBehaviour
     void Start()
     {        
         target = GameObject.FindWithTag("Player");
-        statController = target.gameObject.GetComponent<StatScalingController>();
+      //  statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSquid = statController.statScale;
         hp *= statScaleSquid;
         atackInterval *= statScaleSquid;
@@ -64,7 +68,7 @@ public class SquidBehaviour : MonoBehaviour
             direction.Normalize(); // Keep velocity consistent
 
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
-              sr.flipX = false;
+            //sr.flipX = false;
 
 
 
@@ -102,7 +106,6 @@ public class SquidBehaviour : MonoBehaviour
     /// </summary>
     private void shoot()
     {
-        print("shoot");
         cloneStorage = Instantiate(ink, transform.position, Quaternion.identity);
         cloneStorage.name = "Ink";
         cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
@@ -178,6 +181,11 @@ public class SquidBehaviour : MonoBehaviour
         if (dropRoll == dropChance / 2)
         {
             Instantiate(drop, gameObject.transform.position, Quaternion.identity);
+        }
+        dropRoll = Random.Range(0, abilityDropChance);
+        if (dropRoll == abilityDropChance / 2)
+        {
+            Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
         }
         gameObject.SetActive(false);
     }

@@ -6,12 +6,15 @@ public class PufferBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
+    [SerializeField] private GameObject abilityDrop;
 
     private StatDropController dropController;
     public GameObject enemySpawn;
 
     public float speed;
     public int dropChance; // higher number lees liekly it drops
+    public int abilityDropChance; // higher number lees liekly it drops
+
     private bool lockTarget; // the point where the players was and launge there
     private GameObject cloneStorage;
     public float hp;
@@ -36,7 +39,7 @@ public class PufferBehaviour : MonoBehaviour
     void Start()
     {   
         target = GameObject.FindWithTag("Player");
-        statController = target.gameObject.GetComponent<StatScalingController>();
+       // statController = target.gameObject.GetComponent<StatScalingController>();
         statScalePuff = statController.statScale;
         hp *= statScalePuff;
         speed *= statScalePuff;
@@ -207,6 +210,11 @@ public class PufferBehaviour : MonoBehaviour
         if (dropRoll == dropChance / 2)
         {
             Instantiate(drop, gameObject.transform.position, Quaternion.identity);
+        }
+          dropRoll = Random.Range(0, abilityDropChance);
+        if (dropRoll == abilityDropChance / 2)
+        {
+            Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
         }
         gameObject.SetActive(false);
     }

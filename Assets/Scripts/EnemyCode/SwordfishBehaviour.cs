@@ -4,11 +4,15 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
+    [SerializeField] private GameObject abilityDrop;
+
     public GameObject enemySpawn;
     private StatDropController dropController;
     public float speed;
     public float loungeSpeed; 
     public int dropChance; // higher number lees liekly it drops
+    public int abilityDropChance; // higher number lees liekly it drops
+
     private bool lockTarget; // the point where the players was and launge there
     public float hp;
     public GameObject pl;
@@ -25,7 +29,7 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
-        statController = target.gameObject.GetComponent<StatScalingController>();
+       // statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSword = statController.statScale;
         hp *= statScaleSword;
         speed *= statScaleSword;
@@ -150,6 +154,13 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Instantiate(drop, gameObject.transform.position, Quaternion.identity);
         }
+
+        dropRoll = Random.Range(0, abilityDropChance);
+        if (dropRoll == abilityDropChance / 2)
+        {
+            Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
+        }
+
         enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject);
         gameObject.SetActive(false);
     }
