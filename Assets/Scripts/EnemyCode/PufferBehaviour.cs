@@ -39,7 +39,7 @@ public class PufferBehaviour : MonoBehaviour
     void Start()
     {   
         target = GameObject.FindWithTag("Player");
-        statController = target.gameObject.GetComponent<StatScalingController>();
+       // statController = target.gameObject.GetComponent<StatScalingController>();
         statScalePuff = statController.statScale;
         hp *= statScalePuff;
         speed *= statScalePuff;
