@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3630253456846236870}
   - component: {fileID: -2459013091579546574}
   - component: {fileID: -1516527984156382540}
+  - component: {fileID: -5082869417029690661}
   m_Layer: 3
   m_Name: CloseEnemy
   m_TagString: Enemy
@@ -58,7 +59,7 @@ MonoBehaviour:
   hp: 2
   pl: {fileID: 0}
   swordSkin: {fileID: 1526856939700873563}
-  statController: {fileID: 0}
+  statController: {fileID: -5082869417029690661}
 --- !u!50 &-2459013091579546574
 Rigidbody2D:
   serializedVersion: 5
@@ -132,6 +133,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.6810184, y: 1.2724042}
   m_EdgeRadius: 0
+--- !u!114 &-5082869417029690661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163515637861156452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0b5ff6dd63be044a78032dbf7ec779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatScalingController
+  statScale: 1
 --- !u!1 &1526856939700873563
 GameObject:
   m_ObjectHideFlags: 0

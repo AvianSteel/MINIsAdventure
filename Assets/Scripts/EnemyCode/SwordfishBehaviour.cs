@@ -29,7 +29,7 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
-        statController = target.gameObject.GetComponent<StatScalingController>();
+       // statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSword = statController.statScale;
         hp *= statScaleSword;
         speed *= statScaleSword;

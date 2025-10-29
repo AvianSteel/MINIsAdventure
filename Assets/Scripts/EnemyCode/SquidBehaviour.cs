@@ -35,7 +35,7 @@ public class SquidBehaviour : MonoBehaviour
     void Start()
     {        
         target = GameObject.FindWithTag("Player");
-        statController = target.gameObject.GetComponent<StatScalingController>();
+      //  statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSquid = statController.statScale;
         hp *= statScaleSquid;
         atackInterval *= statScaleSquid;
@@ -68,7 +68,7 @@ public class SquidBehaviour : MonoBehaviour
             direction.Normalize(); // Keep velocity consistent
 
             gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
-              sr.flipX = false;
+            //sr.flipX = false;
 
 
 
@@ -106,7 +106,6 @@ public class SquidBehaviour : MonoBehaviour
     /// </summary>
     private void shoot()
     {
-        print("shoot");
         cloneStorage = Instantiate(ink, transform.position, Quaternion.identity);
         cloneStorage.name = "Ink";
         cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
