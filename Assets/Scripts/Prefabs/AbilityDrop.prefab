@@ -128,11 +128,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-<<<<<<< Updated upstream
   m_Offset: {x: -0.0057182014, y: 0.00000011920929}
-=======
-  m_Offset: {x: 0.0021416545, y: 0.00000008940697}
->>>>>>> Stashed changes
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -142,11 +138,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-<<<<<<< Updated upstream
   m_Size: {x: 1.0831637, y: 1.1837225}
-=======
-  m_Size: {x: 0.7782049, y: 1.1837225}
->>>>>>> Stashed changes
   m_EdgeRadius: 0
 --- !u!50 &-4283009541639325285
 Rigidbody2D:
@@ -191,10 +183,7 @@ MonoBehaviour:
   attackSpeedBonus: 0.05
   abilitySpeedBonus: 0.05
   defenseBonus: 1
-<<<<<<< Updated upstream
   uloksAbility: 1
-=======
->>>>>>> Stashed changes
 --- !u!1 &7941307127124368007
 GameObject:
   m_ObjectHideFlags: 0
