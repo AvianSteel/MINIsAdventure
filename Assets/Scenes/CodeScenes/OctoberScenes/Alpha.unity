@@ -16552,7 +16552,7 @@ MonoBehaviour:
   canMine: 0
   mineLvl: 0
   canDash: 0
-  dashLvl: 0
+  dashLvl: 1
   dashInvulnerab: 0
   moveDirection: 0
   slideDirection: 0
@@ -16561,8 +16561,8 @@ MonoBehaviour:
   atackTime: 0.1
   abilityTime: 0
   Pldefense: 0
-  DashDuration: 0
-  dashSpeedMultiplier: 0
+  DashDuration: 0.2
+  dashSpeedMultiplier: 3.5
   hp: 25
   statController: {fileID: 0}
 --- !u!114 &820211171
@@ -43526,7 +43526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.074520834, y: 0.882}
   m_AnchorMax: {x: 0.074520834, y: 0.882}
-  m_AnchoredPosition: {x: -0.6648865, y: -3.2869873}
+  m_AnchoredPosition: {x: -0.664917, y: -3.2869873}
   m_SizeDelta: {x: 525, y: 56}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1783317384
