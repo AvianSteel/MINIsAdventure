@@ -176,7 +176,7 @@ public class PlayerControler : MonoBehaviour
     public IEnumerator DashCooldown()
     {
         float origPlSpeed = PlSpeed;
-
+        PlSpeed *= dashSpeedMultiplier;
 
         for (int i = 12; i >= 0; i--)
         {
