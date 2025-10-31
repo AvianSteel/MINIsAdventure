@@ -91,6 +91,7 @@ public class PlayerControler : MonoBehaviour
         canLaser = true;
         canMine = true;
         canDash = true;
+        scoreText.text = (score.ToString());
     }
     #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
@@ -326,7 +327,7 @@ public class PlayerControler : MonoBehaviour
     public void ScoreUp(int scoreIncrease)
     {
         score += scoreIncrease;
-        scoreText.text = ("Score: " + score);
+        scoreText.text = (score.ToString());
 
     }
 
