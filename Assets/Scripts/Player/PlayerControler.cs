@@ -67,7 +67,6 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         isPlSliding = true;
-        livesText.text = ("Lives: " + hp);
         scoreText.text = ("Score: " + score);
 
         playerInput.currentActionMap.Enable();  //Enable action map
@@ -177,7 +176,7 @@ public class PlayerControler : MonoBehaviour
     public IEnumerator DashCooldown()
     {
         float origPlSpeed = PlSpeed;
-
+        PlSpeed *= dashSpeedMultiplier;
 
         for (int i = 12; i >= 0; i--)
         {
@@ -311,7 +310,6 @@ public class PlayerControler : MonoBehaviour
                 damage = 1;
             }
             hp = hp - damage;
-            livesText.text = ("Lives: " + hp);
 
 
             if (hp <= 0)
