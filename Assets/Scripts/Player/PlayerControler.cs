@@ -33,7 +33,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text scoreText;
 
-    
+    [SerializeField] private ParticleSystem hitEffect;
+
 
     private bool isPlMoving; // player move up / down
     private bool isPlSliding;// player move left / right
@@ -310,6 +311,7 @@ public class PlayerControler : MonoBehaviour
             {
                 damage = 1;
             }
+            PlayHitEffect();
             hp = hp - damage;
             livesText.text = ("Lives: " + hp);
 
@@ -401,6 +403,13 @@ public class PlayerControler : MonoBehaviour
 
     }
 
-   
+    public void PlayHitEffect()
+    {
+        if (hitEffect != null)
+        {
+            hitEffect.Play();
+        }
+    }
+
 
 }
