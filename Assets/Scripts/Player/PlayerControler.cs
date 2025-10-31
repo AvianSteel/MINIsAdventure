@@ -329,7 +329,7 @@ public class PlayerControler : MonoBehaviour
     public void ScoreUp(int scoreIncrease)
     {
         score += scoreIncrease;
-        scoreText.text = ("Score: " + score);
+        scoreText.text = (score.ToString());
 
     }
 
