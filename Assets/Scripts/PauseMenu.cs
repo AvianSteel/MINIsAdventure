@@ -71,7 +71,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitButton()
     {
-        SceneManager.LoadScene("Alpha");
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void BackButton()
