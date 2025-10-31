@@ -184,6 +184,7 @@ MonoBehaviour:
   abilitySpeedBonus: 0.05
   defenseBonus: 1
   uloksAbility: 1
+  pickUpSound: {fileID: 8300000, guid: b0e62ed71b1538648b719821f4f63b4c, type: 3}
 --- !u!1 &7941307127124368007
 GameObject:
   m_ObjectHideFlags: 0

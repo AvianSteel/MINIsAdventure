@@ -11,10 +11,16 @@ public class StatDropController : MonoBehaviour
     public float abilitySpeedBonus;
     public int defenseBonus;
     [SerializeField] private bool uloksAbility; // if this is checked this drop will add a new ability to the player and won't affect stats
+
+    [SerializeField] private AudioClip pickUpSound;
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player")
         {
+            AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
+
             if (uloksAbility)
             {
                 
