@@ -25,6 +25,9 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private GameObject laserObject;
     [SerializeField] private GameObject seaMine;
 
+    public GameObject abilityMenu;
+    public int exceptionChoice;// which ability is not avilable for choice
+
     [SerializeField] private GameObject downSkin;
     [SerializeField] private GameObject upSkin;
     [SerializeField] private GameObject leftSkin;
@@ -43,6 +46,7 @@ public class PlayerControler : MonoBehaviour
     public int laserLvl;// if ability lvl is 0 it must be unlocked first, every lvl > 1 makes it stronger
     public bool canMine;
     public int mineLvl;
+    public bool isChoosingAbility;
 
     public bool canDash;
     public int dashLvl;
@@ -96,6 +100,8 @@ public class PlayerControler : MonoBehaviour
     #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
     {
+        AbilityChoice(3);
+
         if (canDash && dashLvl > 0)
         {
             StartCooldown("dash");
@@ -106,6 +112,8 @@ public class PlayerControler : MonoBehaviour
     }
     private void Mine_started(InputAction.CallbackContext obj)
     {
+        AbilityChoice(2);
+
         if (canMine && mineLvl > 0)
         {
             Instantiate(seaMine,transform.position,Quaternion.identity);
@@ -115,6 +123,8 @@ public class PlayerControler : MonoBehaviour
 
     private void Laser_started(InputAction.CallbackContext obj)
     {
+        AbilityChoice(1);
+
         if (canLaser && laserLvl > 0)
         {
             Instantiate(laserObject);
@@ -409,6 +419,43 @@ public class PlayerControler : MonoBehaviour
             hitEffect.Play();
         }
     }
+
+
+    /// <summary>
+    /// called down by the 3 input actions for abilities, every time the key is pressed the game checks if player has to chose an ability
+    ///  1 = laser   2 = mine    3 = dash
+    /// </summary>
+    public void AbilityChoice(int abilityNum)
+    {
+        print("mark 0");
+        if (isChoosingAbility)
+        {
+            print("mark1");
+            if (abilityNum == 1 && exceptionChoice != 1)
+            {
+                laserLvl++;
+                abilityMenu.GetComponent<ChooseAbility>().closeChoice();
+
+            }
+            else if (abilityNum == 2 && exceptionChoice != 2)
+            {
+                mineLvl++;
+                abilityMenu.GetComponent<ChooseAbility>().closeChoice();
+
+            }
+            else if (abilityNum == 3 && exceptionChoice != 3)
+            {
+                {
+                    dashLvl++;
+                    abilityMenu.GetComponent<ChooseAbility>().closeChoice();
+
+                }
+
+            }
+        }
+    }
+
+
 
     public void OnDestroy()
     {

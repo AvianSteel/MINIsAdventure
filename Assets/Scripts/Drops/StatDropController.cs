@@ -21,28 +21,12 @@ public class StatDropController : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
 
-            if (uloksAbility)
+            if (uloksAbility) // if it is an ability drop
             {
-                
-                    randomStat = Random.Range(1, 4);
-                    if (randomStat == 1)
-                    {
-                        print("laser lvl+");
-                        collision.gameObject.GetComponent<PlayerControler>().laserLvl += 1;
-                    }
-                    else if (randomStat == 2)
-                    {
-                        print("mine lvl+");
-                        collision.gameObject.GetComponent<PlayerControler>().mineLvl += 1;
 
-                    }
-                    else if (randomStat == 3)
-                    {
-                        print("dash lvl+");
-                        collision.gameObject.GetComponent<PlayerControler>().dashLvl += 1;
+                collision.gameObject.GetComponent<PlayerControler>().abilityMenu.SetActive(true);
+                collision.gameObject.GetComponent<PlayerControler>().abilityMenu.GetComponent<ChooseAbility>().giveAChoice();// give player ability to choose
 
-                    }
-                
                 Destroy(gameObject);
 
             }
