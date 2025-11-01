@@ -3,9 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public GameObject controlsMenu;
+
+
     public void StartGame()
     {
-        SceneManager.LoadScene("Squid");
+        SceneManager.LoadScene("Alpha");
     }
 
     public void QuitGame()
