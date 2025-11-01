@@ -6945,9 +6945,14 @@ MonoBehaviour:
   rightSkin: {fileID: 363074226}
   livesText: {fileID: 1451630748}
   scoreText: {fileID: 54402698}
+  hitEffect: {fileID: 0}
+  hitSound: {fileID: 0}
   canLaser: 0
+  laserLvl: 0
   canMine: 0
+  mineLvl: 0
   canDash: 0
+  dashLvl: 0
   dashInvulnerab: 0
   moveDirection: 0
   slideDirection: 0
@@ -6959,6 +6964,7 @@ MonoBehaviour:
   DashDuration: 0.4
   dashSpeedMultiplier: 4
   hp: 25
+  statController: {fileID: 0}
 --- !u!114 &820211171
 MonoBehaviour:
   m_ObjectHideFlags: 0
