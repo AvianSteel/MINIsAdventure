@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public GameObject controlsMenu;
+    public GameObject controlsUI;
 
 
     public void StartGame()
@@ -22,5 +22,13 @@ public class MainMenuController : MonoBehaviour
     public void ControlsMenu()
     {
         SceneManager.LoadScene("PauseMenuScene");
+    }
+    public void ControlsButton()
+    {
+        controlsUI.SetActive(true);
+    }
+    public void BackButton()
+    {
+        controlsUI.SetActive(false);
     }
 }
