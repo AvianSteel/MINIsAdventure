@@ -33,8 +33,9 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text scoreText;
 
-    
-
+    [SerializeField] private ParticleSystem hitEffect;
+    [SerializeField] private AudioClip hitSound;
+   
     private bool isPlMoving; // player move up / down
     private bool isPlSliding;// player move left / right
     private bool isPlStationary;// player is in place / no movement detected
@@ -309,6 +310,8 @@ public class PlayerControler : MonoBehaviour
             {
                 damage = 1;
             }
+            PlayHitEffect();
+            AudioSource.PlayClipAtPoint(hitSound, transform.position);
             hp = hp - damage;
 
 
@@ -326,7 +329,7 @@ public class PlayerControler : MonoBehaviour
     public void ScoreUp(int scoreIncrease)
     {
         score += scoreIncrease;
-        scoreText.text = ("Score: " + score);
+        scoreText.text = (score.ToString());
 
     }
 
@@ -399,6 +402,13 @@ public class PlayerControler : MonoBehaviour
 
     }
 
-   
+    public void PlayHitEffect()
+    {
+        if (hitEffect != null)
+        {
+            hitEffect.Play();
+        }
+    }
+
 
 }

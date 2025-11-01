@@ -10,6 +10,10 @@ public class AbilityCooldownUI : MonoBehaviour
     public bool canLaserLocal;
     public bool canMineLocal;
     public bool canDashLocal;
+
+    private int laserLvlLocal;
+    private int mineLvlLocal;
+    private int dashLvlLocal;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
