@@ -9,6 +9,7 @@ public class TargetZoneControler : MonoBehaviour
     [SerializeField] private GameObject ammo;
     public List<GameObject> OldBullets = new List<GameObject>();
 
+    [SerializeField] private AudioClip bulletSound;
 
     private GameObject cloneStorage; // temporary storage for the latest ammo copy     turn into object pooling
     void Start()
@@ -42,8 +43,13 @@ public class TargetZoneControler : MonoBehaviour
     
     private void openFire(GameObject enem)
     {
+
+        
+
         if (OldBullets.Count > 0)
         {
+            AudioSource.PlayClipAtPoint(bulletSound, transform.position);
+            
             cloneStorage = OldBullets[0];
             
             cloneStorage.transform.position = pl.transform.position;
@@ -52,7 +58,6 @@ public class TargetZoneControler : MonoBehaviour
             cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = enem;
             
             cloneStorage.GetComponent<AmmoControler>().bulletDmg = pl.GetComponent<PlayerControler>().ammoDmg; // gets the dmg stored in player and sets the bullet dmg to that
-            print("old");
 
 
         }
@@ -63,11 +68,10 @@ public class TargetZoneControler : MonoBehaviour
             cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = enem;
             cloneStorage.GetComponent<AmmoControler>().bulletDmg = pl.GetComponent<PlayerControler>().ammoDmg; // gets the dmg stored in player and sets the bullet dmg to that
             cloneStorage.GetComponent<AmmoControler>().ZoneHost = gameObject;
-            print("new");
         }
         cloneStorage.SetActive(true);
 
-
+        
 
 
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -2459013091579546574}
   - component: {fileID: -1516527984156382540}
   - component: {fileID: 54893514223143062}
+  - component: {fileID: 8371637519871401061}
   m_Layer: 3
   m_Name: Squid
   m_TagString: Enemy
@@ -122,13 +123,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   drop: {fileID: 1364158909784646617, guid: 64752035a49e3994588f0ee6a2c326d1, type: 3}
+  abilityDrop: {fileID: 1364158909784646617, guid: 526ee7219f0f19c43a12e47b5e2f04a7, type: 3}
   ink: {fileID: 7054941919168383900, guid: 2f2ae5ce4f26c354d855af8ebb846760, type: 3}
+  enemySpawn: {fileID: 0}
   speed: 1.4
   loungeSpeed: 0
   dropChance: 4
+  abilityDropChance: 30
   hp: 1
   atackInterval: 3
   shootDistance: 6
+  squidSkin: {fileID: 7211159944281913812}
+  statController: {fileID: 8371637519871401061}
+--- !u!114 &8371637519871401061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163515637861156452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0b5ff6dd63be044a78032dbf7ec779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatScalingController
+  statScale: 1
 --- !u!1 &7211159944281913812
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +159,7 @@ GameObject:
   - component: {fileID: 7613775742234592093}
   - component: {fileID: 5688415514163651478}
   m_Layer: 3
-  m_Name: EnemyMele
+  m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,6 +200,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -202,11 +223,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.46956626, g: 0.015272322, b: 0.735849, a: 1}
+  m_Sprite: {fileID: -8092735977570057815, guid: bf81ff6a2f937a14999dceaba20a3efb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -12,8 +12,13 @@ public class LaserController : MonoBehaviour
     public float laserDirection;
     public float laserDmg;
 
+    [SerializeField] private AudioClip hitLaserSound; 
+
     private Rigidbody2D playerRb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    /// <summary>
+    /// Gets the players facing direction to be pointing in before starting the coroutine to move it
+    /// </summary>
     void Start()
     {
         playerControler = GameObject.Find("Player").gameObject.GetComponent<PlayerControler>();
@@ -38,6 +43,10 @@ public class LaserController : MonoBehaviour
         StartCoroutine(LaserWiggle());
 
     }
+    /// <summary>
+    /// Rotates the laser up and down in the initial direction it was activated.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator LaserWiggle()
     {
         for(int i = 0; i < 45; i++)
@@ -50,25 +59,37 @@ public class LaserController : MonoBehaviour
             laserDirection--;
             yield return new WaitForSeconds(0.01f);
         }
+        AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
         playerControler.StartCooldown("laser");
         StopCoroutine(LaserWiggle());
         Destroy(laserParent);
     }
-
+    /// <summary>
+    /// Deals damage to any enemy which gets hit by the laser
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "SwordFish")
         {
             collision.gameObject.GetComponent<EnemyBehaviour>().enemyHit(laserDmg);
+
         }
         else if (collision.gameObject.name == "Squid")
         {
             collision.gameObject.GetComponent<SquidBehaviour>().enemyHit(laserDmg);
 
         }
+        else if (collision.gameObject.name == "Puffer")
+        {
+            collision.gameObject.GetComponent<PufferBehaviour>().enemyHit(laserDmg);
+
+        }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Moves the laser alongside the player
+    /// </summary>
     void Update()
     {
         moveDirection = playerControler.moveDirection;
