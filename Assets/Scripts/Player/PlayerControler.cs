@@ -177,7 +177,7 @@ public class PlayerControler : MonoBehaviour
     public IEnumerator DashCooldown()
     {
         float origPlSpeed = PlSpeed;
-        PlSpeed *= dashSpeedMultiplier;
+        PlSpeed *= dashSpeedMultiplier + dashLvl; // higher dash lvl, higher speed
 
         for (int i = 12; i >= 0; i--)
         {
@@ -410,5 +410,17 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
+    public void OnDestroy()
+    {
+        move.started -= Move_started;
+        move.canceled -= Move_canceled;
+        slide.started -= Slide_started;
+        slide.canceled -= Slide_canceled;
+        laser.started -= Laser_started;
+        mine.started -= Mine_started;
+        dash.started -= Dash_started;
+        restart.started -= Restart_started;
+        quit.started -= Quit_started;
+    }
 
 }
