@@ -24,6 +24,7 @@ public class MineController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator MineCountdown()
     {
+        mineDmg = playerControler.GetComponent<PlayerControler>().mineLvl; // higher lvl, higher dmg
         for (int i = 0; i < 6; i++)
         {
             
@@ -64,6 +65,8 @@ public class MineController : MonoBehaviour
 /// </summary>
     private void Explode()
     {
+        gameObject.GetComponent<CircleCollider2D>().radius = playerControler.GetComponent<PlayerControler>().mineLvl; // higher ability lvl, bigger explosion
+
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         AudioSource.PlayClipAtPoint(mineExplosionSound, transform.position);

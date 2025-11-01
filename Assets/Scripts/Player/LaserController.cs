@@ -49,6 +49,7 @@ public class LaserController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator LaserWiggle()
     {
+        laserDmg = playerControler.GetComponent<PlayerControler>().laserLvl / 2; // higher ability lvl, higher dmg
         for(int i = 0; i < 45; i++)
         {
             laserDirection++;
