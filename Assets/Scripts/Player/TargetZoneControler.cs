@@ -34,7 +34,7 @@ public class TargetZoneControler : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"));
+        if (collision.CompareTag("Enemy"))
         {
             bool removed = targets.Remove(collision.gameObject);
         }

@@ -138,8 +138,8 @@ public class PlayerControler : MonoBehaviour
     private void Quit_started(InputAction.CallbackContext obj)
     {
         StopCoroutine(statController.StatScalingTimer());
-        EditorApplication.isPlaying = false; // Stop play mode in the editor    
-        //Application.Quit();
+        //EditorApplication.isPlaying = false; // Stop play mode in the editor    
+        Application.Quit();
     }
     private void Move_canceled(InputAction.CallbackContext obj)
     {
