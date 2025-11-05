@@ -47,6 +47,7 @@ public class PlayerControler : MonoBehaviour
     public bool canMine;
     public int mineLvl;
     public bool isChoosingAbility;
+    public int activeTarget;
 
     public bool canDash;
     public int dashLvl;
@@ -71,6 +72,7 @@ public class PlayerControler : MonoBehaviour
 
     void Start()
     {
+        activeTarget = 0;
         isPlSliding = true;
         scoreText.text = ("Score: " + score);
 
@@ -353,6 +355,7 @@ public class PlayerControler : MonoBehaviour
             // depending on the movement direction the coresponding zone is activated others are desactivated
             if (moveDirection > 0)
             {
+                activeTarget = 1; // up
                 topZpne.SetActive(true);
                 leftZone.SetActive(false);
                 rightZone.SetActive(false);
@@ -365,6 +368,8 @@ public class PlayerControler : MonoBehaviour
             }
             else if (moveDirection < 0)
             {
+                activeTarget = 3;
+
                 topZpne.SetActive(false);
                 leftZone.SetActive(false);
                 rightZone.SetActive(false);
@@ -386,6 +391,8 @@ public class PlayerControler : MonoBehaviour
             // depending on the movement direction the coresponding zone is activated others are desactivated
             if (slideDirection > 0)
             {
+                activeTarget = 2;
+
                 topZpne.SetActive(false);
                 leftZone.SetActive(false);
                 rightZone.SetActive(true);
@@ -398,6 +405,8 @@ public class PlayerControler : MonoBehaviour
             }
             else if (slideDirection < 0)
             {
+                activeTarget = 0;
+
                 topZpne.SetActive(false);
                 leftZone.SetActive(true);
                 rightZone.SetActive(false);
@@ -427,10 +436,8 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     public void AbilityChoice(int abilityNum)
     {
-        print("mark 0");
         if (isChoosingAbility)
         {
-            print("mark1");
             if (abilityNum == 1 && exceptionChoice != 1)
             {
                 laserLvl++;
