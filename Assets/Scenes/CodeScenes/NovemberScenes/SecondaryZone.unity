@@ -10073,6 +10073,11 @@ MonoBehaviour:
   targets: []
   pl: {fileID: 820211168}
   ammo: {fileID: 6976275416886149641, guid: 1d95a9e4ba1e4724bb34de28063fc4c4, type: 3}
+  secondary: 0
+  zone1: {fileID: 0}
+  zone2: {fileID: 0}
+  zone3: {fileID: 0}
+  zone4: {fileID: 0}
   OldBullets: []
   bulletSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
 --- !u!60 &99871339
@@ -14220,6 +14225,11 @@ MonoBehaviour:
   targets: []
   pl: {fileID: 820211168}
   ammo: {fileID: 6976275416886149641, guid: 1d95a9e4ba1e4724bb34de28063fc4c4, type: 3}
+  secondary: 0
+  zone1: {fileID: 0}
+  zone2: {fileID: 0}
+  zone3: {fileID: 0}
+  zone4: {fileID: 0}
   OldBullets: []
   bulletSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
 --- !u!60 &242920563
@@ -15836,7 +15846,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474587399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dc5d3c3f9ac5be499293fd2862cc3c9, type: 3}
   m_Name: 
@@ -16890,6 +16900,11 @@ MonoBehaviour:
   targets: []
   pl: {fileID: 820211168}
   ammo: {fileID: 6976275416886149641, guid: 1d95a9e4ba1e4724bb34de28063fc4c4, type: 3}
+  secondary: 0
+  zone1: {fileID: 0}
+  zone2: {fileID: 0}
+  zone3: {fileID: 0}
+  zone4: {fileID: 0}
   OldBullets: []
   bulletSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
 --- !u!60 &626871349
@@ -17203,7 +17218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 4.600006}
+  m_AnchoredPosition: {x: -0.000030517578, y: 4.6000366}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &640834177
@@ -18389,6 +18404,7 @@ MonoBehaviour:
   canMine: 0
   mineLvl: 0
   isChoosingAbility: 0
+  activeTarget: 0
   canDash: 0
   dashLvl: 0
   dashInvulnerab: 0
@@ -21071,6 +21087,11 @@ MonoBehaviour:
   targets: []
   pl: {fileID: 820211168}
   ammo: {fileID: 6976275416886149641, guid: 1d95a9e4ba1e4724bb34de28063fc4c4, type: 3}
+  secondary: 0
+  zone1: {fileID: 0}
+  zone2: {fileID: 0}
+  zone3: {fileID: 0}
+  zone4: {fileID: 0}
   OldBullets: []
   bulletSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
 --- !u!60 &1072126549
@@ -53418,7 +53439,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TargetZoneControler
   targets: []
   pl: {fileID: 820211168}
-  ammo: {fileID: 0}
+  ammo: {fileID: 6976275416886149641, guid: 1d95a9e4ba1e4724bb34de28063fc4c4, type: 3}
+  secondary: 1
+  zone1: {fileID: 1072126546}
+  zone2: {fileID: 99871337}
+  zone3: {fileID: 242920560}
+  zone4: {fileID: 626871346}
   OldBullets: []
   bulletSound: {fileID: 0}
 --- !u!58 &1788580433
