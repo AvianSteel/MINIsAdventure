@@ -305,6 +305,7 @@ MonoBehaviour:
   target: {fileID: 0}
   drop: {fileID: 1364158909784646617, guid: 64752035a49e3994588f0ee6a2c326d1, type: 3}
   abilityDrop: {fileID: 1364158909784646617, guid: 526ee7219f0f19c43a12e47b5e2f04a7, type: 3}
+  dmgPopUp: {fileID: 813190183734121590, guid: 33e4437382b2ca0439a37c7b531cb05c, type: 3}
   enemySpawn: {fileID: 0}
   speed: 1
   dropChance: 2
