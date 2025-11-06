@@ -73,7 +73,7 @@ public class LaserController : MonoBehaviour
     {
         if (collision.gameObject.name == "SwordFish")
         {
-            collision.gameObject.GetComponent<EnemyBehaviour>().EnemyHit(laserDmg);
+            collision.gameObject.GetComponent<EnemyBehaviour>().enemyHit(laserDmg);
 
         }
         else if (collision.gameObject.name == "Squid")

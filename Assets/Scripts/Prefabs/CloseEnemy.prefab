@@ -59,7 +59,6 @@ MonoBehaviour:
   animUp: {fileID: 5900124573751668976}
   animDown: {fileID: 8107359724378392563}
   animLounge: {fileID: 2880978654481981085}
-  dmgPopUp: {fileID: 813190183734121590, guid: 33e4437382b2ca0439a37c7b531cb05c, type: 3}
   enemySpawn: {fileID: 0}
   speed: 1
   loungeSpeed: 2.5
