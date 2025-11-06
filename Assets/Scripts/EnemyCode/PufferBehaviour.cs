@@ -7,6 +7,7 @@ public class PufferBehaviour : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
     [SerializeField] private GameObject abilityDrop;
+    [SerializeField] private DmgPopUp dmgPopUp;
 
     private StatDropController dropController;
     public GameObject enemySpawn;
@@ -182,6 +183,8 @@ public class PufferBehaviour : MonoBehaviour
     {
         if (!puff)
         {
+            int tempDmg = Mathf.FloorToInt(Pldmg);
+            dmgPopUp.Create(transform.position, tempDmg);
             hp -= Pldmg;
             if (hp <= 0)
             {

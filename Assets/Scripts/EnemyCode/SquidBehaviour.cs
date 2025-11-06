@@ -7,7 +7,7 @@ public class SquidBehaviour : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
     [SerializeField] private GameObject abilityDrop;
-
+    [SerializeField] private DmgPopUp dmgPopUp;
     [SerializeField] private GameObject ink;
 
     private StatDropController dropController;
@@ -159,6 +159,8 @@ public class SquidBehaviour : MonoBehaviour
     /// <param name="dmg"></param>
     public void enemyHit(float Pldmg)
     {
+        int tempDmg = Mathf.FloorToInt(Pldmg);
+        dmgPopUp.Create(transform.position, tempDmg);
         hp -= Pldmg;
         if (hp <= 0)
         {

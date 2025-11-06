@@ -7,6 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
     [SerializeField] private GameObject abilityDrop;
+    [SerializeField] private DmgPopUp dmgPopUp;
 
     [SerializeField] private GameObject animSides;
     [SerializeField] private GameObject animUp;
@@ -134,7 +135,7 @@ public class EnemyBehaviour : MonoBehaviour
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize(); // Keep velocity consistent
 
-            lounge(direction);
+            Lounge(direction);
             lockTarget = true;
 
 
@@ -155,7 +156,7 @@ public class EnemyBehaviour : MonoBehaviour
     /// Performs a lunge at the players position at beginning of lunge
     /// </summary>
     /// <param name="direction"></param>
-    private void lounge(Vector2 direction)
+    private void Lounge(Vector2 direction)
     {
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * loungeSpeed;
 
@@ -179,7 +180,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Ammo")
         {
-            enemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
+            EnemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
             collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld();
 
 
@@ -187,7 +188,7 @@ public class EnemyBehaviour : MonoBehaviour
         else if (collision.gameObject.name == "Player")
         {
             collision.gameObject.GetComponent<PlayerControler>().hitPlayer(2);
-            enemyHit(10);
+            EnemyHit(10);
         }
     }
 
@@ -195,12 +196,14 @@ public class EnemyBehaviour : MonoBehaviour
     /// enemy gets dmg, called by whatever hits it like laser and ammo, if hp<0 the next function is called
     /// </summary>
     /// <param name="dmg"></param>
-    public void enemyHit(float Pldmg)
+    public void EnemyHit(float Pldmg)
     {
+        int tempDmg = Mathf.FloorToInt(Pldmg);
+        dmgPopUp.Create(transform.position, tempDmg);
         hp -= Pldmg;
         if (hp <= 0)
         {
-            enemyDie();
+            EnemyDie();
         }
 
 
@@ -215,7 +218,7 @@ public class EnemyBehaviour : MonoBehaviour
     /// Increases player score, then checks to see if it will drop something before being added to a list of dead
     /// enemies to respawn later.
     /// </summary>
-    public void enemyDie()
+    public void EnemyDie()
     {
         pl.GetComponent<PlayerControler>().ScoreUp(25); // increase score
 
