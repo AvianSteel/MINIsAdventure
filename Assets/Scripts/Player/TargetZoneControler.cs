@@ -7,6 +7,17 @@ public class TargetZoneControler : MonoBehaviour
     public List<GameObject> targets = new List<GameObject>();
     [SerializeField] private GameObject pl;
     [SerializeField] private GameObject ammo;
+    [SerializeField] private bool secondary;
+
+    [SerializeField] private GameObject zone1;
+    [SerializeField] private GameObject zone2;
+    [SerializeField] private GameObject zone3;
+    [SerializeField] private GameObject zone4;
+
+
+
+
+
     public List<GameObject> OldBullets = new List<GameObject>();
 
     [SerializeField] private AudioClip bulletSound;
@@ -14,12 +25,16 @@ public class TargetZoneControler : MonoBehaviour
     private GameObject cloneStorage; // temporary storage for the latest ammo copy     turn into object pooling
     void Start()
     {
-       // StartCoroutine(DoISHoot());
+        // StartCoroutine(DoISHoot());
     }
 
     private void OnEnable()
     {
-        StartCoroutine(DoISHoot());
+        if (!secondary)
+        {
+            StartCoroutine(DoISHoot());
+
+        }
 
     }
 
@@ -27,8 +42,33 @@ public class TargetZoneControler : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            targets.Add(collision.gameObject);
+            if (!secondary)
+            {
+
+                targets.Add(collision.gameObject);
+
+            }
+            else if (pl.GetComponent<PlayerControler>().activeTarget == 0)
+            {
+                zone1.GetComponent<TargetZoneControler>().targets.Insert(0, collision.gameObject);
+            }
+            else if (pl.GetComponent<PlayerControler>().activeTarget == 1)
+            {
+                zone4.GetComponent<TargetZoneControler>().targets.Insert(0, collision.gameObject);
+            }
+            else if (pl.GetComponent<PlayerControler>().activeTarget == 2)
+            {
+                zone3.GetComponent<TargetZoneControler>().targets.Insert(0, collision.gameObject);
+
+            }
+            else if (pl.GetComponent<PlayerControler>().activeTarget == 3)
+            {
+                zone2.GetComponent<TargetZoneControler>().targets.Insert(0, collision.gameObject);
+
+            }
         }
+
+
 
     }
 
@@ -36,27 +76,41 @@ public class TargetZoneControler : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            bool removed = targets.Remove(collision.gameObject);
+            if (!secondary)
+            {
+                bool removed = targets.Remove(collision.gameObject);
+
+            }
+            else
+            {
+                zone1.GetComponent<TargetZoneControler>().targets.Remove(collision.gameObject);
+                zone2.GetComponent<TargetZoneControler>().targets.Remove(collision.gameObject);
+                zone3.GetComponent<TargetZoneControler>().targets.Remove(collision.gameObject);
+                zone4.GetComponent<TargetZoneControler>().targets.Remove(collision.gameObject);
+
+
+
+            }
         }
     }
 
-    
+
     private void openFire(GameObject enem)
     {
 
-        
+
 
         if (OldBullets.Count > 0)
         {
             AudioSource.PlayClipAtPoint(bulletSound, transform.position);
-            
+
             cloneStorage = OldBullets[0];
-            
+
             cloneStorage.transform.position = pl.transform.position;
             OldBullets.Remove(cloneStorage);
 
             cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = enem;
-            
+
             cloneStorage.GetComponent<AmmoControler>().bulletDmg = pl.GetComponent<PlayerControler>().ammoDmg; // gets the dmg stored in player and sets the bullet dmg to that
 
 
@@ -71,7 +125,7 @@ public class TargetZoneControler : MonoBehaviour
         }
         cloneStorage.SetActive(true);
 
-        
+
 
 
     }
@@ -81,7 +135,7 @@ public class TargetZoneControler : MonoBehaviour
     /// <returns></returns>
     private IEnumerator DoISHoot()
     {
-        if (targets.Count>0)
+        if (targets.Count > 0)
         {
             openFire(targets[0].gameObject);
         }

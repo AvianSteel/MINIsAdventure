@@ -1,10 +1,19 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
     [SerializeField] private GameObject abilityDrop;
+
+    [SerializeField] private GameObject animSides;
+    [SerializeField] private GameObject animUp;
+    [SerializeField] private GameObject animDown;
+    [SerializeField] private GameObject animLounge;
+
+
 
     public GameObject enemySpawn;
     private StatDropController dropController;
@@ -19,9 +28,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField] private GameObject swordSkin;
     SpriteRenderer sr;
+    SpriteRenderer loungeSr;
 
 
     private int dropRoll;
+    private float angle; // what is the angle between fish and player
 
     [SerializeField] private StatScalingController statController;
     private float statScaleSword;
@@ -36,8 +47,8 @@ public class EnemyBehaviour : MonoBehaviour
         loungeSpeed *= statScaleSword;
         Mathf.Round(hp);
 
-        sr = swordSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
-
+        sr = animSides.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+        loungeSr = animLounge.GetComponent<SpriteRenderer>();
         
         pl = GameObject.FindWithTag("Player"); // used to get referenvce to the player code
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
@@ -50,9 +61,18 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
     {
+        Vector3 toPlayer = pl.transform.position - transform.position;
+
+         angle = Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg; // gets the angle to player (0 - 180 = top side) (0 - -180 = down side)
+
         if (Vector2.Distance(transform.position, target.transform.position) > 3 && !lockTarget) // if close lounge
         {
+
            
+
+
+
+
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize(); // Keep velocity consistent
 
@@ -61,17 +81,52 @@ public class EnemyBehaviour : MonoBehaviour
             transform.right = target.transform.position - transform.position;// always face the target (where to move)
 
 
-            if (transform.position.x > target.transform.position.x && sr.flipX == false)
+            if (angle < 45 && angle > -45 && sr.flipX == false) // moving right
             {
                 //  sr.flipX = true;
-                  sr.flipY = true;
+                  sr.flipY = false;
+                loungeSr.flipY = false;
+
+                animSides.SetActive(true);
+                animUp.SetActive(false);
+                animDown.SetActive(false);
+                animLounge.SetActive(false); // launge animation = false
 
             }
-            else if (transform.position.x < target.transform.position.x && sr.flipX == true)
+            else if (angle < 135 && angle > 45 ) // moving up
             {
-               // sr.flipX = false;
-                sr.flipY = false;
+
+                // sr.flipX = false;
+                // sr.flipY = false;
+                animSides.SetActive(false);
+                animUp.SetActive(true);
+                animDown.SetActive(false);
+                animLounge.SetActive(false); // launge animation = false
+
             }
+            else if ((angle < 180 && angle > 135) || (angle <= -135 && angle >= -180) ) // mooving left
+            {
+
+                // sr.flipX = false;
+                 sr.flipY = true;
+                loungeSr.flipY = true;
+
+                animSides.SetActive(true);
+                animUp.SetActive(false);
+                animDown.SetActive(false);
+                animLounge.SetActive(false); // launge animation = false
+
+            }
+            else if (angle < -45 && angle > -135) // mooving down
+            {
+
+                animSides.SetActive(false);
+                animUp.SetActive(false);
+                animDown.SetActive(true);
+                animLounge.SetActive(false); // launge animation = false
+
+            }
+
 
         }
         else if (Vector2.Distance(transform.position, target.transform.position) <= 3 && !lockTarget ) // if far away stop launging
@@ -81,11 +136,17 @@ public class EnemyBehaviour : MonoBehaviour
 
             lounge(direction);
             lockTarget = true;
+
+
+
+                
         }
         else if (lockTarget && Vector2.Distance(transform.position, target.transform.position) > 5)
         {
             lockTarget = false;
-
+            animSides.SetActive(false);
+            animUp.SetActive(false);
+            animDown.SetActive(false);
         }
 
 
@@ -98,8 +159,18 @@ public class EnemyBehaviour : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * loungeSpeed;
 
+        // if it is curently louging check if it moovse left or right comapred to player, if so turn the lounge animation on
+        if ((angle < 45 && angle > -45) || ((angle < 180 && angle > 135) || (angle <= -135 && angle >= -180))) // moving right
+        {
+            print("lounge");
+            animLounge.SetActive(true); // launge animation = false
+            animSides.SetActive(false);
+
+
+        }
+
     }
-   
+
     /// <summary>
     /// If colliding with a bullet or the player, takes damage after dealing some if colliding with player
     /// </summary>
