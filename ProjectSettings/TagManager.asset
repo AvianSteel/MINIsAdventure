@@ -19,7 +19,7 @@ TagManager:
   - 
   - 
   - 
-  - Damage Numbers
+  - 
   - 
   - 
   - 
@@ -43,9 +43,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: DamageUI
-    uniqueID: 4274912275
     locked: 0
   m_RenderingLayers:
   - Default

@@ -46,7 +46,7 @@ public class MineController : MonoBehaviour
     {
         if (collision.gameObject.name == "SwordFish")
         {
-            collision.gameObject.GetComponent<EnemyBehaviour>().EnemyHit(mineDmg);
+            collision.gameObject.GetComponent<EnemyBehaviour>().enemyHit(mineDmg);
         }
         else if (collision.gameObject.name == "Squid")
         {
