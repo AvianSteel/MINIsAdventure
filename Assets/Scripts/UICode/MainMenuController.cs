@@ -8,7 +8,7 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Alpha");
+        SceneManager.LoadScene("SquidAnim");
     }
 
     public void QuitGame()
