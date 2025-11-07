@@ -89,13 +89,13 @@ public class SquidBehaviour : MonoBehaviour
         if (transform.position.x > target.transform.position.x && sr.flipX == false)
         {
             //  sr.flipX = true;
-            sr.flipY = true;
+           // sr.flipY = true;
 
         }
         else if (transform.position.x < target.transform.position.x && sr.flipX == true)
         {
             // sr.flipX = false;
-            sr.flipY = false;
+           // sr.flipY = false;
         }
 
 

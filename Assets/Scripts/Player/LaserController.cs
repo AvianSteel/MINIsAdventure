@@ -50,7 +50,8 @@ public class LaserController : MonoBehaviour
     private IEnumerator LaserWiggle()
     {
         AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
-        laserDmg = playerControler.GetComponent<PlayerControler>().laserLvl / 2; // higher ability lvl, higher dmg
+        laserDmg = playerControler.GetComponent<PlayerControler>().laserLvl; // higher ability lvl, higher dmg
+
         for(int i = 0; i < 45; i++)
         {
             laserDirection++;
