@@ -49,6 +49,7 @@ public class LaserController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator LaserWiggle()
     {
+        AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
         laserDmg = playerControler.GetComponent<PlayerControler>().laserLvl / 2; // higher ability lvl, higher dmg
         for(int i = 0; i < 45; i++)
         {
@@ -60,7 +61,7 @@ public class LaserController : MonoBehaviour
             laserDirection--;
             yield return new WaitForSeconds(0.01f);
         }
-        AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
+       
         playerControler.StartCooldown("laser");
         StopCoroutine(LaserWiggle());
         Destroy(laserParent);
