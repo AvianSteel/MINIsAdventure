@@ -20986,7 +20986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0001287, y: -62.7}
+  m_AnchoredPosition: {x: 0.0001287, y: -25}
   m_SizeDelta: {x: 82.9027, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1027882775
@@ -22365,8 +22365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d157f6fe13120844f9037d26da313400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBarController
-  healthBar: {fileID: 0}
-  hBar: {fileID: 0}
+  healthBarSlider: {fileID: 1027882775}
   health: 0
   playerControler: {fileID: 820211170}
 --- !u!1 &1192342613
