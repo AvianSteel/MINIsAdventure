@@ -120,6 +120,8 @@ public class PufferBehaviour : MonoBehaviour
     /// <returns></returns>
     IEnumerator DoPuff(Vector3 targetScale, float growDuration)
     {
+        PufSkin.GetComponent<EnemyBlinkWhite>().FlashRed(); // make it blink red
+        NoPufSkin.GetComponent<EnemyBlinkWhite>().FlashRed();
         Vector3 initialScale = transform.localScale;
         float elapsed = 0f;
         puff = true;

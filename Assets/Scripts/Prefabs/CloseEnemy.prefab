@@ -64,9 +64,9 @@ MonoBehaviour:
   enemySpawn: {fileID: 0}
   speed: 1
   loungeSpeed: 2.5
-  dropChance: 25
-  abilityDropChance: 40
-  hp: 2
+  dropChance: 5
+  abilityDropChance: 7
+  hp: 3
   pl: {fileID: 0}
   swordSkin: {fileID: 1526856939700873563}
   statController: {fileID: -5082869417029690661}
@@ -212,6 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7051819259761530479}
   - component: {fileID: 4043350606021461149}
+  - component: {fileID: 4910791368672379788}
   m_Layer: 0
   m_Name: swordfish_tilemap_1
   m_TagString: Untagged
@@ -292,6 +293,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4910791368672379788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526856939700873563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3902037db91cb204faa5afe8f11fa3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBlinkWhite
+  spriteRenderer: {fileID: 4043350606021461149}
 --- !u!1 &2880978654481981085
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +317,7 @@ GameObject:
   - component: {fileID: 141749877632624398}
   - component: {fileID: 8148292726972584823}
   - component: {fileID: 5839925241703713902}
+  - component: {fileID: 6036744502985028899}
   m_Layer: 0
   m_Name: SwordLounge
   m_TagString: Untagged
@@ -405,6 +420,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6036744502985028899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2880978654481981085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3902037db91cb204faa5afe8f11fa3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBlinkWhite
+  spriteRenderer: {fileID: 8148292726972584823}
 --- !u!1 &5344848273029103363
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +444,7 @@ GameObject:
   - component: {fileID: 5741616390557896626}
   - component: {fileID: 7331448654198919245}
   - component: {fileID: 818020883238441271}
+  - component: {fileID: 8908613639659874509}
   m_Layer: 0
   m_Name: SwordRight
   m_TagString: Untagged
@@ -518,6 +547,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8908613639659874509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344848273029103363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3902037db91cb204faa5afe8f11fa3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBlinkWhite
+  spriteRenderer: {fileID: 7331448654198919245}
 --- !u!1 &5900124573751668976
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +571,7 @@ GameObject:
   - component: {fileID: 4191687357951859171}
   - component: {fileID: 5005960847533152421}
   - component: {fileID: 3330034713348456760}
+  - component: {fileID: 8710682110620198537}
   m_Layer: 0
   m_Name: SwordUp
   m_TagString: Untagged
@@ -631,6 +674,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8710682110620198537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5900124573751668976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3902037db91cb204faa5afe8f11fa3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBlinkWhite
+  spriteRenderer: {fileID: 5005960847533152421}
 --- !u!1 &8107359724378392563
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,6 +698,7 @@ GameObject:
   - component: {fileID: 1566929183291613972}
   - component: {fileID: 8203187431294400222}
   - component: {fileID: 6514620733804185830}
+  - component: {fileID: 5758501397255902472}
   m_Layer: 0
   m_Name: SwordDown
   m_TagString: Untagged
@@ -744,3 +801,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5758501397255902472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107359724378392563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3902037db91cb204faa5afe8f11fa3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBlinkWhite
+  spriteRenderer: {fileID: 8203187431294400222}

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3527067073296479454}
   - component: {fileID: 9207803857418917640}
+  - component: {fileID: 1188957646826446735}
   m_Layer: 3
   m_Name: BigFishX
   m_TagString: Untagged
@@ -90,6 +91,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1188957646826446735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840179703847106691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3902037db91cb204faa5afe8f11fa3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBlinkWhite
+  spriteRenderer: {fileID: 9207803857418917640}
 --- !u!1 &6500170881908727505
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8963680363062403519}
   - component: {fileID: 237428149094822474}
+  - component: {fileID: 9143765981711885542}
   m_Layer: 3
   m_Name: FishX
   m_TagString: Untagged
@@ -180,6 +195,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9143765981711885542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6500170881908727505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3902037db91cb204faa5afe8f11fa3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBlinkWhite
+  spriteRenderer: {fileID: 237428149094822474}
 --- !u!1 &7842539629334407549
 GameObject:
   m_ObjectHideFlags: 0
