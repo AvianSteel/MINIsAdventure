@@ -127,6 +127,7 @@ MonoBehaviour:
   abilityDrop: {fileID: 1364158909784646617, guid: 526ee7219f0f19c43a12e47b5e2f04a7, type: 3}
   dmgPopUp: {fileID: 813190183734121590, guid: 33e4437382b2ca0439a37c7b531cb05c, type: 3}
   ink: {fileID: 7054941919168383900, guid: 2f2ae5ce4f26c354d855af8ebb846760, type: 3}
+  skin: {fileID: 7211159944281913812}
   enemySpawn: {fileID: 0}
   speed: 1.4
   loungeSpeed: 0
@@ -207,6 +208,7 @@ GameObject:
   - component: {fileID: 7613775742234592093}
   - component: {fileID: 5688415514163651478}
   - component: {fileID: 1214127496001371474}
+  - component: {fileID: 168898040281767985}
   m_Layer: 3
   m_Name: Skin
   m_TagString: Untagged
@@ -309,3 +311,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &168898040281767985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211159944281913812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3902037db91cb204faa5afe8f11fa3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBlinkWhite
+  spriteRenderer: {fileID: 5688415514163651478}

@@ -9,6 +9,8 @@ public class SquidBehaviour : MonoBehaviour
     [SerializeField] private GameObject abilityDrop;
     [SerializeField] private DmgPopUp dmgPopUp;
     [SerializeField] private GameObject ink;
+    [SerializeField] private GameObject skin;
+
 
     private StatDropController dropController;
     public GameObject enemySpawn;
@@ -21,6 +23,8 @@ public class SquidBehaviour : MonoBehaviour
     private bool lockTarget; // the point where the players was and launge there
     private GameObject cloneStorage;
     public float hp;
+    private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
+
     public float atackInterval;
     private float initialShootDistance;
     public float shootDistance;
@@ -33,7 +37,9 @@ public class SquidBehaviour : MonoBehaviour
 
     private int dropRoll;
     void Start()
-    {        
+    {
+        Originalhp = hp;
+
         target = GameObject.FindWithTag("Player");
       //  statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSquid = statController.statScale;
@@ -53,6 +59,15 @@ public class SquidBehaviour : MonoBehaviour
         shootDistance = shootDistance + Random.Range(-1.1f, 1.0f);
 
         StartCoroutine(DoISHoot());
+    }
+
+    private void OnEnable()
+    {
+        // when object pooled enemy hp is lower than zero, so check on that
+        if (hp <= 0)
+        {
+            hp = Originalhp;
+        }
     }
 
     // Update is called once per frame
@@ -163,6 +178,8 @@ public class SquidBehaviour : MonoBehaviour
         int tempDmg = Mathf.FloorToInt(Pldmg);
         dmgPopUp.Create(transform.position, tempDmg);
         hp -= Pldmg;
+
+        skin.GetComponent<EnemyBlinkWhite>().FlashRed();
         if (hp <= 0)
         {
             enemyDie();

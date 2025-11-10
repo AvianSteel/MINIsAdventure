@@ -25,6 +25,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     private bool lockTarget; // the point where the players was and launge there
     public float hp;
+    private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
+
     public GameObject pl;
 
     [SerializeField] private GameObject swordSkin;
@@ -40,6 +42,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
+
+        Originalhp = hp;
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
        // statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSword = statController.statScale;
@@ -57,6 +61,15 @@ public class EnemyBehaviour : MonoBehaviour
 
         Vector3 direction = (loungePoint - transform.position).normalized;
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+    }
+
+    private void OnEnable()
+    {
+        // when object pooled enemy hp is lower than zero, so check on that
+        if (hp <= 0)
+        {
+            hp = Originalhp;
+        }
     }
 
     // Update is called once per frame
@@ -201,6 +214,15 @@ public class EnemyBehaviour : MonoBehaviour
         int tempDmg = Mathf.FloorToInt(Pldmg);
         dmgPopUp.Create(transform.position, tempDmg);
         hp -= Pldmg;
+
+        // make every skin blink red
+        animSides.GetComponent<EnemyBlinkWhite>().FlashRed();
+        animUp.GetComponent<EnemyBlinkWhite>().FlashRed();
+        animDown.GetComponent<EnemyBlinkWhite>().FlashRed();
+        animLounge.GetComponent<EnemyBlinkWhite>().FlashRed();
+
+
+
         if (hp <= 0)
         {
             EnemyDie();
