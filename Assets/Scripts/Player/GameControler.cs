@@ -21,7 +21,7 @@ public class GameControler : MonoBehaviour
         enemySpawner.GetComponent<EnemySpawnControler>().SpawnEnemy();
 
         yield return new WaitForSeconds(timeBetweenSpawn);
-        if (timeBetweenSpawn > 0.03)
+        if (timeBetweenSpawn > 0.05)
         {
             timeBetweenSpawn -= enemySpawnScaling;
 

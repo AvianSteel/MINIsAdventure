@@ -309,8 +309,8 @@ MonoBehaviour:
   dmgPopUp: {fileID: 813190183734121590, guid: 33e4437382b2ca0439a37c7b531cb05c, type: 3}
   enemySpawn: {fileID: 0}
   speed: 1
-  dropChance: 2
-  abilityDropChance: 30
+  dropChance: 5
+  abilityDropChance: 15
   hp: 5
   puffScale: {x: 1.5, y: 1.5, z: 1.5}
   NoPufSkin: {fileID: 6500170881908727505}
