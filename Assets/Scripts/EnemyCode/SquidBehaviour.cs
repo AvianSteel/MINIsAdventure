@@ -59,7 +59,7 @@ public class SquidBehaviour : MonoBehaviour
     void FixedUpdate ()
     {
 
-        if (Vector2.Distance(transform.position, target.transform.position) > shootDistance) // if close lounge
+        if (Vector2.Distance(transform.position, target.transform.position) > shootDistance) // if close 
         {
 
 
@@ -110,6 +110,7 @@ public class SquidBehaviour : MonoBehaviour
         cloneStorage.name = "Ink";
         cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
         cloneStorage.SetActive(true);
+        cloneStorage.transform.right = target.transform.position - transform.position; // make ink face player when shot
 
     }
 

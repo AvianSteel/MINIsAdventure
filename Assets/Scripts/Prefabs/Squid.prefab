@@ -130,8 +130,8 @@ MonoBehaviour:
   enemySpawn: {fileID: 0}
   speed: 1.4
   loungeSpeed: 0
-  dropChance: 4
-  abilityDropChance: 30
+  dropChance: 15
+  abilityDropChance: 40
   hp: 1
   atackInterval: 3
   shootDistance: 6
