@@ -18365,7 +18365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadEnemies: []
-  spawnEnemies: 150
+  spawnEnemies: 10000
   timeBetweenSpawn: 0.5
   enemySpawnScaling: 0.001
   enemySpawner: {fileID: 474587399}
