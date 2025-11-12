@@ -68,6 +68,10 @@ public class PlayerControler : MonoBehaviour
     public int hp;
     private int score;
 
+
+    public float timeRemainLaser;
+    public float timeRemainMine;
+    public float timeRemainDash;
     [SerializeField] private StatScalingController statController;
 
     void Start()
@@ -98,6 +102,9 @@ public class PlayerControler : MonoBehaviour
         canLaser = true;
         canMine = true;
         canDash = true;
+        laserLvl = 0;
+        mineLvl = 0;
+        dashLvl = 0;
     }
     #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
@@ -110,6 +117,7 @@ public class PlayerControler : MonoBehaviour
             canDash = false;
             PlSpeed *= dashSpeedMultiplier;
             dashInvulnerab = true;
+            timeRemainDash = 3 - abilityTime;
         }
     }
     private void Mine_started(InputAction.CallbackContext obj)
@@ -120,6 +128,7 @@ public class PlayerControler : MonoBehaviour
         {
             Instantiate(seaMine,transform.position,Quaternion.identity);
             canMine = false;
+            timeRemainMine = 5 - abilityTime;
         }
     }
 
@@ -131,6 +140,7 @@ public class PlayerControler : MonoBehaviour
         {
             Instantiate(laserObject);
             canLaser = false;
+            timeRemainLaser = 10 - abilityTime;
         }
     }
     private void Restart_started(InputAction.CallbackContext obj)
@@ -191,16 +201,21 @@ public class PlayerControler : MonoBehaviour
         float origPlSpeed = PlSpeed;
         PlSpeed *= dashSpeedMultiplier + dashLvl; // higher dash lvl, higher speed
 
-        for (int i = 12; i >= 0; i--)
+        for (int i = 1; i >= 0; i--)
         {
          
             yield return new WaitForSeconds(DashDuration); // wait for dash duration than change the speed to original
             PlSpeed = origPlSpeed;
             dashInvulnerab = false;
-
+        }
+        while (timeRemainDash > 0)
+        {
+            timeRemainDash -= 0.05f;
+            yield return new WaitForSeconds(0.05f);
         }
 
         canDash = true;
+        StopCoroutine(DashCooldown());
     }
     /// <summary>
     /// Performs cooldown of laser ability before re enabling laser
@@ -208,11 +223,14 @@ public class PlayerControler : MonoBehaviour
     /// <returns></returns>
     public IEnumerator LaserCooldown()
     {
-        for(int i = 0; i < 3; i++)
+        while (timeRemainLaser > 0)
         {
-            yield return new WaitForSeconds(1 - abilityTime);
+            timeRemainLaser -= 0.05f;
+            yield return new WaitForSeconds(0.05f);
         }
         canLaser = true;
+        StopCoroutine(LaserCooldown());
+
     }
 
     /// <summary>
@@ -221,11 +239,13 @@ public class PlayerControler : MonoBehaviour
     /// <returns></returns>
     public IEnumerator MineCooldown()
     {
-        for(int i=0; i < 3; i++)
+        while (timeRemainMine > 0)
         {
-            yield return new WaitForSeconds(1 - abilityTime);
+            timeRemainMine -= 0.05f;
+            yield return new WaitForSeconds(0.05f);
         }
         canMine = true;
+        StopCoroutine(MineCooldown());
     }
     /// <summary>
     /// Function called to start the respective abilities cooldown timer

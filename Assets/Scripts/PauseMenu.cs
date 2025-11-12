@@ -9,7 +9,6 @@ public class PauseMenu : MonoBehaviour
     private InputAction pauseMenu;
     private bool isPaused;
     [SerializeField] private GameObject pauseUI;
-    [SerializeField] private GameObject controlsUI;
     
 
 
@@ -55,7 +54,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseUI.SetActive(false);
-        controlsUI.SetActive(false);
         isPaused = false;
     }
 
@@ -63,19 +61,8 @@ public class PauseMenu : MonoBehaviour
     {
         DeactivateMenu();
     }
-
-    public void ControlsButton()
-    {
-        controlsUI.SetActive(true);
-    }
-
     public void QuitButton()
     {
         SceneManager.LoadScene("MainMenuScene");
-    }
-
-    public void BackButton()
-    {
-        controlsUI.SetActive(false);
     }
 }
