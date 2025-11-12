@@ -21979,8 +21979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d157f6fe13120844f9037d26da313400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBarController
-  healthBar: {fileID: 1783317382}
-  hBar: {fileID: 1783317383}
+  healthBarSlider: {fileID: 0}
   health: 0
   playerControler: {fileID: 820211170}
 --- !u!1 &1192342613
