@@ -102,8 +102,9 @@ public class PlayerControler : MonoBehaviour
         canLaser = true;
         canMine = true;
         canDash = true;
-        timeRemainDash = 3f;
-        StartCoroutine(DashCooldown());
+        laserLvl = 0;
+        mineLvl = 0;
+        dashLvl = 0;
     }
     #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
