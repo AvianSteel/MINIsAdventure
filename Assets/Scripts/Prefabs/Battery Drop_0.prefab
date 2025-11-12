@@ -185,6 +185,10 @@ MonoBehaviour:
   defenseBonus: 1
   uloksAbility: 0
   pickUpSound: {fileID: 8300000, guid: b0e62ed71b1538648b719821f4f63b4c, type: 3}
+  speedPopup: {fileID: 7382532359255307745, guid: 475b05f2d5b8a83418b53e2aabd4dcad, type: 3}
+  atkSpeedPopup: {fileID: 2681844027685457120, guid: 16a6054e3222e354cbf2741f034ea765, type: 3}
+  abilityCooldownPopup: {fileID: 7319279177609617505, guid: fb0006f29de72324fa70379ea593d98d, type: 3}
+  defensePopup: {fileID: 6718385524441996147, guid: 8da5bc29cc1aa0140a6970a4ebe64a66, type: 3}
 --- !u!1 &7941307127124368007
 GameObject:
   m_ObjectHideFlags: 0
