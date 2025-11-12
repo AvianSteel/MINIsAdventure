@@ -20946,6 +20946,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 439649199613759308, guid: 997793179c8c0a1438ba25f130adb818, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[10].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 439649199613759308, guid: 997793179c8c0a1438ba25f130adb818, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[27].m_Data
+      value: 
+      objectReference: {fileID: 6065819950184966028, guid: a8bcba49eb445b445a2767c0ec9ca602, type: 3}
+    - target: {fileID: 439649199613759308, guid: 997793179c8c0a1438ba25f130adb818, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[10].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439649199613759308, guid: 997793179c8c0a1438ba25f130adb818, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[27].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 439649199613759308, guid: 997793179c8c0a1438ba25f130adb818, type: 3}
+      propertyPath: m_Tiles.Array.data[2888].second.m_TileSpriteIndex
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 1901572795570636685, guid: 997793179c8c0a1438ba25f130adb818, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.588

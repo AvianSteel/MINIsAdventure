@@ -14,6 +14,12 @@ public class StatDropController : MonoBehaviour
 
     [SerializeField] private AudioClip pickUpSound;
 
+    [SerializeField] private GameObject speedPopup;
+    [SerializeField] private GameObject atkSpeedPopup;
+    [SerializeField] private GameObject abilityCooldownPopup;
+    [SerializeField] private GameObject defensePopup;
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,18 +42,22 @@ public class StatDropController : MonoBehaviour
                 if (randomStat == 0)
                 {
                     collision.gameObject.GetComponent<PlayerControler>().increaseSpeed(speedBonus);
+                    Instantiate(speedPopup, transform.position, Quaternion.identity);
                 }
                 else if (randomStat == 1)
                 {
                     collision.gameObject.GetComponent<PlayerControler>().increaseAttackSpeed(attackSpeedBonus);
+                    Instantiate(atkSpeedPopup, transform.position, Quaternion.identity);
                 }
                 else if (randomStat == 2)
                 {
                     collision.gameObject.GetComponent<PlayerControler>().increaseAbilitySpeed(abilitySpeedBonus);
+                    Instantiate(abilityCooldownPopup, transform.position, Quaternion.identity);
                 }
                 else if (randomStat == 3)
                 {
                     collision.gameObject.GetComponent<PlayerControler>().increaseDefense(defenseBonus);
+                    Instantiate(defensePopup, transform.position, Quaternion.identity);
                 }
                 Destroy(gameObject);
             }              

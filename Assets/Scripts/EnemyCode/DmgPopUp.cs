@@ -26,7 +26,20 @@ public class DmgPopUp : MonoBehaviour
     {
         textMesh.text = dmgAmount.ToString();
         dissapearTimer = 0.5f;
-        textColor = Color.white;
+        if (dmgAmount > 100)
+        {
+            textMesh.color = Color.yellow;
+        } else if (dmgAmount >= 50)
+        {
+            textMesh.color = Color.red;
+        } else if (dmgAmount >= 25)
+        {
+            textMesh.color = Color.orange;
+        }else
+        {
+            textColor = Color.white;
+        }
+            
         textColor.a = 1;
     }
     private void Update()
