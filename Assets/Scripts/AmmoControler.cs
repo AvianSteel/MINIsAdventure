@@ -5,6 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class AmmoControler : MonoBehaviour
 {
+    public GameObject squidParent; // only used if the bullet is ink shot by squid
     public bool isInk;
     public GameObject targetToMoveTowards;
     public float bulletDmg; // how much dmg the bullet has, inherited from player controler, and will be accesed by the enemy when it colides
@@ -14,7 +15,7 @@ public class AmmoControler : MonoBehaviour
     void Start()
     {
 
-        StartCoroutine(BulletLife());
+       
 
      //   Vector2 direction = targetToMoveTowards.transform.position - transform.position;
       //  direction.Normalize(); // Keep velocity consistent
@@ -24,10 +25,21 @@ public class AmmoControler : MonoBehaviour
 
     private void OnEnable()
     {
-        Vector2 direction = targetToMoveTowards.transform.position - transform.position;
-        direction.Normalize(); // Keep velocity consistent
+        StartCoroutine(BulletLife());
+        gameObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // reset ammo velocity
+        if (!isInk)
+        {
+            Vector2 direction = targetToMoveTowards.transform.position - transform.position;
+            direction.Normalize(); // Keep velocity consistent
 
-        gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+            gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+        }
+        
+    }
+    private void OnDisable()
+    {
+         gameObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // reset ammo velocity
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,13 +56,12 @@ public class AmmoControler : MonoBehaviour
         yield return new WaitForSeconds(7);
         if (isInk)
         {
-            Destroy(gameObject);
-        }
-        else
-        {
             bulletGetsOld();
-
         }
+        
+            
+
+        
     }
 
     public void bulletGetsOld()
@@ -59,8 +70,14 @@ public class AmmoControler : MonoBehaviour
             ZoneHost.GetComponent<TargetZoneControler>().ListOldBullet(gameObject);
             gameObject.SetActive(false);
         }
+    else
+        {
+            squidParent.GetComponent<SquidBehaviour>().enemySpawn.GetComponent<EnemySpawnControler>().listInk(gameObject);
+            gameObject.SetActive(false);
+        }
         
     }
+ 
 
 
 }

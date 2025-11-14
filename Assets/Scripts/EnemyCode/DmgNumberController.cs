@@ -9,6 +9,6 @@ public class DmgNumberController : MonoBehaviour
     {
         Transform dmgPopupTransform = Instantiate(dmgTxt, Vector3.zero, Quaternion.AngleAxis(0, new Vector3(0,0,1)));
         DmgPopUp damage = dmgPopupTransform.GetComponent<DmgPopUp>();
-        damage.Setup(2);
+        damage.Setup(2, null);
     }
 }

@@ -7,7 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
     [SerializeField] private GameObject abilityDrop;
-    [SerializeField] private DmgPopUp dmgPopUp;
+    [SerializeField] private GameObject dmgPopUp;
 
     [SerializeField] private GameObject animSides;
     [SerializeField] private GameObject animUp;
@@ -19,14 +19,14 @@ public class EnemyBehaviour : MonoBehaviour
     public GameObject enemySpawn;
     private StatDropController dropController;
     public float speed;
-    public float loungeSpeed; 
+    public float loungeSpeed;
     public int dropChance; // higher number lees liekly it drops
     public int abilityDropChance; // higher number lees liekly it drops
 
     private bool lockTarget; // the point where the players was and launge there
     public float hp;
     private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
-
+    private GameObject cloneStorage;
     public GameObject pl;
 
     [SerializeField] private GameObject swordSkin;
@@ -45,7 +45,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         Originalhp = hp;
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
-       // statController = target.gameObject.GetComponent<StatScalingController>();
+                                                   // statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSword = statController.statScale;
         hp *= statScaleSword;
         speed *= statScaleSword;
@@ -54,7 +54,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         sr = animSides.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
         loungeSr = animLounge.GetComponent<SpriteRenderer>();
-        
+
         pl = GameObject.FindWithTag("Player"); // used to get referenvce to the player code
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
         Vector3 loungePoint = target.transform.position;
@@ -73,16 +73,16 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate ()
+    void FixedUpdate()
     {
         Vector3 toPlayer = pl.transform.position - transform.position;
 
-         angle = Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg; // gets the angle to player (0 - 180 = top side) (0 - -180 = down side)
+        angle = Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg; // gets the angle to player (0 - 180 = top side) (0 - -180 = down side)
 
         if (Vector2.Distance(transform.position, target.transform.position) > 3 && !lockTarget) // if close lounge
         {
 
-           
+
 
 
 
@@ -98,7 +98,7 @@ public class EnemyBehaviour : MonoBehaviour
             if (angle < 45 && angle > -45 && sr.flipX == false) // moving right
             {
                 //  sr.flipX = true;
-                  sr.flipY = false;
+                sr.flipY = false;
                 loungeSr.flipY = false;
 
                 animSides.SetActive(true);
@@ -107,7 +107,7 @@ public class EnemyBehaviour : MonoBehaviour
                 animLounge.SetActive(false); // launge animation = false
 
             }
-            else if (angle < 135 && angle > 45 ) // moving up
+            else if (angle < 135 && angle > 45) // moving up
             {
 
                 // sr.flipX = false;
@@ -118,11 +118,11 @@ public class EnemyBehaviour : MonoBehaviour
                 animLounge.SetActive(false); // launge animation = false
 
             }
-            else if ((angle < 180 && angle > 135) || (angle <= -135 && angle >= -180) ) // mooving left
+            else if ((angle < 180 && angle > 135) || (angle <= -135 && angle >= -180)) // mooving left
             {
 
                 // sr.flipX = false;
-                 sr.flipY = true;
+                sr.flipY = true;
                 loungeSr.flipY = true;
 
                 animSides.SetActive(true);
@@ -143,7 +143,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 
         }
-        else if (Vector2.Distance(transform.position, target.transform.position) <= 3 && !lockTarget ) // if far away stop launging
+        else if (Vector2.Distance(transform.position, target.transform.position) <= 3 && !lockTarget) // if far away stop launging
         {
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize(); // Keep velocity consistent
@@ -153,7 +153,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 
 
-                
+
         }
         else if (lockTarget && Vector2.Distance(transform.position, target.transform.position) > 5)
         {
@@ -176,7 +176,6 @@ public class EnemyBehaviour : MonoBehaviour
         // if it is curently louging check if it moovse left or right comapred to player, if so turn the lounge animation on
         if ((angle < 45 && angle > -45) || ((angle < 180 && angle > 135) || (angle <= -135 && angle >= -180))) // moving right
         {
-            print("lounge");
             animLounge.SetActive(true); // launge animation = false
             animSides.SetActive(false);
 
@@ -212,15 +211,30 @@ public class EnemyBehaviour : MonoBehaviour
     public void EnemyHit(float Pldmg)
     {
         int tempDmg = Mathf.FloorToInt(Pldmg);
-        dmgPopUp.Create(transform.position, tempDmg);
         hp -= Pldmg;
 
-        // make every skin blink red
         animSides.GetComponent<EnemyBlinkWhite>().FlashRed();
         animUp.GetComponent<EnemyBlinkWhite>().FlashRed();
         animDown.GetComponent<EnemyBlinkWhite>().FlashRed();
         animLounge.GetComponent<EnemyBlinkWhite>().FlashRed();
 
+        if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 && cloneStorage)
+        {
+
+
+            cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+            cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0];
+            cloneStorage.SetActive(true);
+            enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
+            cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+        }
+        else
+        {
+            cloneStorage = Instantiate(dmgPopUp, transform.position, Quaternion.identity);
+            cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+            cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+
+        }
 
 
         if (hp <= 0)
@@ -230,10 +244,10 @@ public class EnemyBehaviour : MonoBehaviour
 
 
     }
-       
-        
 
-            
+
+
+
 
 
     /// <summary>
@@ -262,3 +276,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
 }
+
+
+
+

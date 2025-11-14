@@ -11,6 +11,10 @@ public class EnemySpawnControler : MonoBehaviour
     private int dice; // stores a random number
 
     public List<GameObject> DeadEnemies = new List<GameObject>();
+    public List<GameObject> SquidInk = new List<GameObject>(); // object pooling for ink
+    public List<GameObject> dmgList = new List<GameObject>(); // object pooling for ink
+
+
 
     private int direction; // 1 = left screen, 2 = top screen, 3 = right screen, 4 = bottom screen       enemy will spawn in those directions
     private GameObject cloneStorage;
@@ -24,7 +28,7 @@ public class EnemySpawnControler : MonoBehaviour
     {
         direction = Random.Range(1, 5);
 
-        switch (direction)
+        switch (direction) // what side of the screen will the enemy be spawned at
         {
             case 1:
                 gameObject.transform.position = new Vector3(player.transform.position.x - 15, 
@@ -92,6 +96,10 @@ public class EnemySpawnControler : MonoBehaviour
     public void listDeadEnemy(GameObject enemy)
     {
         DeadEnemies.Add(enemy);
+    }
+    public void listInk(GameObject ink)
+    {
+        SquidInk.Add(ink);
     }
 
 }

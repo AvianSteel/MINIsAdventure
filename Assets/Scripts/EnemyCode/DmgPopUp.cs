@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class DmgPopUp : MonoBehaviour
 {
-    
+    public Transform dmgPopupTransform;
+    public GameObject enemySpawnControler; // that is where the storage for pooling objects is hosted
     public DmgPopUp Create(Vector3 position, int dmg)
     {
-        Transform dmgPopupTransform = Instantiate(PrefabHolder.I.dmgTxt, position, 
+         dmgPopupTransform = Instantiate(PrefabHolder.I.dmgTxt, position, 
             Quaternion.AngleAxis(0, new Vector3(0, 0, 1)));
         DmgPopUp damage = dmgPopupTransform.GetComponent<DmgPopUp>();
-        damage.Setup(dmg);
+        damage.Setup(dmg,null);
 
         return damage;
     }
@@ -22,7 +23,7 @@ public class DmgPopUp : MonoBehaviour
     {
         textMesh = transform.GetComponent<TextMeshPro>();
     }
-    public void Setup(int dmgAmount)
+    public void Setup(int dmgAmount, Transform origPos)
     {
         textMesh.text = dmgAmount.ToString();
         dissapearTimer = 0.5f;
@@ -41,6 +42,13 @@ public class DmgPopUp : MonoBehaviour
         }
             
         textColor.a = 1;
+        if (origPos != null)
+        {
+            transform.position = origPos.position;
+            print("change position");
+        }
+      //  transform.position = new Vector3(0, 0, 0);
+
     }
     private void Update()
     {
@@ -56,7 +64,13 @@ public class DmgPopUp : MonoBehaviour
             textMesh.color = textColor;
             if(textColor.a < 0)
             {
-                Destroy(gameObject);
+                if (enemySpawnControler != null)
+                {
+
+                }
+                enemySpawnControler.GetComponent<EnemySpawnControler>().dmgList.Add(gameObject);
+
+               // gameObject.SetActive(false);
                 //TO CRISTIAN:
                 //Pretty sure this is where object pooling stuff goes. Don't edit any functions or variables other than the above line
                 //If you need to edit stuff, either ask me first, or fix it urself
