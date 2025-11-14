@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SquidBehaviour : MonoBehaviour
@@ -7,7 +8,9 @@ public class SquidBehaviour : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
     [SerializeField] private GameObject abilityDrop;
-    [SerializeField] private DmgPopUp dmgPopUp;
+    //[SerializeField] private DmgPopUp dmgPopUp;
+    [SerializeField] private GameObject dmgPopUp;
+
     [SerializeField] private GameObject ink;
     [SerializeField] private GameObject skin;
 
@@ -22,6 +25,8 @@ public class SquidBehaviour : MonoBehaviour
 
     private bool lockTarget; // the point where the players was and launge there
     private GameObject cloneStorage;
+    private GameObject squidStorage;
+
     public float hp;
     private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
 
@@ -34,6 +39,7 @@ public class SquidBehaviour : MonoBehaviour
 
     [SerializeField] private StatScalingController statController;
     private float statScaleSquid;
+
 
     private int dropRoll;
     void Start()
@@ -121,11 +127,41 @@ public class SquidBehaviour : MonoBehaviour
     /// </summary>
     private void shoot()
     {
-        cloneStorage = Instantiate(ink, transform.position, Quaternion.identity);
-        cloneStorage.name = "Ink";
-        cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
-        cloneStorage.SetActive(true);
-        cloneStorage.transform.right = target.transform.position - transform.position; // make ink face player when shot
+        if (enemySpawn.GetComponent<EnemySpawnControler>().SquidInk.Count > 0)
+        {
+            cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().SquidInk[0];
+            cloneStorage.SetActive(true);
+            cloneStorage.transform.position = transform.position;
+            cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
+            cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // reset ammo velocity
+
+
+            cloneStorage.transform.right = target.transform.position - transform.position; // make ink face player when shot
+
+            cloneStorage.GetComponent<AmmoControler>().squidParent = gameObject;
+            enemySpawn.GetComponent<EnemySpawnControler>().SquidInk.Remove(cloneStorage);
+
+            Vector2 direction = target.transform.position - transform.position;
+            direction.Normalize(); // Keep velocity consistent
+            cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = direction * (speed*2);
+
+            print("ink pooled");
+        }
+        else
+        {
+            cloneStorage = Instantiate(ink, transform.position, Quaternion.identity);
+            cloneStorage.name = "Ink";
+            cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
+            cloneStorage.SetActive(true);
+            cloneStorage.transform.right = target.transform.position - transform.position; // make ink face player when shot
+            cloneStorage.GetComponent<AmmoControler>().squidParent = gameObject;
+
+            Vector2 direction = target.transform.position - transform.position;
+            direction.Normalize(); // Keep velocity consistent
+            cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = direction * (speed * 2);
+
+            print("created");
+        }
 
     }
 
@@ -176,8 +212,26 @@ public class SquidBehaviour : MonoBehaviour
     public void enemyHit(float Pldmg)
     {
         int tempDmg = Mathf.FloorToInt(Pldmg);
-        dmgPopUp.Create(transform.position, tempDmg);
         hp -= Pldmg;
+
+        if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 && squidStorage)
+        {
+         
+
+            squidStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+            squidStorage = enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0];
+            squidStorage.SetActive(true);
+            enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
+            squidStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+        }
+        else
+        {
+            squidStorage = Instantiate(dmgPopUp, transform.position, Quaternion.identity);
+            squidStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+            squidStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+
+        }
+
 
         skin.GetComponent<EnemyBlinkWhite>().FlashRed();
         if (hp <= 0)
@@ -207,7 +261,10 @@ public class SquidBehaviour : MonoBehaviour
         {
             Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
         }
+
+        enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject); // list the enemy in the object pool
+
         gameObject.SetActive(false);
     }
 
-}
+} 

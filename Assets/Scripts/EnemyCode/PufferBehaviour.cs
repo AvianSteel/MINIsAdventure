@@ -7,7 +7,7 @@ public class PufferBehaviour : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
     [SerializeField] private GameObject abilityDrop;
-    [SerializeField] private DmgPopUp dmgPopUp;
+    [SerializeField] private GameObject dmgPopUp;
 
     private StatDropController dropController;
     public GameObject enemySpawn;
@@ -183,11 +183,30 @@ public class PufferBehaviour : MonoBehaviour
     /// <param name="dmg"></param>
     public void enemyHit(float Pldmg)
     {
+
+
         if (!puff)
         {
             int tempDmg = Mathf.FloorToInt(Pldmg);
-            dmgPopUp.Create(transform.position, tempDmg);
             hp -= Pldmg;
+
+            if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 && cloneStorage)
+            {
+
+
+                cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+                cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0];
+                cloneStorage.SetActive(true);
+                enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
+                cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+            }
+            else
+            {
+                cloneStorage = Instantiate(dmgPopUp, transform.position, Quaternion.identity);
+                cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+                cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+
+            }
             if (hp <= 0)
             {
                 enemyDie();
@@ -221,6 +240,8 @@ public class PufferBehaviour : MonoBehaviour
         {
             Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
         }
+        enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject); // list the enemy in the object pool
+
         gameObject.SetActive(false);
     }
 
