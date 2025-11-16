@@ -123,45 +123,11 @@ public class SquidBehaviour : MonoBehaviour
     }
 
     /// <summary>
-    /// Fires a projectile that continues to the players position at the beginning of the function
+    /// calls a courutine that fires a projectile that continues to the players position at the beginning of the function
     /// </summary>
     private void shoot()
     {
-        if (enemySpawn.GetComponent<EnemySpawnControler>().SquidInk.Count > 0)
-        {
-            cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().SquidInk[0];
-            cloneStorage.SetActive(true);
-            cloneStorage.transform.position = transform.position;
-            cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
-            cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // reset ammo velocity
-
-
-            cloneStorage.transform.right = target.transform.position - transform.position; // make ink face player when shot
-
-            cloneStorage.GetComponent<AmmoControler>().squidParent = gameObject;
-            enemySpawn.GetComponent<EnemySpawnControler>().SquidInk.Remove(cloneStorage);
-
-            Vector2 direction = target.transform.position - transform.position;
-            direction.Normalize(); // Keep velocity consistent
-            cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = direction * (speed*2);
-
-            print("ink pooled");
-        }
-        else
-        {
-            cloneStorage = Instantiate(ink, transform.position, Quaternion.identity);
-            cloneStorage.name = "Ink";
-            cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
-            cloneStorage.SetActive(true);
-            cloneStorage.transform.right = target.transform.position - transform.position; // make ink face player when shot
-            cloneStorage.GetComponent<AmmoControler>().squidParent = gameObject;
-
-            Vector2 direction = target.transform.position - transform.position;
-            direction.Normalize(); // Keep velocity consistent
-            cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = direction * (speed * 2);
-
-            print("created");
-        }
+        StartCoroutine(TurnAroundAndShoot());
 
     }
 
@@ -183,6 +149,69 @@ public class SquidBehaviour : MonoBehaviour
         StartCoroutine(DoISHoot());
     }
 
+    /// <summary>
+    /// turn around momentarily to throw the ink from the tentacles
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator TurnAroundAndShoot()
+    {
+        if (sr.flipY == true)
+        {
+            sr.flipY = false;
+        }
+        else
+        {
+            sr.flipY = true;
+        }
+
+        yield return new WaitForSeconds(0.4f);
+
+        if (enemySpawn.GetComponent<EnemySpawnControler>().SquidInk.Count > 0)
+        {
+            cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().SquidInk[0];
+            cloneStorage.SetActive(true);
+            cloneStorage.transform.position = skin.transform.position;
+            cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
+            cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // reset ammo velocity
+
+
+            cloneStorage.transform.right = target.transform.position - transform.position; // make ink face player when shot
+
+            cloneStorage.GetComponent<AmmoControler>().squidParent = gameObject;
+            enemySpawn.GetComponent<EnemySpawnControler>().SquidInk.Remove(cloneStorage);
+
+            Vector2 direction = target.transform.position - transform.position;
+            direction.Normalize(); // Keep velocity consistent
+            cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = direction * (speed * 2);
+
+            print("ink pooled");
+        }
+        else
+        {
+            cloneStorage = Instantiate(ink, skin.transform.position, Quaternion.identity);
+            cloneStorage.name = "Ink";
+            cloneStorage.GetComponent<AmmoControler>().targetToMoveTowards = target;
+            cloneStorage.SetActive(true);
+            cloneStorage.transform.right = target.transform.position - transform.position; // make ink face player when shot
+            cloneStorage.GetComponent<AmmoControler>().squidParent = gameObject;
+
+            Vector2 direction = target.transform.position - transform.position;
+            direction.Normalize(); // Keep velocity consistent
+            cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = direction * (speed * 2);
+
+            print("created");
+        }
+
+
+        if (sr.flipY == true)
+        {
+            sr.flipY = false;
+        }
+        else
+        {
+            sr.flipY = true;
+        }
+    }
 
 
     /// <summary>
