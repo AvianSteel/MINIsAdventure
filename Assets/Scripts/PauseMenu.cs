@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     private InputAction pauseMenu;
     private bool isPaused;
     [SerializeField] private GameObject pauseUI;
+    [SerializeField] private AudioClip buttonSound;
     
 
 
@@ -59,10 +60,12 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeButton()
     {
+        AudioSource.PlayClipAtPoint(buttonSound, transform.position);
         DeactivateMenu();
     }
     public void QuitButton()
     {
+        AudioSource.PlayClipAtPoint(buttonSound, transform.position);
         SceneManager.LoadScene("MainMenuScene");
     }
 }

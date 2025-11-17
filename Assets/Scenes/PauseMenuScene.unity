@@ -797,7 +797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseUI: {fileID: 3533230025390077327}
-  controlsUI: {fileID: 5772662375126257428}
+  buttonSound: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}
 --- !u!4 &1412263771
 Transform:
   m_ObjectHideFlags: 0
