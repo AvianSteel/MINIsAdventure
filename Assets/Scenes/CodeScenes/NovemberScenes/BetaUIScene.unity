@@ -10348,7 +10348,6 @@ GameObject:
   - component: {fileID: 1190068437}
   - component: {fileID: 1190068442}
   - component: {fileID: 1190068441}
-  - component: {fileID: 1190068443}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -10490,19 +10489,6 @@ MonoBehaviour:
   healthBarSlider: {fileID: 1027882775}
   health: 0
   playerControler: {fileID: 820211170}
---- !u!114 &1190068443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190068436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec1bddf4bf918b04483c360047446d57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimerController
-  timer: {fileID: 0}
 --- !u!1 &1192342613
 GameObject:
   m_ObjectHideFlags: 0
