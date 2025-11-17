@@ -20,6 +20,7 @@ public class PufferBehaviour : MonoBehaviour
     private GameObject cloneStorage;
     public float hp;
 
+    public float angle; // what is the angle between fish and player
 
     private int dropRoll;
     private bool puff; // is it inflated
@@ -27,9 +28,13 @@ public class PufferBehaviour : MonoBehaviour
 
     SpriteRenderer sr; // reference to how the skin is pointed
 
-    [SerializeField] private GameObject NoPufSkin;
+    [SerializeField] private GameObject NoPufSkinX;
+    [SerializeField] private GameObject NoPufSkinY;
 
-    [SerializeField] private GameObject PufSkin;
+
+    [SerializeField] private GameObject PufSkinX;
+    [SerializeField] private GameObject PufSkinY;
+
 
 
     public int angleToTarget;
@@ -59,9 +64,113 @@ public class PufferBehaviour : MonoBehaviour
 
     void FixedUpdate ()
     {
+
+        Vector3 toPlayer = target.transform.position - transform.position;
+
+        angle = Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg; // gets the angle to player (0 - 180 = top side) (0 - -180 = down side)
+
+
         if (Vector2.Distance(transform.position, target.transform.position) > 0 ) // always move to player
         {
-           
+
+            if (angle < 45 && angle > -45 ) // moving right
+            {
+                //  sr.flipX = true;
+                if (puff)
+                {
+                    sr = PufSkinX.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
+                    PufSkinX.SetActive(true);
+                    PufSkinY.SetActive(false);
+                    NoPufSkinX.SetActive(false);
+                    NoPufSkinY.SetActive(false);
+                }
+                else
+                {
+                    sr = NoPufSkinX.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
+                    NoPufSkinX.SetActive(true);
+                    NoPufSkinY.SetActive(false);
+                    PufSkinX.SetActive(false);
+                    PufSkinY.SetActive(false);
+                }
+                sr.flipY = false;
+
+
+
+            }
+            else if (angle < 135 && angle > 45) // moving up
+            {
+
+                if (puff)
+                {
+                    PufSkinX.SetActive(false);
+                    PufSkinY.SetActive(true);
+                    NoPufSkinX.SetActive(false);
+                    NoPufSkinY.SetActive(false);
+                }
+                else
+                {
+                    NoPufSkinX.SetActive(true);
+                    NoPufSkinY.SetActive(true);
+                    PufSkinX.SetActive(false);
+                    PufSkinY.SetActive(false);
+                }
+
+                // sr.flipX = false;
+                // sr.flipY = false;
+
+                // launge animation = false
+
+            }
+            else if ((angle < 180 && angle > 135) || (angle <= -135 && angle >= -180)) // mooving left
+            {
+                if (puff)
+                {
+                    sr = PufSkinX.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+                    PufSkinX.SetActive(true);
+                    PufSkinY.SetActive(false);
+                    NoPufSkinX.SetActive(false);
+                    NoPufSkinY.SetActive(false);
+                }
+                else
+                {
+                    sr = NoPufSkinX.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
+                    NoPufSkinX.SetActive(true);
+                    NoPufSkinY.SetActive(false);
+                    PufSkinX.SetActive(false);
+                    PufSkinY.SetActive(false);
+                }
+                // sr.flipX = false;
+                sr.flipY = true;
+
+                
+
+            }
+            else if (angle < -45 && angle > -135) // mooving down
+            {
+                if (puff)
+                {
+                    sr = PufSkinX.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+                    PufSkinX.SetActive(false);
+                    PufSkinY.SetActive(true);
+                    NoPufSkinX.SetActive(false);
+                    NoPufSkinY.SetActive(false);
+                }
+                else
+                {
+                    sr = NoPufSkinX.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
+                    NoPufSkinX.SetActive(false);
+                    NoPufSkinY.SetActive(true);
+                    PufSkinX.SetActive(false);
+                    PufSkinY.SetActive(false);
+                }
+                
+
+            }
+
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize(); // Keep velocity consistent
             if (puff)
@@ -69,9 +178,8 @@ public class PufferBehaviour : MonoBehaviour
                 gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed / 3;
 
                 // make the needed skin visible
-                NoPufSkin.SetActive(false);
-                PufSkin.SetActive(true);
-                sr = PufSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
+                sr = PufSkinX.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
 
             }
             else
@@ -79,9 +187,8 @@ public class PufferBehaviour : MonoBehaviour
                 gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
 
                 // make the needed skin visible
-                PufSkin.SetActive(false);
-                NoPufSkin.SetActive(true);
-                sr = NoPufSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+
+                sr = NoPufSkinX.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
 
             }
 
@@ -91,7 +198,6 @@ public class PufferBehaviour : MonoBehaviour
             // flip the skin if necesary
             if (transform.position.x > target.transform.position.x && sr.flipY == false)
             {
-                //  sr.flipX = true;
                 sr.flipY = true;
 
             }
@@ -120,8 +226,12 @@ public class PufferBehaviour : MonoBehaviour
     /// <returns></returns>
     IEnumerator DoPuff(Vector3 targetScale, float growDuration)
     {
-        PufSkin.GetComponent<EnemyBlinkWhite>().FlashRed(); // make it blink red
-        NoPufSkin.GetComponent<EnemyBlinkWhite>().FlashRed();
+        PufSkinX.GetComponent<EnemyBlinkWhite>().FlashRed(); // make it blink red
+        PufSkinY.GetComponent<EnemyBlinkWhite>().FlashRed(); // make it blink red
+
+        NoPufSkinX.GetComponent<EnemyBlinkWhite>().FlashRed();
+        NoPufSkinY.GetComponent<EnemyBlinkWhite>().FlashRed();
+
         Vector3 initialScale = transform.localScale;
         float elapsed = 0f;
         puff = true;
