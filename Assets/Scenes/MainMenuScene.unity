@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlsUI: {fileID: 1514935158}
+  buttonSound: {fileID: 8300000, guid: 7cc057bed53baf34799f52aab3c84800, type: 3}
 --- !u!1 &116108565
 GameObject:
   m_ObjectHideFlags: 0
