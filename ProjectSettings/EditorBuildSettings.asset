@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/CodeScenes/OctoberScenes/Score+Boundary.unity
     guid: 57a4d254bb4e7094c92a604f3889f793
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CodeScenes/OctoberScenes/VirticleSlice.unity
     guid: 7128db375892a6c4b87b633dd54a0cf3
   - enabled: 1

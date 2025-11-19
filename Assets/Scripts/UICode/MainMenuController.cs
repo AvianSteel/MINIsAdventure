@@ -20,7 +20,7 @@ public class MainMenuController : MonoBehaviour
     }
     public void MainMenu()
     {
-        AudioSource.PlayClipAtPoint(buttonSound, transform.position);
+        //AudioSource.PlayClipAtPoint(buttonSound, transform.position);
         SceneManager.LoadScene("MainMenuScene");
     }
     public void ControlsMenu()

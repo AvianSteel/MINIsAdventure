@@ -301,7 +301,7 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e7ebc6a3-706a-4ada-bd00-5c63041f7f36"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/backspace"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -367,7 +367,7 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""73861592-5a2c-4dee-8562-74d5deedd19b"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

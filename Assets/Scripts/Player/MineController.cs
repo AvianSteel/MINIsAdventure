@@ -24,7 +24,7 @@ public class MineController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator MineCountdown()
     {
-        mineDmg = playerControler.GetComponent<PlayerControler>().mineLvl; // higher lvl, higher dmg
+        mineDmg = playerControler.GetComponent<PlayerControler>().mineLvl * 3; // higher lvl, higher dmg
         for (int i = 0; i < 6; i++)
         {
             

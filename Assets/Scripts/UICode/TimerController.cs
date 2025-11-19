@@ -25,11 +25,12 @@ public class TimerController : MonoBehaviour
         while(true)
         {
             second++;
-            statScaleGlobal += 0.1f;
+            
             Debug.Log("Timer Scale: " + statScaleGlobal.ToString());
             if(second == 60)
             {
                 second = 0;
+                statScaleGlobal += (float)((0.05 * 0.05) + 1);
                 minute++;
             }
             yield return new WaitForSeconds(1);

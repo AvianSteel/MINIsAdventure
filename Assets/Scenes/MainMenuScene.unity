@@ -309,8 +309,8 @@ RectTransform:
   - {fileID: 1892244831}
   - {fileID: 451921361}
   - {fileID: 1218350240}
-  - {fileID: 1514935159}
   - {fileID: 116108566}
+  - {fileID: 1514935159}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1003,18 +1003,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move: WASD
+  m_text: 'Move: Arcade Arcade Stick
 
-    Laser ability: Spacebar
+    Laser ability: Right Button
 
-    Mine ability: V
+    Mine ability:
+    Center Button
 
-    Thruster
-    ability: B
+    Thruster ability: Left Button
 
-    Pause: P
-
-    Quit game: Escape key
+    Pause: Exit Button
 
 
 '
