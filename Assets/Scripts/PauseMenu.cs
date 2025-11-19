@@ -9,12 +9,16 @@ public class PauseMenu : MonoBehaviour
     private InputAction pauseMenu;
     private bool isPaused;
     [SerializeField] private GameObject pauseUI;
-    [SerializeField] private AudioClip buttonSound;
-    
+    [SerializeField] private AudioSource audioSource;
+
 
 
     private void Awake()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = Resources.Load<AudioClip>("029_Decline_09");
+        audioSource.Play();
+
         playerMove = new PlayerMove();
     }
 
@@ -60,12 +64,12 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeButton()
     {
-        AudioSource.PlayClipAtPoint(buttonSound, transform.position);
+        audioSource.Play();
         DeactivateMenu();
     }
     public void QuitButton()
     {
-        AudioSource.PlayClipAtPoint(buttonSound, transform.position);
+        audioSource.Play();
         SceneManager.LoadScene("MainMenuScene");
     }
 }
