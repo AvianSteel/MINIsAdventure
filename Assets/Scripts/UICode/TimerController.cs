@@ -8,12 +8,14 @@ public class TimerController : MonoBehaviour
     private int minute;
     private int second;
     public TMP_Text timer;
+    public float statScaleGlobal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         second = 0;
         minute = 0;
+        statScaleGlobal = 1f;
         timer.text = minute.ToString() + ":00";
         StartCoroutine(TimerCount());
     }
@@ -23,6 +25,8 @@ public class TimerController : MonoBehaviour
         while(true)
         {
             second++;
+            statScaleGlobal += 0.1f;
+            Debug.Log("Timer Scale: " + statScaleGlobal.ToString());
             if(second == 60)
             {
                 second = 0;
