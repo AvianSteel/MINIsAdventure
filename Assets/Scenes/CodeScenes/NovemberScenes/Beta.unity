@@ -10351,7 +10351,7 @@ GameObject:
   - component: {fileID: 1190068443}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10503,6 +10503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerController
   timer: {fileID: 562248431}
+  statScaleGlobal: 0
 --- !u!1 &1192342613
 GameObject:
   m_ObjectHideFlags: 0

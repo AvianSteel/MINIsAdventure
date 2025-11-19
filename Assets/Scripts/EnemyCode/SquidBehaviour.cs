@@ -29,6 +29,8 @@ public class SquidBehaviour : MonoBehaviour
 
     public float hp;
     private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
+    private float OriginalAttkInt;
+    private float OriginalSpeed;
 
     public float atackInterval;
     private float initialShootDistance;
@@ -45,12 +47,14 @@ public class SquidBehaviour : MonoBehaviour
     void Start()
     {
         Originalhp = hp;
+        OriginalSpeed = speed;
+        OriginalAttkInt = atackInterval;
 
         target = GameObject.FindWithTag("Player");
       //  statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSquid = statController.statScale;
+        Debug.Log("Squid Scale:" + statScaleSquid.ToString());
         hp *= statScaleSquid;
-        atackInterval *= statScaleSquid;
         speed *= statScaleSquid;
         Mathf.Round(hp);
         sr = squidSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
@@ -72,7 +76,14 @@ public class SquidBehaviour : MonoBehaviour
         // when object pooled enemy hp is lower than zero, so check on that
         if (hp <= 0)
         {
+            statScaleSquid = statController.statScale;
             hp = Originalhp;
+            speed = OriginalSpeed;
+            atackInterval = OriginalAttkInt;
+            hp *= statScaleSquid;
+            speed *= statScaleSquid;
+            Mathf.Round(hp);
+
         }
     }
 
