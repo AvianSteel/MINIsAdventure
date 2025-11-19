@@ -45,7 +45,6 @@ public class DmgPopUp : MonoBehaviour
         if (origPos != null)
         {
             transform.position = origPos.position;
-            print("change position");
         }
       //  transform.position = new Vector3(0, 0, 0);
 
