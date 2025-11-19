@@ -19,6 +19,8 @@ public class PufferBehaviour : MonoBehaviour
     private bool lockTarget; // the point where the players was and launge there
     private GameObject cloneStorage;
     public float hp;
+    private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
+
 
     public float angle; // what is the angle between fish and player
 
@@ -43,7 +45,9 @@ public class PufferBehaviour : MonoBehaviour
     private float statScalePuff;
 
     void Start()
-    {   
+    {
+        Originalhp = hp;
+
         target = GameObject.FindWithTag("Player");
        // statController = target.gameObject.GetComponent<StatScalingController>();
         statScalePuff = statController.statScale;
@@ -61,8 +65,16 @@ public class PufferBehaviour : MonoBehaviour
 
 
     }
+    private void OnEnable()
+    {
+        // when object pooled enemy hp is lower than zero, so check on that
+        if (hp <= 0)
+        {
+            hp = Originalhp;
+        }
+    }
 
-    void FixedUpdate ()
+        void FixedUpdate ()
     {
 
         Vector3 toPlayer = target.transform.position - transform.position;

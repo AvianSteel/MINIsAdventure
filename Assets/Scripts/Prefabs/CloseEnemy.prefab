@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -1516527984156382540}
   - component: {fileID: -5082869417029690661}
   - component: {fileID: 1521152037372188854}
+  - component: {fileID: 8995418728000966827}
   m_Layer: 3
   m_Name: CloseEnemy
   m_TagString: Enemy
@@ -202,6 +203,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.9715428, y: 0.8173795}
   m_EdgeRadius: 0
+--- !u!114 &8995418728000966827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163515637861156452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ff2dd60e8d3a547995348998e9995c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathAnimation
+  enemyType: 1
+  col1: {fileID: -1516527984156382540}
+  col2: {fileID: 1521152037372188854}
+  animSides: {fileID: 5344848273029103363}
+  animUp: {fileID: 5900124573751668976}
+  animDown: {fileID: 8107359724378392563}
+  animLounge: {fileID: 2880978654481981085}
 --- !u!1 &1526856939700873563
 GameObject:
   m_ObjectHideFlags: 0
