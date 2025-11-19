@@ -26,6 +26,8 @@ public class EnemyBehaviour : MonoBehaviour
     private bool lockTarget; // the point where the players was and launge there
     public float hp;
     private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
+    private float OriginalSpeed;
+    private float OriginalLoungeSpeed;
     private GameObject cloneStorage;
     public GameObject pl;
 
@@ -44,6 +46,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
 
         Originalhp = hp;
+        OriginalSpeed = speed;
+        OriginalLoungeSpeed = loungeSpeed;
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
                                                    // statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSword = statController.statScale;
@@ -69,6 +73,13 @@ public class EnemyBehaviour : MonoBehaviour
         if (hp <= 0)
         {
             hp = Originalhp;
+            speed = OriginalSpeed;
+            loungeSpeed = OriginalLoungeSpeed;
+            statScaleSword = statController.statScale;
+            hp *= statScaleSword;
+            speed *= statScaleSword;
+            loungeSpeed *= statScaleSword;
+            Mathf.Round(hp);
         }
     }
 

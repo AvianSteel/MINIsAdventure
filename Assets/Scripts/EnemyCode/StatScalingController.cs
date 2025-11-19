@@ -3,19 +3,16 @@ using UnityEngine;
 
 public class StatScalingController : MonoBehaviour
 {
+    public TimerController timerController;
     public float statScale;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        statScale = 1f;
-        StartCoroutine(StatScalingTimer());
+        timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
+        statScale = timerController.statScaleGlobal;
     }
-    public IEnumerator StatScalingTimer()
+    private void Update()
     {
-        while (true)
-        {
-            statScale += 0.01f;
-            yield return new WaitForSeconds(1);
-        }
+        statScale = timerController.statScaleGlobal;
     }
 }

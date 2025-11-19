@@ -64,7 +64,6 @@ public class PufferBehaviour : MonoBehaviour
 
     void FixedUpdate ()
     {
-
         Vector3 toPlayer = target.transform.position - transform.position;
 
         angle = Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg; // gets the angle to player (0 - 180 = top side) (0 - -180 = down side)
