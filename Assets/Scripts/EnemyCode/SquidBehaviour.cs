@@ -210,7 +210,6 @@ public class SquidBehaviour : MonoBehaviour
             direction.Normalize(); // Keep velocity consistent
             cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = direction * (speed * 2);
 
-            print("created");
         }
 
 

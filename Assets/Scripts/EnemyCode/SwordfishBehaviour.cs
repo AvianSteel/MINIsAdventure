@@ -1,6 +1,6 @@
-using Unity.VisualScripting;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -282,9 +282,11 @@ public class EnemyBehaviour : MonoBehaviour
             Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
         }
 
-        enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject);
-        gameObject.SetActive(false);
+        gameObject.GetComponent<EnemyDeathAnimation>().startDeathBehaviour(1);
+        gameObject.GetComponent<EnemyBehaviour>().enabled = false;
     }
+
+    
 
 }
 
