@@ -36,7 +36,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text scoreText;
 
-    [SerializeField] private ParticleSystem hitEffect;
+   
     [SerializeField] private AudioClip hitSound;
    
     private bool isPlMoving; // player move up / down
@@ -342,10 +342,13 @@ public class PlayerControler : MonoBehaviour
             {
                 damage = 1;
             }
-            PlayHitEffect();
+          
             AudioSource.PlayClipAtPoint(hitSound, transform.position);
             hp = hp - damage;
-
+            upSkin.GetComponent<EnemyBlinkWhite>().FlashRed();
+            downSkin.GetComponent<EnemyBlinkWhite>().FlashRed();
+            leftSkin.GetComponent<EnemyBlinkWhite>().FlashRed();
+            rightSkin.GetComponent<EnemyBlinkWhite>().FlashRed();
 
             if (hp <= 0)
             {
@@ -441,13 +444,7 @@ public class PlayerControler : MonoBehaviour
 
     }
 
-    public void PlayHitEffect()
-    {
-        if (hitEffect != null)
-        {
-            hitEffect.Play();
-        }
-    }
+    
 
 
     /// <summary>
