@@ -39,22 +39,21 @@ public class EnemyBehaviour : MonoBehaviour
     private int dropRoll;
     private float angle; // what is the angle between fish and player
 
-    [SerializeField] private StatScalingController statController;
     private float statScaleSword;
-
+    public TimerController timerController;
     void Start()
     {
-
+        Debug.Log(hp);
         Originalhp = hp;
         OriginalSpeed = speed;
         OriginalLoungeSpeed = loungeSpeed;
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
-                                                   // statController = target.gameObject.GetComponent<StatScalingController>();
-        statScaleSword = statController.statScale;
-        hp *= statScaleSword;
-        speed *= statScaleSword;
-        loungeSpeed *= statScaleSword;
-        Mathf.Round(hp);
+        // statController = target.gameObject.GetComponent<StatScalingController>();
+        //statScaleSword = statController.statScale;
+        //hp *= statScaleSword;
+        //speed *= statScaleSword;
+        //loungeSpeed *= statScaleSword;
+        //Mathf.Round(hp);
 
         sr = animSides.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
         loungeSr = animLounge.GetComponent<SpriteRenderer>();
@@ -65,6 +64,15 @@ public class EnemyBehaviour : MonoBehaviour
 
         Vector3 direction = (loungePoint - transform.position).normalized;
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+
+        timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
+        statScaleSword = timerController.statScaleGlobal;
+        Debug.Log(statScaleSword);
+        hp *= statScaleSword;
+        speed *= statScaleSword;
+        loungeSpeed *= statScaleSword;
+        hp = Mathf.Round(hp);
+        Debug.Log("stat Scaled HP:" +  hp);
     }
 
     private void OnEnable()
@@ -75,18 +83,12 @@ public class EnemyBehaviour : MonoBehaviour
             hp = Originalhp;
             speed = OriginalSpeed;
             loungeSpeed = OriginalLoungeSpeed;
-            statScaleSword = statController.statScale;
+            statScaleSword = timerController.statScaleGlobal;
             hp *= statScaleSword;
             speed *= statScaleSword;
             loungeSpeed *= statScaleSword;
             Mathf.Round(hp);
-        }else
-        {
-            statScaleSword = statController.statScale;
-            hp *= statScaleSword;
-            speed *= statScaleSword;
-            loungeSpeed *= statScaleSword;
-            Mathf.Round(hp);
+            Debug.Log("Spawning an object pooled swordfish");
         }
     }
 

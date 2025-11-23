@@ -82,8 +82,8 @@ public class SquidBehaviour : MonoBehaviour
             atackInterval = OriginalAttkInt;
             hp *= statScaleSquid;
             speed *= statScaleSquid;
-            Mathf.Round(hp);
-            Debug.Log("Spawning an object pooled squid");
+            hp = Mathf.Round(hp);
+            //Debug.Log("Spawning an object pooled squid");
         }
     }
 
