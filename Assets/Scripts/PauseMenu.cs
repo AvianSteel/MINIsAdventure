@@ -70,6 +70,9 @@ public class PauseMenu : MonoBehaviour
     public void QuitButton()
     {
         audioSource.Play();
+        Time.timeScale = 1f;
+        pauseUI.SetActive(false);
+        isPaused = false;
         SceneManager.LoadScene("MainMenuScene");
     }
 }
