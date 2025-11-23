@@ -53,6 +53,9 @@ public class PlayerControler : MonoBehaviour
     public int dashLvl;
     public bool dashInvulnerab;
 
+    public GameObject dashUI;
+    public GameObject mineUI;
+    public GameObject laserUI;
 
     public float moveDirection;
     public float slideDirection;
@@ -66,7 +69,7 @@ public class PlayerControler : MonoBehaviour
     public float dashSpeedMultiplier;
 
     public int hp;
-    private int score;
+    public static int score;
 
 
     public float timeRemainLaser;
@@ -78,7 +81,7 @@ public class PlayerControler : MonoBehaviour
     {
         activeTarget = 0;
         isPlSliding = true;
-        scoreText.text = ("Score: " + score);
+        scoreText.text = score.ToString();
 
         playerInput.currentActionMap.Enable();  //Enable action map
         move = playerInput.currentActionMap.FindAction("Move");
@@ -105,6 +108,12 @@ public class PlayerControler : MonoBehaviour
         laserLvl = 0;
         mineLvl = 0;
         dashLvl = 0;
+
+
+        dashUI.gameObject.SetActive(false);
+        laserUI.gameObject.SetActive(false);
+        mineUI.gameObject.SetActive(false);
+
     }
     #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
@@ -352,7 +361,7 @@ public class PlayerControler : MonoBehaviour
 
             if (hp <= 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                SceneManager.LoadScene("GameOverScene");
             }
         }
         
@@ -458,12 +467,14 @@ public class PlayerControler : MonoBehaviour
             if (abilityNum == 1 && exceptionChoice != 1)
             {
                 laserLvl++;
+                laserUI.gameObject.SetActive(true);
                 abilityMenu.GetComponent<ChooseAbility>().closeChoice();
 
             }
             else if (abilityNum == 2 && exceptionChoice != 2)
             {
                 mineLvl++;
+                mineUI.gameObject.SetActive(true);
                 abilityMenu.GetComponent<ChooseAbility>().closeChoice();
 
             }
@@ -471,6 +482,7 @@ public class PlayerControler : MonoBehaviour
             {
                 {
                     dashLvl++;
+                    dashUI.gameObject.SetActive(true);
                     abilityMenu.GetComponent<ChooseAbility>().closeChoice();
 
                 }

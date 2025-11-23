@@ -7878,6 +7878,9 @@ MonoBehaviour:
   canDash: 0
   dashLvl: 0
   dashInvulnerab: 0
+  dashUI: {fileID: 1056354151}
+  mineUI: {fileID: 854820914}
+  laserUI: {fileID: 252756734}
   moveDirection: 0
   slideDirection: 0
   ammoDmg: 2

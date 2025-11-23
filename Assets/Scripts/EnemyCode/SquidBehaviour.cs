@@ -53,7 +53,7 @@ public class SquidBehaviour : MonoBehaviour
         target = GameObject.FindWithTag("Player");
       //  statController = target.gameObject.GetComponent<StatScalingController>();
         statScaleSquid = statController.statScale;
-        Debug.Log("Squid Scale:" + statScaleSquid.ToString());
+        //Debug.Log("Squid Scale:" + statScaleSquid.ToString());
         hp *= statScaleSquid;
         speed *= statScaleSquid;
         Mathf.Round(hp);
