@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class TimerController : MonoBehaviour
 {
-    private int minute;
-    private int second;
+    public static int minute;
+    public static int second;
     public TMP_Text timer;
     public float statScaleGlobal;
 
@@ -25,7 +25,7 @@ public class TimerController : MonoBehaviour
         while(true)
         {
             second++;
-            statScaleGlobal += 0.05f;
+            statScaleGlobal += 0.0015f;
             //Debug.Log("Timer Scale: " + statScaleGlobal.ToString());
             if(second == 60)
             {

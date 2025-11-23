@@ -301,7 +301,7 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e7ebc6a3-706a-4ada-bd00-5c63041f7f36"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/quote"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -334,7 +334,7 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""92f4f367-20ef-4baa-bdca-e270cf4cc1bd"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -355,6 +355,17 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4a00ae7d-5aa7-4e1e-b511-57d33da72173"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mine"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a51e6e85-a61b-489f-a816-f53d5cc04763"",
                     ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",
@@ -366,8 +377,19 @@ public partial class @PlayerMove: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""44e1681a-0f39-46c3-ac00-f5f267e4b588"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""73861592-5a2c-4dee-8562-74d5deedd19b"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
