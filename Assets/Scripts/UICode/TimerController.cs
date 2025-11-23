@@ -25,8 +25,8 @@ public class TimerController : MonoBehaviour
         while(true)
         {
             second++;
-            statScaleGlobal += 0.1f;
-            Debug.Log("Timer Scale: " + statScaleGlobal.ToString());
+            statScaleGlobal += 0.05f;
+            //Debug.Log("Timer Scale: " + statScaleGlobal.ToString());
             if(second == 60)
             {
                 second = 0;
