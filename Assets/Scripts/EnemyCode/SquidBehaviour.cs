@@ -52,11 +52,11 @@ public class SquidBehaviour : MonoBehaviour
 
         target = GameObject.FindWithTag("Player");
       //  statController = target.gameObject.GetComponent<StatScalingController>();
-        statScaleSquid = statController.statScale;
-        Debug.Log("Squid Scale:" + statScaleSquid.ToString());
-        hp *= statScaleSquid;
-        speed *= statScaleSquid;
-        Mathf.Round(hp);
+        //statScaleSquid = statController.statScale;
+        //Debug.Log("Squid Scale:" + statScaleSquid.ToString());
+        //hp *= statScaleSquid;
+        //speed *= statScaleSquid;
+        //Mathf.Round(hp);
         sr = squidSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
 
 
@@ -83,7 +83,7 @@ public class SquidBehaviour : MonoBehaviour
             hp *= statScaleSquid;
             speed *= statScaleSquid;
             Mathf.Round(hp);
-
+            Debug.Log("Spawning an object pooled squid");
         }
     }
 

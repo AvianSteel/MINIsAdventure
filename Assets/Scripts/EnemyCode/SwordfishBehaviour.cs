@@ -80,6 +80,13 @@ public class EnemyBehaviour : MonoBehaviour
             speed *= statScaleSword;
             loungeSpeed *= statScaleSword;
             Mathf.Round(hp);
+        }else
+        {
+            statScaleSword = statController.statScale;
+            hp *= statScaleSword;
+            speed *= statScaleSword;
+            loungeSpeed *= statScaleSword;
+            Mathf.Round(hp);
         }
     }
 
