@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -43,7 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
     public TimerController timerController;
     void Start()
     {
-        Debug.Log(hp);
+        //Debug.Log(hp);
         Originalhp = hp;
         OriginalSpeed = speed;
         OriginalLoungeSpeed = loungeSpeed;
@@ -67,12 +65,12 @@ public class EnemyBehaviour : MonoBehaviour
 
         timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
         statScaleSword = timerController.statScaleGlobal;
-        Debug.Log(statScaleSword);
+        //Debug.Log(statScaleSword);
         hp *= statScaleSword;
         speed *= statScaleSword;
         loungeSpeed *= statScaleSword;
         hp = Mathf.Round(hp);
-        Debug.Log("stat Scaled HP:" +  hp);
+        //Debug.Log("stat Scaled HP:" +  hp);
     }
 
     private void OnEnable()

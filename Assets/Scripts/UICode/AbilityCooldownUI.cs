@@ -1,8 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Image = UnityEngine.UIElements.Image;
 
 public class AbilityCooldownUI : MonoBehaviour
 {

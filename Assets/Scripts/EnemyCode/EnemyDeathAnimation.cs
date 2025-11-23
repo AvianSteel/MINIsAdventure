@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDeathAnimation : MonoBehaviour
@@ -25,7 +24,7 @@ public class EnemyDeathAnimation : MonoBehaviour
 
     public void startDeathBehaviour(int enemyNum)
     {
-        print("whywhywhywhy");
+        //print("whywhywhywhy");
         StartCoroutine(FadeOut());
     }
 
@@ -85,14 +84,14 @@ public class EnemyDeathAnimation : MonoBehaviour
 
     IEnumerator FadeOut()
     {
-        print("!!!!!!!!!!");
+        //print("!!!!!!!!!!");
 
         float startAlpha;
         float t = 0;
         float alpha;
         col1.enabled = false;
         col2.enabled = false;
-        print("22222222222");
+        //print("22222222222");
         
         while (t < 15)
         {
