@@ -33,7 +33,7 @@ public class MainMenuController : MonoBehaviour
         audioSource.Play();
 
         
-        SceneManager.LoadScene("PauseMenuScene");
+        SceneManager.LoadScene("ControlsScene");
     }
     public void ControlsButton()
     {
