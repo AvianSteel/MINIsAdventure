@@ -6,7 +6,10 @@ public class MainMenuController : MonoBehaviour
     public GameObject controlsUI;
     [SerializeField] private AudioSource audioSource;
 
-
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
     public void StartGame()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
