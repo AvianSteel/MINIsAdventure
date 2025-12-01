@@ -9,6 +9,14 @@ public class GameOverScreenController : MonoBehaviour
     void Start()
     {
         playerScoreText.text = PlayerControler.score.ToString();
-        timerText.text = TimerController.minute.ToString() + ":" + TimerController.second.ToString();
+        if(TimerController.second > 10)
+        {
+            timerText.text = TimerController.minute.ToString() + ":" + TimerController.second.ToString();
+        }
+        else
+        {
+            timerText.text = TimerController.minute.ToString() + ":0" + TimerController.second.ToString();
+        }
+        
     }
 }

@@ -77,10 +77,12 @@ public class PlayerControler : MonoBehaviour
     public float timeRemainDash;
     [SerializeField] private StatScalingController statController;
 
+    private float ogPlSpeed;
     void Start()
     {
         activeTarget = 0;
         isPlSliding = true;
+        score = 0;
         scoreText.text = score.ToString();
 
         playerInput.currentActionMap.Enable();  //Enable action map
@@ -113,15 +115,18 @@ public class PlayerControler : MonoBehaviour
         dashUI.gameObject.SetActive(false);
         laserUI.gameObject.SetActive(false);
         mineUI.gameObject.SetActive(false);
+        ogPlSpeed = PlSpeed;
 
+        Cursor.visible = false;
     }
     #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
     {
         AbilityChoice(3);
 
-        if (canDash && dashLvl > 0)
+        if (canDash && dashLvl > 0 && (isPlSliding || isPlMoving))
         {
+            ogPlSpeed = PlSpeed;
             StartCooldown("dash");
             canDash = false;
             PlSpeed *= dashSpeedMultiplier;
@@ -308,6 +313,7 @@ public class PlayerControler : MonoBehaviour
     public void increaseSpeed(float speed)
     {
         PlSpeed += speed;
+        ogPlSpeed = PlSpeed;
     }
     /// <summary>
     /// Increases defense 
@@ -466,6 +472,9 @@ public class PlayerControler : MonoBehaviour
         {
             if (abilityNum == 1 && exceptionChoice != 1)
             {
+                StopCoroutine(LaserCooldown());
+                timeRemainLaser = 0;
+                canLaser = true;
                 laserLvl++;
                 laserUI.gameObject.SetActive(true);
                 abilityMenu.GetComponent<ChooseAbility>().closeChoice();
@@ -473,6 +482,9 @@ public class PlayerControler : MonoBehaviour
             }
             else if (abilityNum == 2 && exceptionChoice != 2)
             {
+                StopCoroutine(MineCooldown());
+                timeRemainMine = 0;
+                canMine = true;
                 mineLvl++;
                 mineUI.gameObject.SetActive(true);
                 abilityMenu.GetComponent<ChooseAbility>().closeChoice();
@@ -480,12 +492,14 @@ public class PlayerControler : MonoBehaviour
             }
             else if (abilityNum == 3 && exceptionChoice != 3)
             {
-                {
-                    dashLvl++;
-                    dashUI.gameObject.SetActive(true);
-                    abilityMenu.GetComponent<ChooseAbility>().closeChoice();
-
-                }
+                StopCoroutine(DashCooldown());
+                timeRemainDash = 0;
+                canDash = true;
+                dashLvl++;
+                dashInvulnerab = false;
+                PlSpeed = ogPlSpeed;
+                dashUI.gameObject.SetActive(true);
+                abilityMenu.GetComponent<ChooseAbility>().closeChoice();
 
             }
         }
