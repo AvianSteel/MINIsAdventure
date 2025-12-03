@@ -253,29 +253,33 @@ public class SquidBehaviour : MonoBehaviour
         int tempDmg = Mathf.FloorToInt(Pldmg);
         hp -= Pldmg;
 
-        if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 && squidStorage)
-        {
-         
-
-            squidStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
-            squidStorage = enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0];
-            squidStorage.SetActive(true);
-            enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
-            squidStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
-        }
-        else
-        {
-            squidStorage = Instantiate(dmgPopUp, transform.position, Quaternion.identity);
-            squidStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
-            squidStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
-
-        }
+        
 
 
         skin.GetComponent<EnemyBlinkWhite>().FlashRed();
         if (hp <= 0)
         {
             enemyDie();
+        }
+        else
+        {
+            if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 && squidStorage)
+            {
+
+
+                squidStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+                squidStorage = enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0];
+                squidStorage.SetActive(true);
+                enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
+                squidStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+            }
+            else
+            {
+                squidStorage = Instantiate(dmgPopUp, transform.position, Quaternion.identity);
+                squidStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+                squidStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+
+            }
         }
 
 

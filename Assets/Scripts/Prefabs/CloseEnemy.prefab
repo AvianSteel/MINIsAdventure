@@ -70,7 +70,7 @@ MonoBehaviour:
   hp: 3
   pl: {fileID: 0}
   swordSkin: {fileID: 1526856939700873563}
-  statController: {fileID: -5082869417029690661}
+  timerController: {fileID: 0}
 --- !u!50 &-2459013091579546574
 Rigidbody2D:
   serializedVersion: 5
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0b5ff6dd63be044a78032dbf7ec779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatScalingController
+  timerController: {fileID: 0}
   statScale: 1
 --- !u!61 &1521152037372188854
 BoxCollider2D:
