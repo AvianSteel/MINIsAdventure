@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f163f14d62b22e1488019df94f8817e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 5557882905310010708, guid: 12ef004788edd3d4699dd706c1a23de6, type: 3}
+  initiaLiefetime: 2
   mineDmg: 3
   mineExplosionSound: {fileID: 8300000, guid: 21c4a490b24ba2045bc815f7626a40ef, type: 3}
   hitSound: {fileID: 0}

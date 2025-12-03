@@ -238,28 +238,32 @@ public class EnemyBehaviour : MonoBehaviour
         animDown.GetComponent<EnemyBlinkWhite>().FlashRed();
         animLounge.GetComponent<EnemyBlinkWhite>().FlashRed();
 
-        if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 && cloneStorage)
-        {
-
-
-            cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
-            cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0];
-            cloneStorage.SetActive(true);
-            enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
-            cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
-        }
-        else
-        {
-            cloneStorage = Instantiate(dmgPopUp, transform.position, Quaternion.identity);
-            cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
-            cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
-
-        }
+        
 
 
         if (hp <= 0)
         {
             EnemyDie();
+        }
+        else
+        {
+            if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 && cloneStorage)
+            {
+
+
+                cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+                cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0];
+                cloneStorage.SetActive(true);
+                enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
+                cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+            }
+            else
+            {
+                cloneStorage = Instantiate(dmgPopUp, transform.position, Quaternion.identity);
+                cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+                cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+
+            }
         }
 
 
