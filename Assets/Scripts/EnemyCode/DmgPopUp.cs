@@ -25,6 +25,14 @@ public class DmgPopUp : MonoBehaviour
     }
     public void Setup(int dmgAmount, Transform origPos)
     {
+
+        textColor.a = 1;
+
+        if (origPos != null)
+        {
+            transform.position = origPos.position;
+        }
+
         textMesh.text = dmgAmount.ToString();
         dissapearTimer = 0.5f;
         if (dmgAmount > 100)
@@ -40,35 +48,33 @@ public class DmgPopUp : MonoBehaviour
         {
             textColor = Color.white;
         }
-            
-        textColor.a = 1;
-        if (origPos != null)
-        {
-            transform.position = origPos.position;
-        }
-      //  transform.position = new Vector3(0, 0, 0);
+
+        //  transform.position = new Vector3(0, 0, 0);
 
     }
     private void Update()
     {
         float moveYSpeed = 2f;
         transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
+        print("1");
 
         dissapearTimer -= Time.deltaTime;
         if(dissapearTimer < 0)
         {
-            
+            print("2");
+
             float dissapearSpeed = 3f;
             textColor.a -= dissapearSpeed * Time.deltaTime;
             textMesh.color = textColor;
             if(textColor.a < 0)
             {
+
                 if (enemySpawnControler != null)
                 {
 
                 }
                 enemySpawnControler.GetComponent<EnemySpawnControler>().dmgList.Add(gameObject);
-
+                gameObject.SetActive(false);
                // gameObject.SetActive(false);
                 //TO CRISTIAN:
                 //Pretty sure this is where object pooling stuff goes. Don't edit any functions or variables other than the above line

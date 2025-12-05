@@ -43,7 +43,6 @@ public class EnemyBehaviour : MonoBehaviour
     public TimerController timerController;
     void Start()
     {
-        Debug.Log(hp);
         Originalhp = hp;
         OriginalSpeed = speed;
         OriginalLoungeSpeed = loungeSpeed;
@@ -67,12 +66,10 @@ public class EnemyBehaviour : MonoBehaviour
 
         timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
         statScaleSword = timerController.statScaleGlobal;
-        Debug.Log(statScaleSword);
         hp *= statScaleSword;
         speed *= statScaleSword;
         loungeSpeed *= statScaleSword;
         hp = Mathf.Round(hp);
-        Debug.Log("stat Scaled HP:" +  hp);
     }
 
     private void OnEnable()
@@ -88,7 +85,6 @@ public class EnemyBehaviour : MonoBehaviour
             speed *= statScaleSword;
             loungeSpeed *= statScaleSword;
             Mathf.Round(hp);
-            Debug.Log("Spawning an object pooled swordfish");
         }
     }
 
@@ -233,10 +229,7 @@ public class EnemyBehaviour : MonoBehaviour
         int tempDmg = Mathf.FloorToInt(Pldmg);
         hp -= Pldmg;
 
-        animSides.GetComponent<EnemyBlinkWhite>().FlashRed();
-        animUp.GetComponent<EnemyBlinkWhite>().FlashRed();
-        animDown.GetComponent<EnemyBlinkWhite>().FlashRed();
-        animLounge.GetComponent<EnemyBlinkWhite>().FlashRed();
+        
 
         
 
@@ -247,14 +240,15 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else
         {
-            if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 && cloneStorage)
+            if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 )
             {
 
-
-                cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
-                cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0];
+                cloneStorage = (enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0]);
+               // cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
                 cloneStorage.SetActive(true);
-                enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
+                print(":");
+                enemySpawn.GetComponent<EnemySpawnControler>().dmgList.RemoveAt(0);
+
                 cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
             }
             else
@@ -265,7 +259,10 @@ public class EnemyBehaviour : MonoBehaviour
 
             }
         }
-
+        animSides.GetComponent<EnemyBlinkWhite>().FlashRed();
+        animUp.GetComponent<EnemyBlinkWhite>().FlashRed();
+        animDown.GetComponent<EnemyBlinkWhite>().FlashRed();
+        animLounge.GetComponent<EnemyBlinkWhite>().FlashRed();
 
     }
 
@@ -295,8 +292,9 @@ public class EnemyBehaviour : MonoBehaviour
             Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
         }
 
-        gameObject.GetComponent<EnemyDeathAnimation>().startDeathBehaviour(1);
-        gameObject.GetComponent<EnemyBehaviour>().enabled = false;
+        enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject); // list the enemy in the object pool
+
+        gameObject.SetActive(false);
     }
 
     
