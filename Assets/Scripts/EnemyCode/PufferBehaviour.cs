@@ -9,6 +9,7 @@ public class PufferBehaviour : MonoBehaviour
     [SerializeField] private GameObject abilityDrop;
     [SerializeField] private GameObject dmgPopUp;
 
+
     private StatDropController dropController;
     public GameObject enemySpawn;
 
@@ -32,6 +33,7 @@ public class PufferBehaviour : MonoBehaviour
 
     [SerializeField] private GameObject NoPufSkinX;
     [SerializeField] private GameObject NoPufSkinY;
+
 
 
     [SerializeField] private GameObject PufSkinX;
