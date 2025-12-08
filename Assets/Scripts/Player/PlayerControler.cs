@@ -24,6 +24,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private GameObject EnemySpawner;
     [SerializeField] private GameObject laserObject;
     [SerializeField] private GameObject seaMine;
+    [SerializeField] private GameObject dashImpact;
+
 
     public GameObject abilityMenu;
     public int exceptionChoice;// which ability is not avilable for choice
@@ -220,7 +222,9 @@ public class PlayerControler : MonoBehaviour
          
             yield return new WaitForSeconds(DashDuration); // wait for dash duration than change the speed to original
             PlSpeed = origPlSpeed;
+            dashImpact.SetActive(true); // move them aside
             dashInvulnerab = false;
+            StartCoroutine(SocialDistance());
         }
         while (timeRemainDash > 0)
         {
@@ -251,6 +255,13 @@ public class PlayerControler : MonoBehaviour
     /// Performs the cooldown actions for the mine ability before enabling ability again
     /// </summary>
     /// <returns></returns>
+    /// 
+
+    public IEnumerator SocialDistance()
+    {
+        yield return new WaitForSeconds(0.5f);
+        dashImpact.SetActive(false);
+    }
     public IEnumerator MineCooldown()
     {
         while (timeRemainMine > 0)
