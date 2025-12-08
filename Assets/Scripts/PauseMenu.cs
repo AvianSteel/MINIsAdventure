@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private AudioSource audioSource;
 
-
+    [SerializeField] private PlayerControler playerControler;
 
     private void Awake()
     {
@@ -37,18 +37,22 @@ public class PauseMenu : MonoBehaviour
 
     void Pause(InputAction.CallbackContext context)
     {
-        isPaused = !isPaused;
+        if(playerControler.isChoosingAbility == false)
+        {
+            isPaused = !isPaused;
 
-        if (isPaused)
-        {
-            //Comment out below if Arcade build!!!!
-            Cursor.visible = true;
-            ActivateMenu();
+            if (isPaused)
+            {
+                //Comment out below if Arcade build!!!!
+                Cursor.visible = true;
+                ActivateMenu();
+            }
+            else
+            {
+                DeactivateMenu();
+            }
         }
-        else
-        {
-            DeactivateMenu();
-        }
+
     }
 
     void ActivateMenu()
