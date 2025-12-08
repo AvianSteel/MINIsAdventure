@@ -3,7 +3,11 @@ using UnityEngine;
 
 public class MineController : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem explosionParticle;
+
+    public float initiaLiefetime;
     public float mineDmg;
+    private float explRadious;
     private PlayerControler playerControler;
 
     [SerializeField] private AudioClip mineExplosionSound;
@@ -65,7 +69,18 @@ public class MineController : MonoBehaviour
 /// </summary>
     private void Explode()
     {
-        gameObject.GetComponent<CircleCollider2D>().radius = playerControler.GetComponent<PlayerControler>().mineLvl; // higher ability lvl, bigger explosion
+        explRadious = playerControler.GetComponent<PlayerControler>().mineLvl*1.5f; // higher ability lvl, bigger  explosion
+        ParticleSystem ps = Instantiate(explosionParticle, transform.position, Quaternion.identity);
+        var main = ps.main;          // get the main module
+        if (explRadious < 4)
+        {
+            main.startLifetime = initiaLiefetime / explRadious;   // set lifetime to 2.5 seconds
+        }
+     
+
+
+            gameObject.GetComponent<CircleCollider2D>().radius = explRadious; // higher ability lvl, bigger explosion
+        main.startSpeed = explRadious*1.5f; // speed of particles (their radious of the visible explosion)
 
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
