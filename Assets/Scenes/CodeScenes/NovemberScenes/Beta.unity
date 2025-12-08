@@ -8424,6 +8424,7 @@ MonoBehaviour:
   EnemySpawner: {fileID: 474587399}
   laserObject: {fileID: 7242877796461584347, guid: 00c55ce3a6a8b6d46be46d218cd168e2, type: 3}
   seaMine: {fileID: 2615560913691947818, guid: b67f4498014412d41a3a301b7644bf17, type: 3}
+  dashImpact: {fileID: 0}
   abilityMenu: {fileID: 891681100}
   exceptionChoice: 0
   downSkin: {fileID: 353246833}
@@ -9524,8 +9525,8 @@ Transform:
   m_GameObject: {fileID: 862623412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.5343, y: 0.5238, z: 0}
-  m_LocalScale: {x: 17.223707, y: 35.08249, z: 1}
+  m_LocalPosition: {x: -36.5343, y: 0.6089, z: 0}
+  m_LocalScale: {x: 17.223707, y: 34.913765, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -10446,8 +10447,8 @@ Transform:
   m_GameObject: {fileID: 956465332}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3, y: 22.6, z: 0}
-  m_LocalScale: {x: 85.4245, y: 9.107785, z: 1}
+  m_LocalPosition: {x: -2.3, y: 22.6084, z: 0}
+  m_LocalScale: {x: 85.4245, y: 9.091273, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -18412,7 +18413,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7dcabf528d603b54a9e90ab4b3b62c89, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.481
+  m_Volume: 0.176
   m_Pitch: 1
   Loop: 1
   Mute: 0
