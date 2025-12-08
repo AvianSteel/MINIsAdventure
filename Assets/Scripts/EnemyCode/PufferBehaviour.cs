@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class PufferBehaviour : MonoBehaviour
@@ -21,7 +22,8 @@ public class PufferBehaviour : MonoBehaviour
     private bool lockTarget; // the point where the players was and launge there
     private GameObject cloneStorage;
     public float hp;
-    private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
+    private static float Originalhp = 5; // will be usedas a reference to reset the HP when object pooled 
+    private static float originalSpeed = 1;
 
 
     public float angle; // what is the angle between fish and player
@@ -46,6 +48,9 @@ public class PufferBehaviour : MonoBehaviour
 
     [SerializeField] private StatScalingController statController;
     private float statScalePuff;
+    private TimerController timerController;
+    [SerializeField] private BoxCollider2D coll1;
+    [SerializeField] private BoxCollider2D coll2;
 
     void Start()
     {
@@ -77,7 +82,23 @@ public class PufferBehaviour : MonoBehaviour
         }
     }
 
-        void FixedUpdate ()
+    public void PufferInit()
+    {
+        gameObject.SetActive(true);
+        hp = Originalhp;
+        speed = originalSpeed;
+        timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
+        statScalePuff = timerController.statScaleGlobal;
+        target = GameObject.FindWithTag("Player");
+        hp *= statScalePuff;
+        speed *= statScalePuff;
+        Mathf.Round(hp);
+        puff = false;
+        coll1.enabled = true;
+        coll2.enabled = true;
+    }
+
+    void FixedUpdate ()
     {
         Vector3 toPlayer = target.transform.position - transform.position;
 

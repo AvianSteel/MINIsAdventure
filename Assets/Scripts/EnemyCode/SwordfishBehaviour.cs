@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour
+public class SwordfishBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
@@ -27,9 +27,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     private bool lockTarget; // the point where the players was and launge there
     public float hp;
-    private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
-    private float OriginalSpeed;
-    private float OriginalLoungeSpeed;
+    private static float Originalhp = 3; // will be usedas a reference to reset the HP when object pooled 
+    private static float OriginalSpeed = 1;
+    private static float OriginalLoungeSpeed = 2.5f;
     private GameObject cloneStorage;
     public GameObject pl;
 
@@ -48,9 +48,6 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private BoxCollider2D coll2;
     void Start()
     {
-        Originalhp = hp;
-        OriginalSpeed = speed;
-        OriginalLoungeSpeed = loungeSpeed;
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
 
         sr = animSides.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
@@ -71,6 +68,17 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void SwordfishInit()
     {
+        target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
+
+        sr = animSides.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+        loungeSr = animLounge.GetComponent<SpriteRenderer>();
+
+        pl = GameObject.FindWithTag("Player"); // used to get referenvce to the player code
+        Vector3 loungePoint = target.transform.position;
+
+        Vector3 direction = (loungePoint - transform.position).normalized;
+        gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+        timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
         gameObject.SetActive(true);
         coll1.enabled = true;
         coll2.enabled = true;

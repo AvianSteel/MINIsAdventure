@@ -78,7 +78,7 @@ public class EnemyDeathAnimation : MonoBehaviour
 
         }
         yield return new WaitForSeconds(2f);
-        gameObject.GetComponent<EnemyBehaviour>().enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject);
+        gameObject.GetComponent<SwordfishBehaviour>().enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject);
         gameObject.SetActive(false);
     }
 
@@ -132,7 +132,7 @@ public class EnemyDeathAnimation : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2f);
-        gameObject.GetComponent<EnemyBehaviour>().enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject);
+        gameObject.GetComponent<SwordfishBehaviour>().enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject);
         gameObject.SetActive(false);
     }
 }

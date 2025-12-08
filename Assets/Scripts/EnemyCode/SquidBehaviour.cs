@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using TMPro;
 using UnityEngine;
 
@@ -29,9 +30,7 @@ public class SquidBehaviour : MonoBehaviour
     private GameObject squidStorage;
 
     public float hp;
-    private float Originalhp; // will be usedas a reference to reset the HP when object pooled 
-    private float OriginalAttkInt;
-    private float OriginalSpeed;
+    private static float Originalhp = 1; // will be usedas a reference to reset the HP when object pooled 
 
     public float atackInterval;
     private float initialShootDistance;
@@ -40,27 +39,20 @@ public class SquidBehaviour : MonoBehaviour
     [SerializeField] private GameObject squidSkin;
     SpriteRenderer sr; // reference to how the skin is pointed
 
-    [SerializeField] private StatScalingController statController;
     private float statScaleSquid;
 
-
+    public TimerController timerController;
     private int dropRoll;
+
+    [SerializeField] private BoxCollider2D coll1;
+    [SerializeField] private BoxCollider2D coll2;
     void Start()
     {
-        Originalhp = hp;
-        OriginalSpeed = speed;
-        OriginalAttkInt = atackInterval;
 
         target = GameObject.FindWithTag("Player");
-      //  statController = target.gameObject.GetComponent<StatScalingController>();
-        //statScaleSquid = statController.statScale;
-        //Debug.Log("Squid Scale:" + statScaleSquid.ToString());
-        //hp *= statScaleSquid;
-        //speed *= statScaleSquid;
-        //Mathf.Round(hp);
         sr = squidSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
 
-
+        timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
         // dropController = GameObjectsa.Find("DropController").GetComponent<StatDropController>();
         Vector3 loungePoint = target.transform.position;
 
@@ -72,17 +64,33 @@ public class SquidBehaviour : MonoBehaviour
         StartCoroutine(DoISHoot());
     }
 
+    public void SquidInit()
+    {
+        gameObject.SetActive(true);
+        timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
+        statScaleSquid = timerController.statScaleGlobal;
+        hp = Originalhp;
+        hp *= statScaleSquid;
+        hp = Mathf.Round(hp);
+        target = GameObject.FindWithTag("Player");
+        sr = squidSkin.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
+        Vector3 loungePoint = target.transform.position;
+
+        Vector3 direction = (loungePoint - transform.position).normalized;
+        gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
+        initialShootDistance = shootDistance;
+        shootDistance = shootDistance + Random.Range(-1.1f, 1.0f);
+        coll1.enabled = true;
+        coll2.enabled = true;
+        StartCoroutine(DoISHoot());
+    }
     private void OnEnable()
     {
         // when object pooled enemy hp is lower than zero, so check on that
         if (hp <= 0)
         {
-            statScaleSquid = statController.statScale;
             hp = Originalhp;
-            speed = OriginalSpeed;
-            atackInterval = OriginalAttkInt;
             hp *= statScaleSquid;
-            speed *= statScaleSquid;
             hp = Mathf.Round(hp);
             //Debug.Log("Spawning an object pooled squid");
         }

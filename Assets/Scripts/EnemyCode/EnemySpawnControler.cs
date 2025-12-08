@@ -66,21 +66,25 @@ public class EnemySpawnControler : MonoBehaviour
             {
                 cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
                 cloneStorage.name = "SwordFish";
-                cloneStorage.GetComponent<EnemyBehaviour>().enemySpawn = gameObject;
+                cloneStorage.GetComponent<SwordfishBehaviour>().enemySpawn = gameObject;
+                cloneStorage.GetComponent<SwordfishBehaviour>().SwordfishInit();
 
-                
+
+
             }
             else if(dice <= 9)
             {
                 cloneStorage = Instantiate(squid, transform.position, Quaternion.identity);
                 cloneStorage.name = "Squid";
                 cloneStorage.GetComponent<SquidBehaviour>().enemySpawn = gameObject;
+                cloneStorage.GetComponent<SquidBehaviour>().SquidInit();
             }
             else if (dice == 10)
             {
                 cloneStorage = Instantiate(puffer, transform.position, Quaternion.identity);
                 cloneStorage.name = "Puffer";
                 cloneStorage.GetComponent<PufferBehaviour>().enemySpawn = gameObject;
+                cloneStorage.GetComponent<PufferBehaviour>().PufferInit();
             }
         }
 
