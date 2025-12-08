@@ -56,12 +56,10 @@ public class DmgPopUp : MonoBehaviour
     {
         float moveYSpeed = 2f;
         transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
-        print("1");
 
         dissapearTimer -= Time.deltaTime;
         if(dissapearTimer < 0)
         {
-            print("2");
 
             float dissapearSpeed = 3f;
             textColor.a -= dissapearSpeed * Time.deltaTime;
@@ -75,11 +73,15 @@ public class DmgPopUp : MonoBehaviour
                 }
                 enemySpawnControler.GetComponent<EnemySpawnControler>().dmgList.Add(gameObject);
                 gameObject.SetActive(false);
-               // gameObject.SetActive(false);
+                // gameObject.SetActive(false);
                 //TO CRISTIAN:
                 //Pretty sure this is where object pooling stuff goes. Don't edit any functions or variables other than the above line
                 //If you need to edit stuff, either ask me first, or fix it urself
                 // Thanks, Bryson
+                // From CRISTIAN:
+                //                  NO ;)
+                // the code had to be entire eddited to correctly object pool it, a bug is there that needs to be adresed where object pooled 
+                // numbers appear with a delay
             }
         }
     }

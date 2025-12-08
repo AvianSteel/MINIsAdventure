@@ -58,6 +58,7 @@ MonoBehaviour:
   drop: {fileID: 1364158909784646617, guid: 64752035a49e3994588f0ee6a2c326d1, type: 3}
   abilityDrop: {fileID: 1364158909784646617, guid: 526ee7219f0f19c43a12e47b5e2f04a7, type: 3}
   dmgPopUp: {fileID: 1420568378541999193, guid: 33e4437382b2ca0439a37c7b531cb05c, type: 3}
+  deathParticles: {fileID: 665811710984793081, guid: f7216c3162b9d584381cdf430513efc2, type: 3}
   animSides: {fileID: 5344848273029103363}
   animUp: {fileID: 5900124573751668976}
   animDown: {fileID: 8107359724378392563}

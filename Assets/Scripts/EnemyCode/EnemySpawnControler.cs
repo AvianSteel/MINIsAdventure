@@ -11,6 +11,8 @@ public class EnemySpawnControler : MonoBehaviour
     private int dice; // stores a random number
 
     public List<GameObject> DeadEnemies = new List<GameObject>();
+    public List<GameObject> DeadParticles = new List<GameObject>();
+
     public List<GameObject> SquidInk = new List<GameObject>(); // object pooling for ink
     public List<GameObject> dmgList = new List<GameObject>(); // object pooling for ink
 
@@ -101,5 +103,8 @@ public class EnemySpawnControler : MonoBehaviour
     {
         SquidInk.Add(ink);
     }
-
+    public void listOldParticle(GameObject particle)
+    {
+        DeadParticles.Add(particle);
+    }
 }
