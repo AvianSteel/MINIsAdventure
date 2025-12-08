@@ -43,18 +43,15 @@ public class EnemyBehaviour : MonoBehaviour
 
     private float statScaleSword;
     public TimerController timerController;
+
+    [SerializeField] private BoxCollider2D coll1;
+    [SerializeField] private BoxCollider2D coll2;
     void Start()
     {
         Originalhp = hp;
         OriginalSpeed = speed;
         OriginalLoungeSpeed = loungeSpeed;
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
-        // statController = target.gameObject.GetComponent<StatScalingController>();
-        //statScaleSword = statController.statScale;
-        //hp *= statScaleSword;
-        //speed *= statScaleSword;
-        //loungeSpeed *= statScaleSword;
-        //Mathf.Round(hp);
 
         sr = animSides.GetComponent<SpriteRenderer>(); // reference to how the skin is oriented
         loungeSr = animLounge.GetComponent<SpriteRenderer>();
@@ -67,6 +64,20 @@ public class EnemyBehaviour : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = direction * speed;
 
         timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
+        statScaleSword = timerController.statScaleGlobal;
+        coll1.enabled = true;
+        coll2.enabled = true;
+    }
+
+    public void SwordfishInit()
+    {
+        gameObject.SetActive(true);
+        coll1.enabled = true;
+        coll2.enabled = true;
+        Debug.Log("Swordfish Initialized");
+        hp = Originalhp;
+        speed = OriginalSpeed;
+        loungeSpeed = OriginalLoungeSpeed;
         statScaleSword = timerController.statScaleGlobal;
         hp *= statScaleSword;
         speed *= statScaleSword;
@@ -86,7 +97,7 @@ public class EnemyBehaviour : MonoBehaviour
             hp *= statScaleSword;
             speed *= statScaleSword;
             loungeSpeed *= statScaleSword;
-            Mathf.Round(hp);
+            hp = Mathf.Round(hp);
         }
     }
 
@@ -99,11 +110,6 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (Vector2.Distance(transform.position, target.transform.position) > 3 && !lockTarget) // if close lounge
         {
-
-
-
-
-
 
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize(); // Keep velocity consistent
