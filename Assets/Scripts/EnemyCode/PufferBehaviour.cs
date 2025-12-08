@@ -8,6 +8,7 @@ public class PufferBehaviour : MonoBehaviour
     [SerializeField] private GameObject drop;
     [SerializeField] private GameObject abilityDrop;
     [SerializeField] private GameObject dmgPopUp;
+    [SerializeField] private GameObject deathParticles;
 
 
     private StatDropController dropController;
@@ -313,14 +314,15 @@ public class PufferBehaviour : MonoBehaviour
             int tempDmg = Mathf.FloorToInt(Pldmg);
             hp -= Pldmg;
 
-            if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 && cloneStorage)
+            if (enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Count > 0 )
             {
 
 
-                cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
-                cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0];
+                cloneStorage = (enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0]);
+                // cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
                 cloneStorage.SetActive(true);
-                enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
+                enemySpawn.GetComponent<EnemySpawnControler>().dmgList.RemoveAt(0);
+
                 cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
             }
             else
@@ -332,6 +334,22 @@ public class PufferBehaviour : MonoBehaviour
             }
             if (hp <= 0)
             {
+                if (enemySpawn.GetComponent<EnemySpawnControler>().DeadParticles.Count > 0)
+                {
+                    cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().DeadParticles[0];
+                    cloneStorage.transform.position = gameObject.transform.position;
+                    cloneStorage.SetActive(true);
+                    enemySpawn.GetComponent<EnemySpawnControler>().DeadParticles.RemoveAt(0);
+                    cloneStorage.GetComponent<DeathParticleController>().ParticleGetOld();
+
+
+                }
+                else
+                {
+                    cloneStorage = Instantiate(deathParticles, transform.position, Quaternion.identity);
+                    cloneStorage.GetComponent<DeathParticleController>().enemySpawn = enemySpawn;
+                    cloneStorage.GetComponent<DeathParticleController>().ParticleGetOld();
+                }
                 enemyDie();
             }
             else

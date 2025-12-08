@@ -8,8 +8,9 @@ public class SquidBehaviour : MonoBehaviour
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject drop;
     [SerializeField] private GameObject abilityDrop;
-    //[SerializeField] private DmgPopUp dmgPopUp;
     [SerializeField] private GameObject dmgPopUp;
+    [SerializeField] private GameObject deathParticles;
+
 
     [SerializeField] private GameObject ink;
     [SerializeField] private GameObject skin;
@@ -259,6 +260,22 @@ public class SquidBehaviour : MonoBehaviour
         skin.GetComponent<EnemyBlinkWhite>().FlashRed();
         if (hp <= 0)
         {
+            if (enemySpawn.GetComponent<EnemySpawnControler>().DeadParticles.Count > 0)
+            {
+                cloneStorage = enemySpawn.GetComponent<EnemySpawnControler>().DeadParticles[0];
+                cloneStorage.transform.position = gameObject.transform.position;
+                cloneStorage.SetActive(true);
+                enemySpawn.GetComponent<EnemySpawnControler>().DeadParticles.RemoveAt(0);
+                cloneStorage.GetComponent<DeathParticleController>().ParticleGetOld();
+
+
+            }
+            else
+            {
+                cloneStorage = Instantiate(deathParticles, transform.position, Quaternion.identity);
+                cloneStorage.GetComponent<DeathParticleController>().enemySpawn = enemySpawn;
+                cloneStorage.GetComponent<DeathParticleController>().ParticleGetOld();
+            }
             enemyDie();
         }
         else
