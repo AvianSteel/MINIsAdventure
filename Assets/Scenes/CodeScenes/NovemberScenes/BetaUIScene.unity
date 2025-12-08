@@ -7698,7 +7698,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mine Description
+  m_text: 'Damages any enemy caught in its radius.
+
+
+    Increase Mine damage and
+    radius'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1269f13c5f574643bd990fd1870e910, type: 2}
   m_sharedMaterial: {fileID: -6780723679297348733, guid: f1269f13c5f574643bd990fd1870e910, type: 2}
@@ -8348,7 +8352,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dash Description
+  m_text: 'A quick movement that damages any enemy in the way.
+
+
+    Increase the
+    speed and length of the dash'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1269f13c5f574643bd990fd1870e910, type: 2}
   m_sharedMaterial: {fileID: -6780723679297348733, guid: f1269f13c5f574643bd990fd1870e910, type: 2}
@@ -15703,7 +15711,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Laser Description
+  m_text: 'Sweeps side to side, damaging any enemy in its path.
+
+
+    Increase laser
+    damage'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1269f13c5f574643bd990fd1870e910, type: 2}
   m_sharedMaterial: {fileID: -6780723679297348733, guid: f1269f13c5f574643bd990fd1870e910, type: 2}
@@ -23753,7 +23765,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mine Description
+  m_text: 'Damages any enemy caught in its radius.
+
+
+    Increase Mine damage and
+    radius'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1269f13c5f574643bd990fd1870e910, type: 2}
   m_sharedMaterial: {fileID: -6780723679297348733, guid: f1269f13c5f574643bd990fd1870e910, type: 2}
@@ -25280,7 +25296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1722345285
 RectTransform:
   m_ObjectHideFlags: 0
