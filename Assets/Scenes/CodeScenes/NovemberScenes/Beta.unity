@@ -5307,6 +5307,8 @@ MonoBehaviour:
   swordfish: {fileID: 163515637861156452, guid: 969a3cc29d090c241a6a4fed5e6b54bd, type: 3}
   squid: {fileID: 163515637861156452, guid: 2d8c270296664cb47b9f29b009743c53, type: 3}
   puffer: {fileID: 7842539629334407549, guid: f15cf3c9a72dec14eb38854ac26acf01, type: 3}
+  abilityDropsSpawned: 0
+  abilityDropsSpawnLimit: 25
   DeadEnemies: []
   DeadParticles: []
   SquidInk: []

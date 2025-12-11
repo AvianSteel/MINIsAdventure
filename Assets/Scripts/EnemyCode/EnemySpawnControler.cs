@@ -7,6 +7,9 @@ public class EnemySpawnControler : MonoBehaviour
     [SerializeField] GameObject swordfish;
     [SerializeField] GameObject squid;
     [SerializeField] GameObject puffer;
+    public int abilityDropsSpawned;
+    public int abilityDropsSpawnLimit;
+
 
     private int dice; // stores a random number
 
@@ -26,7 +29,7 @@ public class EnemySpawnControler : MonoBehaviour
 
     }
 
-    public void SpawnEnemy() // caled from game controler which is a component of the Player
+    public void SpawnEnemy() // caled from game controler which is a component of the Player     only updates location
     {
         direction = Random.Range(1, 5);
 
@@ -52,44 +55,52 @@ public class EnemySpawnControler : MonoBehaviour
                 break;
         }
 
-        if (DeadEnemies.Count > 0)
+        SpawnEnemy2();
+        
+
+
+    }
+    public void SpawnEnemy2() // cheks if spawnenemy is on the map and only then spwans enemy
+    {
+        if (gameObject.transform.position.x < -27 || gameObject.transform.position.y > 17 
+            || gameObject.transform.position.x > 22 || gameObject.transform.position.y < -16)
         {
-            cloneStorage = DeadEnemies[0];
-            cloneStorage.SetActive(true);
-            cloneStorage.transform.position = transform.position;
-            DeadEnemies.Remove(cloneStorage);
+            SpawnEnemy();
         }
         else
         {
-            dice = Random.Range(0, 11);
-            if (dice <= 6)
+            if (DeadEnemies.Count > 0)
             {
-                cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
-                cloneStorage.name = "SwordFish";
-                cloneStorage.GetComponent<EnemyBehaviour>().enemySpawn = gameObject;
+                cloneStorage = DeadEnemies[0];
+                cloneStorage.SetActive(true);
+                cloneStorage.transform.position = transform.position;
+                DeadEnemies.Remove(cloneStorage);
+            }
+            else
+            {
+                dice = Random.Range(0, 11);
+                if (dice <= 6)
+                {
+                    cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
+                    cloneStorage.name = "SwordFish";
+                    cloneStorage.GetComponent<EnemyBehaviour>().enemySpawn = gameObject;
 
-                
-            }
-            else if(dice <= 9)
-            {
-                cloneStorage = Instantiate(squid, transform.position, Quaternion.identity);
-                cloneStorage.name = "Squid";
-                cloneStorage.GetComponent<SquidBehaviour>().enemySpawn = gameObject;
-            }
-            else if (dice == 10)
-            {
-                cloneStorage = Instantiate(puffer, transform.position, Quaternion.identity);
-                cloneStorage.name = "Puffer";
-                cloneStorage.GetComponent<PufferBehaviour>().enemySpawn = gameObject;
+
+                }
+                else if (dice <= 9)
+                {
+                    cloneStorage = Instantiate(squid, transform.position, Quaternion.identity);
+                    cloneStorage.name = "Squid";
+                    cloneStorage.GetComponent<SquidBehaviour>().enemySpawn = gameObject;
+                }
+                else if (dice == 10)
+                {
+                    cloneStorage = Instantiate(puffer, transform.position, Quaternion.identity);
+                    cloneStorage.name = "Puffer";
+                    cloneStorage.GetComponent<PufferBehaviour>().enemySpawn = gameObject;
+                }
             }
         }
-
-        
-
-
-
-        
-
     }
     /// <summary>
     /// Will be callled by dead enemies in order to be placed in the list

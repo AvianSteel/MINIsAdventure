@@ -196,7 +196,6 @@ public class SquidBehaviour : MonoBehaviour
             direction.Normalize(); // Keep velocity consistent
             cloneStorage.GetComponent<Rigidbody2D>().linearVelocity = direction * (speed * 2);
 
-            print("ink pooled");
         }
         else
         {
@@ -319,7 +318,12 @@ public class SquidBehaviour : MonoBehaviour
         dropRoll = Random.Range(0, abilityDropChance);
         if (dropRoll == abilityDropChance / 2)
         {
-            Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
+            if (enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned < enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawnLimit)
+            {
+                enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned += 1;
+                Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
+
+            }
         }
 
         enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject); // list the enemy in the object pool
