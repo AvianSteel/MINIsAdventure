@@ -16,6 +16,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "ForceQuit",
+                    "type": "Button",
+                    "id": "50892e74-1f4f-4e5f-a3c8-91e02e89e46f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Slide",
                     "type": "Value",
                     "id": "88044398-5862-49d2-a47a-2d5359f6c3ef",
@@ -145,6 +154,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1fa5142f-ada6-497d-a766-75dc5097247e",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForceQuit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "ADMovement",
