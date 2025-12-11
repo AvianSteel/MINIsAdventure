@@ -29,6 +29,7 @@ public class AmmoControler : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // reset ammo velocity
         if (!isInk)
         {
+            gameObject.transform.right = targetToMoveTowards.transform.position - transform.position; // make ammo face fish???
             Vector2 direction = targetToMoveTowards.transform.position - transform.position;
             direction.Normalize(); // Keep velocity consistent
 
