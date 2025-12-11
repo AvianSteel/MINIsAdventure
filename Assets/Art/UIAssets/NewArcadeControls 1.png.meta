@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: b64705acea7a2cc4ea1d37b145580b5f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -167614996609374685
+    second: NewArcadeControls 1_0
+  - first:
+      213: -6963844460211508244
+    second: NewArcadeControls 1_1
+  - first:
+      213: -5308152292509767765
+    second: NewArcadeControls 1_2
+  - first:
+      213: -2533124512482584418
+    second: NewArcadeControls 1_3
+  - first:
+      213: 5595254105704352275
+    second: NewArcadeControls 1_4
+  - first:
+      213: -861689642940617464
+    second: NewArcadeControls 1_5
+  - first:
+      213: -160440193362552416
+    second: NewArcadeControls 1_6
+  - first:
+      213: -4458109778511896095
+    second: NewArcadeControls 1_7
+  - first:
+      213: -7734807593235087702
+    second: NewArcadeControls 1_8
+  - first:
+      213: 5960831617487502087
+    second: NewArcadeControls 1_9
+  - first:
+      213: -8155621027749916591
+    second: NewArcadeControls 1_10
+  - first:
+      213: -3840151894379955706
+    second: NewArcadeControls 1_11
+  - first:
+      213: -2316859098226291770
+    second: NewArcadeControls 1_12
+  - first:
+      213: -719395916016596335
+    second: NewArcadeControls 1_13
+  - first:
+      213: -5101504674746535752
+    second: NewArcadeControls 1_14
+  - first:
+      213: 109852679014696075
+    second: NewArcadeControls 1_15
+  - first:
+      213: 2368464875249010655
+    second: NewArcadeControls 1_16
+  - first:
+      213: 5415286424211651339
+    second: NewArcadeControls 1_17
+  - first:
+      213: -6263834930772843811
+    second: NewArcadeControls 1_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NewArcadeControls 1_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 32
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 326e1147c038cadf0800000000000000
+      internalID: -167614996609374685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 32
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb65060c547b5f90800000000000000
+      internalID: -6963844460211508244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 32
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7a74f1d97a556b0800000000000000
+      internalID: -5308152292509767765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 32
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9814ad4da888dcd0800000000000000
+      internalID: -2533124512482584418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31acd86d6f556ad40800000000000000
+      internalID: 5595254105704352275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_5
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 23
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80d24edc5d9aa04f0800000000000000
+      internalID: -861689642940617464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 8
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a91ee28e7006cdf0800000000000000
+      internalID: -160440193362552416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_7
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 23
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e16a1ac6cc9122c0800000000000000
+      internalID: -4458109778511896095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_8
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 7
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aae7a37897178a490800000000000000
+      internalID: -7734807593235087702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_9
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 23
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70b724636c029b250800000000000000
+      internalID: 5960831617487502087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_10
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 8
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1509246b2e961de80800000000000000
+      internalID: -8155621027749916591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_11
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 21
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60a70f3b23a05bac0800000000000000
+      internalID: -3840151894379955706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 18
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb0797ececd8dfd0800000000000000
+      internalID: -2316859098226291770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_13
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 23
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19ac6f4d9313406f0800000000000000
+      internalID: -719395916016596335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_14
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 17
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b0fcb9f680d339b0800000000000000
+      internalID: -5101504674746535752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_15
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 23
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84cb46fd66468100800000000000000
+      internalID: 109852679014696075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_16
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 17
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd70530614a7ed020800000000000000
+      internalID: 2368464875249010655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_17
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 23
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0b7128bf46f62b40800000000000000
+      internalID: 5415286424211651339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewArcadeControls 1_18
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 17
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd2e99351536219a0800000000000000
+      internalID: -6263834930772843811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NewArcadeControls 1_0: -167614996609374685
+      NewArcadeControls 1_1: -6963844460211508244
+      NewArcadeControls 1_10: -8155621027749916591
+      NewArcadeControls 1_11: -3840151894379955706
+      NewArcadeControls 1_12: -2316859098226291770
+      NewArcadeControls 1_13: -719395916016596335
+      NewArcadeControls 1_14: -5101504674746535752
+      NewArcadeControls 1_15: 109852679014696075
+      NewArcadeControls 1_16: 2368464875249010655
+      NewArcadeControls 1_17: 5415286424211651339
+      NewArcadeControls 1_18: -6263834930772843811
+      NewArcadeControls 1_2: -5308152292509767765
+      NewArcadeControls 1_3: -2533124512482584418
+      NewArcadeControls 1_4: 5595254105704352275
+      NewArcadeControls 1_5: -861689642940617464
+      NewArcadeControls 1_6: -160440193362552416
+      NewArcadeControls 1_7: -4458109778511896095
+      NewArcadeControls 1_8: -7734807593235087702
+      NewArcadeControls 1_9: 5960831617487502087
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
