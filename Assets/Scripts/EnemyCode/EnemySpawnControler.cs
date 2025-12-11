@@ -7,6 +7,9 @@ public class EnemySpawnControler : MonoBehaviour
     [SerializeField] GameObject swordfish;
     [SerializeField] GameObject squid;
     [SerializeField] GameObject puffer;
+    public int abilityDropsSpawned;
+    public int abilityDropsSpawnLimit;
+
 
     private int dice; // stores a random number
 

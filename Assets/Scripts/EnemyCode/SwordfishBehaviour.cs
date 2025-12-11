@@ -307,7 +307,16 @@ public class EnemyBehaviour : MonoBehaviour
         dropRoll = Random.Range(0, abilityDropChance);
         if (dropRoll == abilityDropChance / 2)
         {
-            Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
+            if (enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned < enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawnLimit)
+            {
+                enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned += 1;
+                Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
+
+            }
+            else
+            {
+                print("noMoreDrops");
+            }
         }
 
         enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject); // list the enemy in the object pool

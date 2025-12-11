@@ -379,7 +379,12 @@ public class PufferBehaviour : MonoBehaviour
           dropRoll = Random.Range(0, abilityDropChance);
         if (dropRoll == abilityDropChance / 2)
         {
-            Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
+            if (enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned < enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawnLimit)
+            {
+                enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned += 1;
+                Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
+
+            }
         }
         enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject); // list the enemy in the object pool
 
