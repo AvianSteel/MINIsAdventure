@@ -64,6 +64,7 @@ public class PlayerControler : MonoBehaviour
     public float ammoDmg; // will be inherited by the bullet clones
 
     public float PlSpeed; // player speed
+    private float trueSpeed;
     public float atackTime; // how long it takes before next shot
     public float abilityTime; // Cooldown reduction for abilities
     public int Pldefense; // Damage value reduction, player will always take at least one damage
@@ -120,6 +121,7 @@ public class PlayerControler : MonoBehaviour
         ogPlSpeed = PlSpeed;
 
         Cursor.visible = false;
+        trueSpeed = PlSpeed;
     }
     #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
@@ -222,6 +224,7 @@ public class PlayerControler : MonoBehaviour
          
             yield return new WaitForSeconds(DashDuration); // wait for dash duration than change the speed to original
             PlSpeed = origPlSpeed;
+            PlSpeed = trueSpeed;
             dashImpact.SetActive(true); // move them aside
             dashInvulnerab = false;
             StartCoroutine(SocialDistance());
@@ -325,6 +328,7 @@ public class PlayerControler : MonoBehaviour
     {
         PlSpeed += speed;
         ogPlSpeed = PlSpeed;
+        trueSpeed = PlSpeed;
     }
     /// <summary>
     /// Increases defense 
