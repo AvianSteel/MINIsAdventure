@@ -29,6 +29,7 @@ public class MineController : MonoBehaviour
     private IEnumerator MineCountdown()
     {
         mineDmg = playerControler.GetComponent<PlayerControler>().mineLvl; // higher lvl, higher dmg
+        mineDmg = Mathf.Round(Mathf.Log(0.2f * mineDmg) + 5.5f);
         for (int i = 0; i < 6; i++)
         {
             
@@ -69,7 +70,7 @@ public class MineController : MonoBehaviour
 /// </summary>
     private void Explode()
     {
-        explRadious = playerControler.GetComponent<PlayerControler>().mineLvl*1.5f; // higher ability lvl, bigger  explosion
+        explRadious = playerControler.GetComponent<PlayerControler>().mineLvl*1.15f; // higher ability lvl, bigger  explosion
         ParticleSystem ps = Instantiate(explosionParticle, transform.position, Quaternion.identity);
         var main = ps.main;          // get the main module
         if (explRadious < 4)
