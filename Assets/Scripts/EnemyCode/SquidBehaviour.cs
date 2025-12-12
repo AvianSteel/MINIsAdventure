@@ -242,6 +242,18 @@ public class SquidBehaviour : MonoBehaviour
             collision.gameObject.GetComponent<PlayerControler>().hitPlayer(1);
             enemyHit(10);
         }
+        else if (collision.gameObject.name == "CircleZone") // touched secondary zone
+        {
+            collision.gameObject.GetComponent<TargetZoneControler>().touched2ndZone(gameObject);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "CircleZone") // touched secondary zone
+        {
+            collision.gameObject.GetComponent<TargetZoneControler>().exited2ndZone(gameObject);
+        }
     }
 
     /// <summary>

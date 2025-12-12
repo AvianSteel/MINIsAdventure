@@ -48,24 +48,7 @@ public class TargetZoneControler : MonoBehaviour
                 targets.Add(collision.gameObject);
 
             }
-            else if (pl.GetComponent<PlayerControler>().activeTarget == 0)
-            {
-                zone1.GetComponent<TargetZoneControler>().targets.Insert(0, collision.gameObject);
-            }
-            else if (pl.GetComponent<PlayerControler>().activeTarget == 1)
-            {
-                zone4.GetComponent<TargetZoneControler>().targets.Insert(0, collision.gameObject);
-            }
-            else if (pl.GetComponent<PlayerControler>().activeTarget == 2)
-            {
-                zone3.GetComponent<TargetZoneControler>().targets.Insert(0, collision.gameObject);
-
-            }
-            else if (pl.GetComponent<PlayerControler>().activeTarget == 3)
-            {
-                zone2.GetComponent<TargetZoneControler>().targets.Insert(0, collision.gameObject);
-
-            }
+            
         }
 
 
@@ -81,19 +64,39 @@ public class TargetZoneControler : MonoBehaviour
                 bool removed = targets.Remove(collision.gameObject);
 
             }
-            else
-            {
-                zone1.GetComponent<TargetZoneControler>().targets.Remove(collision.gameObject);
-                zone2.GetComponent<TargetZoneControler>().targets.Remove(collision.gameObject);
-                zone3.GetComponent<TargetZoneControler>().targets.Remove(collision.gameObject);
-                zone4.GetComponent<TargetZoneControler>().targets.Remove(collision.gameObject);
-
-
-
-            }
+           
         }
     }
 
+    public void touched2ndZone(GameObject fish)
+    {
+        if (pl.GetComponent<PlayerControler>().activeTarget == 0)
+        {
+            zone1.GetComponent<TargetZoneControler>().targets.Insert(0, fish);
+        }
+        else if (pl.GetComponent<PlayerControler>().activeTarget == 1)
+        {
+            zone4.GetComponent<TargetZoneControler>().targets.Insert(0, fish);
+        }
+        else if (pl.GetComponent<PlayerControler>().activeTarget == 2)
+        {
+            zone3.GetComponent<TargetZoneControler>().targets.Insert(0, fish);
+
+        }
+        else if (pl.GetComponent<PlayerControler>().activeTarget == 3)
+        {
+            zone2.GetComponent<TargetZoneControler>().targets.Insert(0, fish);
+
+        }
+    }
+
+    public void exited2ndZone(GameObject fish)
+    {
+        zone1.GetComponent<TargetZoneControler>().targets.Remove(fish);
+        zone2.GetComponent<TargetZoneControler>().targets.Remove(fish);
+        zone3.GetComponent<TargetZoneControler>().targets.Remove(fish);
+        zone4.GetComponent<TargetZoneControler>().targets.Remove(fish);
+    }
 
     private void openFire(GameObject enem)
     {
@@ -137,7 +140,10 @@ public class TargetZoneControler : MonoBehaviour
     {
         if (targets.Count > 0)
         {
-            openFire(targets[0].gameObject);
+            if (targets[0])
+            {
+                openFire(targets[0].gameObject);
+            }
         }
 
 

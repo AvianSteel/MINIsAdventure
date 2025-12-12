@@ -213,12 +213,24 @@ public class EnemyBehaviour : MonoBehaviour
             EnemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
             collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld();
 
-
+            
         }
         else if (collision.gameObject.name == "Player")
         {
             collision.gameObject.GetComponent<PlayerControler>().hitPlayer(2);
             EnemyHit(10);
+        }
+        else if (collision.gameObject.name == "CircleZone") // touched secondary zone
+        {
+            collision.gameObject.GetComponent<TargetZoneControler>().touched2ndZone(gameObject);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "CircleZone") // touched secondary zone
+        {
+            collision.gameObject.GetComponent<TargetZoneControler>().exited2ndZone(gameObject);
         }
     }
 
@@ -313,10 +325,7 @@ public class EnemyBehaviour : MonoBehaviour
                 Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
 
             }
-            else
-            {
-                print("noMoreDrops");
-            }
+
         }
 
         enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject); // list the enemy in the object pool
