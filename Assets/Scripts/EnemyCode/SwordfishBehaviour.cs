@@ -227,12 +227,24 @@ public class SwordfishBehaviour : MonoBehaviour
             EnemyHit(collision.gameObject.GetComponent<AmmoControler>().bulletDmg);
             collision.gameObject.GetComponent<AmmoControler>().bulletGetsOld();
 
-
+            
         }
         else if (collision.gameObject.name == "Player")
         {
             collision.gameObject.GetComponent<PlayerControler>().hitPlayer(2);
             EnemyHit(10);
+        }
+        else if (collision.gameObject.name == "CircleZone") // touched secondary zone
+        {
+            collision.gameObject.GetComponent<TargetZoneControler>().touched2ndZone(gameObject);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "CircleZone") // touched secondary zone
+        {
+            collision.gameObject.GetComponent<TargetZoneControler>().exited2ndZone(gameObject);
         }
     }
 
@@ -321,7 +333,13 @@ public class SwordfishBehaviour : MonoBehaviour
         dropRoll = Random.Range(0, abilityDropChance);
         if (dropRoll == abilityDropChance / 2)
         {
-            Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
+            if (enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned < enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawnLimit)
+            {
+                enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned += 1;
+                Instantiate(abilityDrop, gameObject.transform.position, Quaternion.identity);
+
+            }
+
         }
 
         enemySpawn.GetComponent<EnemySpawnControler>().listDeadEnemy(gameObject); // list the enemy in the object pool
