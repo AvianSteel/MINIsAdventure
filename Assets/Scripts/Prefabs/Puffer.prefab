@@ -455,6 +455,8 @@ MonoBehaviour:
   PufSkinY: {fileID: 9051569638070935159}
   angleToTarget: 0
   statController: {fileID: 6671240971368665018}
+  coll1: {fileID: 6653932675643233827}
+  coll2: {fileID: 7730911107622858766}
 --- !u!114 &6671240971368665018
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -72,6 +72,8 @@ MonoBehaviour:
   pl: {fileID: 0}
   swordSkin: {fileID: 1526856939700873563}
   timerController: {fileID: 0}
+  coll1: {fileID: -1516527984156382540}
+  coll2: {fileID: 1521152037372188854}
 --- !u!50 &-2459013091579546574
 Rigidbody2D:
   serializedVersion: 5

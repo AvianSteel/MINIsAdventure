@@ -138,7 +138,9 @@ MonoBehaviour:
   atackInterval: 3
   shootDistance: 6
   squidSkin: {fileID: 7211159944281913812}
-  statController: {fileID: 8371637519871401061}
+  timerController: {fileID: 0}
+  coll1: {fileID: 6149495679142724347}
+  coll2: {fileID: -1516527984156382540}
 --- !u!114 &8371637519871401061
 MonoBehaviour:
   m_ObjectHideFlags: 0
