@@ -51,8 +51,8 @@ public class LaserController : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(hitLaserSound, transform.position);
         laserDmg = playerControler.GetComponent<PlayerControler>().laserLvl; // higher ability lvl, higher dmg
-
-        for(int i = 0; i < 45; i++)
+        laserDmg = Mathf.Round(Mathf.Log(0.2f * laserDmg) + 5.5f);
+        for (int i = 0; i < 45; i++)
         {
             laserDirection++;
             yield return new WaitForSeconds(0.01f);
