@@ -352,6 +352,8 @@ public class PufferBehaviour : MonoBehaviour
 
 
                 cloneStorage = (enemySpawn.GetComponent<EnemySpawnControler>().dmgList[0]);
+                cloneStorage.GetComponent<DmgPopUp>().hostFish = gameObject;
+
                 // cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
                 cloneStorage.SetActive(true);
                 enemySpawn.GetComponent<EnemySpawnControler>().dmgList.RemoveAt(0);
@@ -361,6 +363,8 @@ public class PufferBehaviour : MonoBehaviour
             else
             {
                 cloneStorage = Instantiate(dmgPopUp, transform.position, Quaternion.identity);
+                cloneStorage.GetComponent<DmgPopUp>().hostFish = gameObject;
+
                 cloneStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
                 cloneStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
 
