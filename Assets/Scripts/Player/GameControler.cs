@@ -8,7 +8,6 @@ public class GameControler : MonoBehaviour
     public float timeBetweenSpawn;
     public float enemySpawnScaling;
     [SerializeField] GameObject enemySpawner;
-    [SerializeField] TimerController timerController;
 
     private void Start()
     {
@@ -24,7 +23,7 @@ public class GameControler : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenSpawn);
         if (timeBetweenSpawn > 0.05)
         {
-            timeBetweenSpawn -= timerController.statScaleGlobal;
+            timeBetweenSpawn -= enemySpawnScaling;
 
         }
         else
