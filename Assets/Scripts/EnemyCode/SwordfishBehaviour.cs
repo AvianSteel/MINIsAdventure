@@ -108,10 +108,10 @@ public class SwordfishBehaviour : MonoBehaviour
             hp = Mathf.Round(hp);
             localSecPassed = timerController.secPassed;
 
-            if(localSecPassed < 7.5f)
+            if(localSecPassed < 6.5f)
             {
-                dropChance = 12;
-                abilityDropChance = 15;
+                dropChance = 6;
+                abilityDropChance = 9;
             }
             else
             {
