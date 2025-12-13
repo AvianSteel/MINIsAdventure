@@ -81,15 +81,15 @@ public class EnemySpawnControler : MonoBehaviour
                 dice = Random.Range(0, 11);
                 if (dice <= 6)
                 {
-                    cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
-                    cloneStorage.name = "SwordFish";
-                    cloneStorage.GetComponent<SwordfishBehaviour>().enemySpawn = gameObject;
+                    //cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
+                    //cloneStorage.name = "SwordFish";
+                    //cloneStorage.GetComponent<SwordfishBehaviour>().enemySpawn = gameObject;
                     if (DeadEnemies.Count > 0)
                     {
-                        cloneStorage = DeadEnemies[0];
-                        cloneStorage.SetActive(true);
-                        cloneStorage.transform.position = transform.position;
-                        DeadEnemies.Remove(cloneStorage);
+                        //cloneStorage = DeadEnemies[0];
+                        //cloneStorage.SetActive(true);
+                        //cloneStorage.transform.position = transform.position;
+                        //DeadEnemies.Remove(cloneStorage);
                     }
                     else
                     {

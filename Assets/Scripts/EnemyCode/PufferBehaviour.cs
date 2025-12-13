@@ -96,6 +96,11 @@ public class PufferBehaviour : MonoBehaviour
         puff = false;
         coll1.enabled = true;
         coll2.enabled = true;
+        if (hp <= 3 || speed <= 1 || statScalePuff <= 1)
+        {
+            hp = Originalhp;
+            speed = originalSpeed;
+        }
     }
 
     void FixedUpdate ()
