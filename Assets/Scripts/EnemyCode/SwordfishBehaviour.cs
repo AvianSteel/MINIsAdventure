@@ -46,6 +46,7 @@ public class SwordfishBehaviour : MonoBehaviour
 
     [SerializeField] private BoxCollider2D coll1;
     [SerializeField] private BoxCollider2D coll2;
+    private float localSecPassed;
     void Start()
     {
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
@@ -106,6 +107,18 @@ public class SwordfishBehaviour : MonoBehaviour
             speed *= statScaleSword;
             loungeSpeed *= statScaleSword;
             hp = Mathf.Round(hp);
+            localSecPassed = timerController.secPassed;
+
+            if(localSecPassed < 7.5f)
+            {
+                dropChance = 12;
+                abilityDropChance = 15;
+            }
+            else
+            {
+                dropChance = 24;
+                abilityDropChance = 27;
+            }
         }
     }
 

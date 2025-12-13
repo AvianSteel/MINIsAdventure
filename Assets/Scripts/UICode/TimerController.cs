@@ -9,7 +9,7 @@ public class TimerController : MonoBehaviour
     public static int second;
     public TMP_Text timer;
     public float statScaleGlobal;
-    private float secPassed;
+    public float secPassed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
