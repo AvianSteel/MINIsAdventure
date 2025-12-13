@@ -13789,7 +13789,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseUI: {fileID: 181144148}
-  controlsUI: {fileID: 845651120}
+  audioSource: {fileID: 0}
+  playerControler: {fileID: 0}
 --- !u!4 &170884533
 Transform:
   m_ObjectHideFlags: 0
@@ -15893,7 +15894,12 @@ MonoBehaviour:
   swordfish: {fileID: 163515637861156452, guid: 969a3cc29d090c241a6a4fed5e6b54bd, type: 3}
   squid: {fileID: 163515637861156452, guid: 2d8c270296664cb47b9f29b009743c53, type: 3}
   puffer: {fileID: 7842539629334407549, guid: f15cf3c9a72dec14eb38854ac26acf01, type: 3}
+  abilityDropsSpawned: 0
+  abilityDropsSpawnLimit: 0
   DeadEnemies: []
+  DeadParticles: []
+  SquidInk: []
+  dmgList: []
 --- !u!212 &474587401
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18427,6 +18433,7 @@ MonoBehaviour:
   EnemySpawner: {fileID: 474587399}
   laserObject: {fileID: 7242877796461584347, guid: 00c55ce3a6a8b6d46be46d218cd168e2, type: 3}
   seaMine: {fileID: 2615560913691947818, guid: b67f4498014412d41a3a301b7644bf17, type: 3}
+  dashImpact: {fileID: 0}
   abilityMenu: {fileID: 891681100}
   exceptionChoice: 0
   downSkin: {fileID: 353246833}
@@ -18435,7 +18442,6 @@ MonoBehaviour:
   rightSkin: {fileID: 363074226}
   livesText: {fileID: 0}
   scoreText: {fileID: 640834177}
-  hitEffect: {fileID: 1268560752}
   hitSound: {fileID: 8300000, guid: b7b5a6156961bac44a67504d42ce6fcf, type: 3}
   canLaser: 0
   laserLvl: 0
@@ -18446,6 +18452,9 @@ MonoBehaviour:
   canDash: 0
   dashLvl: 0
   dashInvulnerab: 0
+  dashUI: {fileID: 0}
+  mineUI: {fileID: 0}
+  laserUI: {fileID: 0}
   moveDirection: 0
   slideDirection: 0
   ammoDmg: 2
@@ -18456,6 +18465,9 @@ MonoBehaviour:
   DashDuration: 0.2
   dashSpeedMultiplier: 1.5
   hp: 25
+  timeRemainLaser: 0
+  timeRemainMine: 0
+  timeRemainDash: 0
   statController: {fileID: 0}
 --- !u!114 &820211171
 MonoBehaviour:
@@ -19574,6 +19586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChooseAbility
   lasser: {fileID: 2051153811}
   mine: {fileID: 1222497881}
+  mine2: {fileID: 0}
   dash: {fileID: 388526990}
   player: {fileID: 820211168}
 --- !u!1 &912994970
@@ -21961,12 +21974,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityCooldownUI
   playerControler: {fileID: 820211170}
-  laserRect: {fileID: 990108390}
-  mineRect: {fileID: 1766490768}
-  dashRect: {fileID: 155236642}
-  canLaserLocal: 0
-  canMineLocal: 0
-  canDashLocal: 0
+  laserSlider: {fileID: 0}
+  mineSlider: {fileID: 0}
+  dashSlider: {fileID: 0}
+  laserCooldownLocal: 0
+  mineCooldownLocal: 0
+  dashCooldownLocal: 0
 --- !u!114 &1190068442
 MonoBehaviour:
   m_ObjectHideFlags: 0

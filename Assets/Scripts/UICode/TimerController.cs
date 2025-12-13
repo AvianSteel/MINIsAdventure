@@ -9,10 +9,12 @@ public class TimerController : MonoBehaviour
     public static int second;
     public TMP_Text timer;
     public float statScaleGlobal;
+    private float secPassed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        secPassed = 5;
         second = 0;
         minute = 0;
         statScaleGlobal = 1f;
@@ -25,7 +27,8 @@ public class TimerController : MonoBehaviour
         while(true)
         {
             second++;
-            statScaleGlobal = (0.05f * (Mathf.Pow(statScaleGlobal, 2) + 1));
+            secPassed += 0.05f;
+            statScaleGlobal = (0.05f * (Mathf.Pow(secPassed, 2) + 1));
             //Debug.Log("Timer Scale: " + statScaleGlobal.ToString());
             if(second == 60)
             {
