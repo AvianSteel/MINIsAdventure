@@ -26,7 +26,11 @@ public class GameControler : MonoBehaviour
             timeBetweenSpawn -= enemySpawnScaling;
 
         }
-        repeatSpawn();
+        else
+        {
+            timeBetweenSpawn = 0.05f;
+        }
+            repeatSpawn();
     }
 
 

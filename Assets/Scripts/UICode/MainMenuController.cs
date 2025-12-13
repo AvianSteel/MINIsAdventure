@@ -52,4 +52,10 @@ public class MainMenuController : MonoBehaviour
         
         controlsUI.SetActive(false);
     }
+    public void CreditsButton()
+    {
+        audioSource.Play();
+
+        SceneManager.LoadScene("Credits Scene");
+    }
 }

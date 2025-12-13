@@ -41,11 +41,12 @@ public class SwordfishBehaviour : MonoBehaviour
     private int dropRoll;
     private float angle; // what is the angle between fish and player
 
-    private float statScaleSword;
+    public float statScaleSword;
     public TimerController timerController;
 
     [SerializeField] private BoxCollider2D coll1;
     [SerializeField] private BoxCollider2D coll2;
+    private float localSecPassed;
     void Start()
     {
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
@@ -90,6 +91,22 @@ public class SwordfishBehaviour : MonoBehaviour
         speed *= statScaleSword;
         loungeSpeed *= statScaleSword;
         hp = Mathf.Round(hp);
+        if(hp <= 3 || speed <= 1 || loungeSpeed <= 2.5f || statScaleSword <= 1)
+        {
+            hp = Originalhp;
+            speed = OriginalSpeed;
+            loungeSpeed = OriginalLoungeSpeed;
+        }
+        if (localSecPassed < 6.5f)
+        {
+            dropChance = 6;
+            abilityDropChance = 9;
+        }
+        else
+        {
+            dropChance = 24;
+            abilityDropChance = 27;
+        }
     }
 
     private void OnEnable()
@@ -105,6 +122,18 @@ public class SwordfishBehaviour : MonoBehaviour
             speed *= statScaleSword;
             loungeSpeed *= statScaleSword;
             hp = Mathf.Round(hp);
+            localSecPassed = timerController.secPassed;
+
+            if(localSecPassed < 6.5f)
+            {
+                dropChance = 6;
+                abilityDropChance = 9;
+            }
+            else
+            {
+                dropChance = 24;
+                abilityDropChance = 27;
+            }
         }
     }
 
@@ -336,7 +365,7 @@ public class SwordfishBehaviour : MonoBehaviour
         }
 
         dropRoll = Random.Range(0, abilityDropChance);
-        if (dropRoll == abilityDropChance / 2)
+        if (dropRoll == abilityDropChance / 3)
         {
             if (enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned < enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawnLimit)
             {

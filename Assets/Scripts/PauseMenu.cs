@@ -43,8 +43,6 @@ public class PauseMenu : MonoBehaviour
 
             if (isPaused)
             {
-                //Comment out below if Arcade build!!!!
-                Cursor.visible = true;
                 ActivateMenu();
             }
             else

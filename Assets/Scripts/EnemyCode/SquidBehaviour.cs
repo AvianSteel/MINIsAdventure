@@ -82,6 +82,10 @@ public class SquidBehaviour : MonoBehaviour
         shootDistance = shootDistance + Random.Range(-1.1f, 1.0f);
         coll1.enabled = true;
         coll2.enabled = true;
+        if (hp <= 3 || statScaleSquid <= 1)
+        {
+            hp = Originalhp;
+        }
         StartCoroutine(DoISHoot());
     }
     private void OnEnable()
@@ -339,7 +343,7 @@ public class SquidBehaviour : MonoBehaviour
             Instantiate(drop, gameObject.transform.position, Quaternion.identity);
         }
         dropRoll = Random.Range(0, abilityDropChance);
-        if (dropRoll == abilityDropChance / 2)
+        if (dropRoll == abilityDropChance / 3)
         {
             if (enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned < enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawnLimit)
             {
