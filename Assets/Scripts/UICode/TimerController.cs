@@ -14,7 +14,7 @@ public class TimerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        secPassed = 5;
+        secPassed = 3;
         second = 0;
         minute = 0;
         statScaleGlobal = 1f;

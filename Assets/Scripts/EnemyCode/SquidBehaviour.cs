@@ -308,12 +308,15 @@ public class SquidBehaviour : MonoBehaviour
                 squidStorage.SetActive(true);
                 enemySpawn.GetComponent<EnemySpawnControler>().dmgList.Remove(cloneStorage);
                 squidStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
+                cloneStorage.GetComponent<DmgPopUp>().hostFish = gameObject;
+
             }
             else
             {
                 squidStorage = Instantiate(dmgPopUp, transform.position, Quaternion.identity);
                 squidStorage.GetComponent<DmgPopUp>().Setup(tempDmg, gameObject.transform);
                 squidStorage.GetComponent<DmgPopUp>().enemySpawnControler = enemySpawn;
+                cloneStorage.GetComponent<DmgPopUp>().hostFish = gameObject;
 
             }
         }
