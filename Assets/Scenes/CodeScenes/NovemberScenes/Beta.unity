@@ -9760,7 +9760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadEnemies: []
   spawnEnemies: 10000
-  timeBetweenSpawn: 0.5
+  timeBetweenSpawn: 2
   enemySpawnScaling: 0.001
   enemySpawner: {fileID: 474587399}
 --- !u!114 &820211170

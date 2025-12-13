@@ -66,8 +66,8 @@ MonoBehaviour:
   enemySpawn: {fileID: 0}
   speed: 1
   loungeSpeed: 2.5
-  dropChance: 5
-  abilityDropChance: 7
+  dropChance: 24
+  abilityDropChance: 27
   hp: 3
   pl: {fileID: 0}
   swordSkin: {fileID: 1526856939700873563}

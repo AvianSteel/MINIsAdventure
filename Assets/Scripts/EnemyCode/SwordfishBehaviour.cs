@@ -331,7 +331,7 @@ public class SwordfishBehaviour : MonoBehaviour
         }
 
         dropRoll = Random.Range(0, abilityDropChance);
-        if (dropRoll == abilityDropChance / 2)
+        if (dropRoll == abilityDropChance / 3)
         {
             if (enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawned < enemySpawn.GetComponent<EnemySpawnControler>().abilityDropsSpawnLimit)
             {

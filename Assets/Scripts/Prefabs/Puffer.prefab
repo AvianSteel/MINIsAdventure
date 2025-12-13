@@ -444,7 +444,7 @@ MonoBehaviour:
   deathParticles: {fileID: 665811710984793081, guid: f7216c3162b9d584381cdf430513efc2, type: 3}
   enemySpawn: {fileID: 0}
   speed: 1
-  dropChance: 5
+  dropChance: 12
   abilityDropChance: 15
   hp: 5
   angle: 0
