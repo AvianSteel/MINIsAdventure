@@ -5,19 +5,12 @@ public class DmgPopUp : MonoBehaviour
 {
     public Transform dmgPopupTransform;
     public GameObject enemySpawnControler; // that is where the storage for pooling objects is hosted
-    public DmgPopUp Create(Vector3 position, int dmg)
-    {
-         dmgPopupTransform = Instantiate(PrefabHolder.I.dmgTxt, position, 
-            Quaternion.AngleAxis(0, new Vector3(0, 0, 1)));
-        DmgPopUp damage = dmgPopupTransform.GetComponent<DmgPopUp>();
-        damage.Setup(dmg,null);
 
-        return damage;
-    }
     private TextMeshPro textMesh;
 
     private float dissapearTimer;
     private Color textColor;
+    public GameObject hostFish;
 
     private void Awake()
     {
@@ -25,9 +18,11 @@ public class DmgPopUp : MonoBehaviour
     }
     public void Setup(int dmgAmount, Transform origPos)
     {
+        transform.position = hostFish.transform.position;
 
+        textColor = Color.white;
         textColor.a = 1;
-
+        textMesh.color = textColor;
         if (origPos != null)
         {
             transform.position = origPos.position;
