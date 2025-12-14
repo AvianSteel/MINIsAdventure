@@ -122,6 +122,7 @@ public class PlayerControler : MonoBehaviour
 
         Cursor.visible = false;
         trueSpeed = PlSpeed;
+        dashInvulnerab = false;
     }
     #region Controls Actions
     private void Dash_started(InputAction.CallbackContext obj)
@@ -327,8 +328,8 @@ public class PlayerControler : MonoBehaviour
     public void increaseSpeed(float speed)
     {
         PlSpeed += speed;
+        trueSpeed += speed;
         ogPlSpeed = PlSpeed;
-        trueSpeed = PlSpeed;
     }
     /// <summary>
     /// Increases defense 
