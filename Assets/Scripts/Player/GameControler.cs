@@ -21,14 +21,14 @@ public class GameControler : MonoBehaviour
         enemySpawner.GetComponent<EnemySpawnControler>().SpawnEnemy();
 
         yield return new WaitForSeconds(timeBetweenSpawn);
-        if (timeBetweenSpawn > 0.05)
+        if (timeBetweenSpawn > 0.5)
         {
             timeBetweenSpawn -= enemySpawnScaling;
 
         }
         else
         {
-            timeBetweenSpawn = 0.05f;
+            timeBetweenSpawn = 0.5f;
         }
             repeatSpawn();
     }
