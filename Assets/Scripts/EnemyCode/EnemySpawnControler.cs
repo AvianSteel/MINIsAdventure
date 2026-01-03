@@ -65,7 +65,7 @@ public class EnemySpawnControler : MonoBehaviour
         if (gameObject.transform.position.x < -27 || gameObject.transform.position.y > 17
             || gameObject.transform.position.x > 22 || gameObject.transform.position.y < -16)
         {
-            SpawnEnemy();
+            SpawnEnemy(); // if outside map than randomize locatio again
         }
         else
         {
@@ -74,7 +74,7 @@ public class EnemySpawnControler : MonoBehaviour
                 cloneStorage = DeadEnemies[0];
                 cloneStorage.SetActive(true);
                 cloneStorage.transform.position = transform.position;
-                DeadEnemies.Remove(cloneStorage);
+                DeadEnemies.Remove(DeadEnemies[0]);
             }
             else
             {
