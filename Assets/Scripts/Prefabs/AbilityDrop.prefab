@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: -5850531535416436168, guid: db186edb50e746149b6847ce87abf389, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -185,6 +185,10 @@ MonoBehaviour:
   defenseBonus: 1
   uloksAbility: 1
   pickUpSound: {fileID: 8300000, guid: b0e62ed71b1538648b719821f4f63b4c, type: 3}
+  speedPopup: {fileID: 0}
+  atkSpeedPopup: {fileID: 0}
+  abilityCooldownPopup: {fileID: 0}
+  defensePopup: {fileID: 0}
 --- !u!1 &7941307127124368007
 GameObject:
   m_ObjectHideFlags: 0
