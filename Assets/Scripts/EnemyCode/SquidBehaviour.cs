@@ -64,8 +64,9 @@ public class SquidBehaviour : MonoBehaviour
         StartCoroutine(DoISHoot());
     }
 
-    public void SquidInit()
+    public void EnemyInit()
     {
+        print("squidInit");
         gameObject.SetActive(true);
         timerController = (TimerController)GameObject.FindWithTag("Canvas").GetComponent("TimerController");
         statScaleSquid = timerController.statScaleGlobal;
@@ -152,11 +153,12 @@ public class SquidBehaviour : MonoBehaviour
     private void shoot()
     {
         StartCoroutine(TurnAroundAndShoot());
-
+        print("shoot");
     }
 
     private IEnumerator DoISHoot()
     {
+        print("doIshoot");
         if (Vector2.Distance(transform.position, target.transform.position) <= shootDistance)
         {
             shoot();

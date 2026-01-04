@@ -82,7 +82,7 @@ public class PufferBehaviour : MonoBehaviour
         }
     }
 
-    public void PufferInit()
+    public void EnemyInit()
     {
         gameObject.SetActive(true);
         hp = Originalhp;

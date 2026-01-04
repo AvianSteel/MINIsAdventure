@@ -75,6 +75,22 @@ public class EnemySpawnControler : MonoBehaviour
                 cloneStorage.SetActive(true);
                 cloneStorage.transform.position = transform.position;
                 DeadEnemies.Remove(DeadEnemies[0]);
+
+                // makes sure to initialize enemy after object pooled
+                if (cloneStorage.GetComponent<SwordfishBehaviour>())
+                {
+                    cloneStorage.GetComponent<SwordfishBehaviour>().EnemyInit();
+                }
+                else if (cloneStorage.GetComponent<SquidBehaviour>())
+                {
+                    cloneStorage.GetComponent<SquidBehaviour>().EnemyInit();
+
+                }
+                else if (cloneStorage.GetComponent<PufferBehaviour>())
+                {
+                    cloneStorage.GetComponent<PufferBehaviour>().EnemyInit();
+
+                }
             }
             else
             {
@@ -99,7 +115,7 @@ public class EnemySpawnControler : MonoBehaviour
                             cloneStorage = Instantiate(swordfish, transform.position, Quaternion.identity);
                             cloneStorage.name = "SwordFish";
                             cloneStorage.GetComponent<SwordfishBehaviour>().enemySpawn = gameObject;
-                            cloneStorage.GetComponent<SwordfishBehaviour>().SwordfishInit();
+                            cloneStorage.GetComponent<SwordfishBehaviour>().EnemyInit();
 
 
 
@@ -109,14 +125,14 @@ public class EnemySpawnControler : MonoBehaviour
                             cloneStorage = Instantiate(squid, transform.position, Quaternion.identity);
                             cloneStorage.name = "Squid";
                             cloneStorage.GetComponent<SquidBehaviour>().enemySpawn = gameObject;
-                            cloneStorage.GetComponent<SquidBehaviour>().SquidInit();
+                            cloneStorage.GetComponent<SquidBehaviour>().EnemyInit();
                         }
                         else if (dice == 10)
                         {
                             cloneStorage = Instantiate(puffer, transform.position, Quaternion.identity);
                             cloneStorage.name = "Puffer";
                             cloneStorage.GetComponent<PufferBehaviour>().enemySpawn = gameObject;
-                            cloneStorage.GetComponent<PufferBehaviour>().PufferInit();
+                            cloneStorage.GetComponent<PufferBehaviour>().EnemyInit();
                         }
                     }
                 }
