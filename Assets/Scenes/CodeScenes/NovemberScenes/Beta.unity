@@ -9761,7 +9761,7 @@ MonoBehaviour:
   deadEnemies: []
   spawnEnemies: 10000
   timeBetweenSpawn: 3
-  enemySpawnScaling: 0.003
+  enemySpawnScaling: 0.03
   enemySpawner: {fileID: 474587399}
 --- !u!114 &820211170
 MonoBehaviour:
