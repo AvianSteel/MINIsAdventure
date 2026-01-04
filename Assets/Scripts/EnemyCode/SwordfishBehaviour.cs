@@ -67,7 +67,7 @@ public class SwordfishBehaviour : MonoBehaviour
         coll2.enabled = true;
     }
 
-    public void SwordfishInit()
+    public void EnemyInit()
     {
         target = GameObject.FindWithTag("Player"); // can be changed to anything that needs to be followed by enemy, example mine
 
