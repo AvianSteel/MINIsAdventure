@@ -12,6 +12,8 @@ public class MineController : MonoBehaviour
 
     [SerializeField] private AudioClip mineExplosionSound;
     [SerializeField] private AudioClip hitSound;
+    private float mineChangeVar;
+    private int mineLvlLocal;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -70,7 +72,9 @@ public class MineController : MonoBehaviour
 /// </summary>
     private void Explode()
     {
-        explRadious = playerControler.GetComponent<PlayerControler>().mineLvl*1.15f; // higher ability lvl, bigger  explosion
+        mineLvlLocal = playerControler.GetComponent<PlayerControler>().mineLvl;
+        mineChangeVar = (0.00148792f * (mineLvlLocal * mineLvlLocal)) - (0.066286f * mineLvlLocal) + 0.989f;
+        explRadious = playerControler.GetComponent<PlayerControler>().mineLvl*mineChangeVar; // higher ability lvl, bigger  explosion
         ParticleSystem ps = Instantiate(explosionParticle, transform.position, Quaternion.identity);
         var main = ps.main;          // get the main module
         if (explRadious < 4)
@@ -81,7 +85,7 @@ public class MineController : MonoBehaviour
 
 
             gameObject.GetComponent<CircleCollider2D>().radius = explRadious; // higher ability lvl, bigger explosion
-        main.startSpeed = explRadious*1.5f; // speed of particles (their radious of the visible explosion)
+        main.startSpeed = explRadious*mineChangeVar; // speed of particles (their radious of the visible explosion)
 
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
