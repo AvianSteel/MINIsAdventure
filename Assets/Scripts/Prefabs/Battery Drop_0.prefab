@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef2c401eb308c44d9dd8bf687e15656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBonus: 20
+  speedBonus: 7.5
   attackSpeedBonus: 0.05
   abilitySpeedBonus: 0.05
   defenseBonus: 1

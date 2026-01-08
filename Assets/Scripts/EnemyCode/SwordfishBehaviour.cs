@@ -83,6 +83,9 @@ public class SwordfishBehaviour : MonoBehaviour
         gameObject.SetActive(true);
         coll1.enabled = true;
         coll2.enabled = true;
+
+        localSecPassed = timerController.secPassed;
+
         hp = Originalhp;
         speed = OriginalSpeed;
         loungeSpeed = OriginalLoungeSpeed;
@@ -96,6 +99,16 @@ public class SwordfishBehaviour : MonoBehaviour
             hp = Originalhp;
             speed = OriginalSpeed;
             loungeSpeed = OriginalLoungeSpeed;
+        }
+        if(localSecPassed < 60)
+        {
+            speed *= statScaleSword * 0.8f;
+            loungeSpeed *= statScaleSword * 0.8f;
+        }
+        else
+        {
+            speed *= statScaleSword * 0.5f;
+            loungeSpeed *= statScaleSword * 0.5f;
         }
         if (localSecPassed < 6.5f)
         {
